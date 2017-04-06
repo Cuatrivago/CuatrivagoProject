@@ -28,13 +28,13 @@
 
     <!-- Start Main-Wrapper -->
     <div id="main-wrapper">
-        @RenderBody()
+        
         <!-- Start Header -->
         <header id="header">
             <div class="header-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
+                        @*<div class="col-lg-5 col-md-5 col-sm-12">
                             <ul class="contact-info custom-list list-inline">
                                 <li><i class="fa fa-phone"></i><span>+1 (123) 456-7890</span></li>
                                 <li><i class="fa fa-envelope"></i><span>example@example.com</span></li>
@@ -47,7 +47,7 @@
                                     <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
                                 </ul>
-                                <div class="header-login">
+                                @*<div class="header-login">
                                     <button class="login-toggle header-btn"><i class="fa fa-power-off"></i> Login</button>
                                     <div class="header-form">
                                         <form action="http://new.uouapps.com/petra-html/index.html" class="default-form">
@@ -82,7 +82,7 @@
                                     </nav>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -98,6 +98,7 @@
                                             <a href="#">Rooms</a>
                                             <ul class="sub-menu custom-list">
                                                 <li>@Html.ActionLink("Rooms List view","index","Test")</li>
+                                                <li>@Html.ActionLink("Información hotel", "index", "Index")</li>
                                                 <li>
                                                     <a href="listing2.html">Rooms Grid View</a>
                                                 </li>
@@ -338,8 +339,9 @@
             <div class="container">
                 <div class="row">
                     <div class="preamble col-md-12">
-                        <h3>About Hotel Petra</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eius exercitationem ab aspernatur, ratione officia animi. Rerum necessitatibus, culpa. Tenetur incidunt quasi unde libero molestias dicta doloremque, non aliquam ipsam!</p>
+                        <h3>Hotel Cuatrivago</h3>
+                        
+                        <p>@RenderSection("description", false)</p>
                     </div>
                     <div class="col-md-3 col-sm-6 feature text-center">
                         <div class="overlay">
@@ -350,8 +352,8 @@
                                 </div>
                             </div>
                         </div>
-                        <h4>Our Services</h4>
-                        <p>Lorem ipsum dolor sit amet, consect adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed.</p>
+                        <h4>Our Services</h4>                       
+                        <p>@RenderSection("prueba", false)</p>
                     </div>
 
                     <div class="col-md-3 col-sm-6 feature text-center">
@@ -542,14 +544,23 @@
                     </div>
                     <div class="col-md-12">
                         <div id="clients-slider" class="owl-carousel">
-                            <img src="~/Content/img/company1.png" alt="" class="img-responsive">
+                            @RenderSection("advertisement", false)
+
+
+
+                            @*<div>
+                                <img src="~/Content/img/company1.png" alt="" class="img-responsive">
+                                <a href="">Patrocinador</a>
+
+                            </div>
+                            
                             <img src="~/Content/img/company2.png" alt="" class="img-responsive">
                             <img src="~/Content/img/company3.png" alt="" class="img-responsive">
                             <img src="~/Content/img/company1.png" alt="" class="img-responsive">
                             <img src="~/Content/img/company2.png" alt="" class="img-responsive">
                             <img src="~/Content/img/company3.png" alt="" class="img-responsive">
                             <img src="~/Content/img/company1.png" alt="" class="img-responsive">
-                            <img src="~/Content/img/company2.png" alt="" class="img-responsive">
+                            <img src="~/Content/img/company2.png" alt="" class="img-responsive">*@
                         </div>
                     </div>
                 </div>

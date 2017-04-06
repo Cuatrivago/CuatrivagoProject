@@ -1,6 +1,28 @@
-﻿
+﻿@model CuatrivagoProject.Models.ModelsForIndex
+
+
 @{
-    ViewBag.Title = "Cuatrivago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
+@section description{
+
+    @Html.DisplayFor(model => model.Hotel.homeInformation)
+}
+
+@section prueba{
+
+    @Html.DisplayFor(model => model.Hotel.aboutUs)
+}
+
+@section advertisement{
+    
+@foreach (var item in Model.advertisement)
+{
+    <div>
+        <a href="@Html.DisplayFor(modelitem => item.url)"><img src="~/Content/imagesAdvertisement/@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
+    </div>
+}
+    
+}
