@@ -11,8 +11,6 @@ namespace CuatrivagoProject.Controllers
 {
     public class IndexController : Controller
     {
-
-
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
 
         private HotelContext hotelContext = new HotelContext();
@@ -29,6 +27,10 @@ namespace CuatrivagoProject.Controllers
             return View(vm);
         }
 
-
+        // GET: Information
+        public ActionResult Facilities()
+        {
+            return View();
+        }
     }
 }

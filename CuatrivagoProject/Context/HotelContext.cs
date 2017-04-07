@@ -11,8 +11,6 @@ namespace CuatrivagoProject.Context
 {
     public class HotelContext
     {
-
-
         public Hotel getInformationHotel(string conn) {
             
             SqlConnection connection = new SqlConnection(conn);
@@ -45,9 +43,6 @@ namespace CuatrivagoProject.Context
 
 
         }
-
-
-
 
     }
 }

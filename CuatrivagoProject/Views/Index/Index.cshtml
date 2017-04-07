@@ -1,28 +1,206 @@
 ﻿@model CuatrivagoProject.Models.ModelsForIndex
 
-
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section content{
+    <!-- Start Banner -->
+    <section id="banner">
 
-@section description{
+        <div class="banner-bg">
+            <div class="banner-bg-item"><img src="~/Content/img/banner-bg-1.jpg" alt=""></div>
+            <div class="banner-bg-item"><img src="~/Content/img/banner-bg-2.jpg" alt=""></div>
+            <div class="banner-bg-item"><img src="~/Content/img/banner-bg-3.jpg" alt=""></div>
+            <div class="banner-bg-item"><img src="~/Content/img/banner-bg-4.jpg" alt=""></div>
+        </div>
 
-    @Html.DisplayFor(model => model.Hotel.homeInformation)
-}
+        <div class="css-table">
+            <div class="css-table-cell">
 
-@section prueba{
+                <!-- Start Banner-Search -->
+                <div class="banner-search">
+                    <div class="container">
+                        <div id="hero-tabs" class="banner-search-inner">
+                            <ul class="custom-list tab-title-list clearfix">
+                                <li class="tab-title active"><a href="#yachts">Hotel</a></li>
+                                <li class="tab-title"><a href="#privjet">Resorts</a></li>
+                                <li class="tab-title"><a href="#luxcars">Private suites</a></li>
+                                <li class="tab-title"><a href="#cartrans">Bed & breakfast</a></li>
+                            </ul>
+                            <ul class="custom-list tab-content-list">
 
-    @Html.DisplayFor(model => model.Hotel.aboutUs)
+                                <!-- Start Hotel -->
+                                <li class="tab-content active">
+                                    <form action="http://new.uouapps.com/petra-html/index.html" class="default-form">
+                                        <span class="arrival calendar">
+                                            <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="departure calendar">
+                                            <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="adults select-box">
+                                            <select name="adults" data-placeholder="Adults" class="form-control">
+                                                <option>Adults</option>
+                                                <option value="1">1 adult</option>
+                                                <option value="2">2 adults</option>
+                                                <option value="3">3 adults</option>
+                                                <option value="4">4 adults</option>
+                                            </select>
+                                        </span>
+                                        <span class="children select-box">
+                                            <select name="children" data-placeholder="Children" class="form-control">
+                                                <option>Children</option>
+                                                <option value="1">1 children</option>
+                                                <option value="2">2 childrens</option>
+                                                <option value="3">3 childrens</option>
+                                                <option value="4">4 childrens</option>
+                                            </select>
+                                        </span>
+                                        <span class="submit-btn">
+                                            <button class="btn btn-transparent">Book Now</button>
+                                            <a href="#" class="advanced">Advanced Search</a>
+                                        </span>
+                                    </form>
+                                </li>
+                                <!-- End Hotel -->
+                                <!-- Start Resorts -->
+                                <li class="tab-content">
+                                    <form action="http://new.uouapps.com/petra-html/index.html" class="default-form">
+                                        <span class="arrival calendar">
+                                            <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="departure calendar">
+                                            <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="adults select-box">
+                                            <select name="adults" data-placeholder="Adults" class="form-control">
+                                                <option>Adults</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                            </select>
+                                        </span>
+                                        <span class="children select-box">
+                                            <select name="children" data-placeholder="Children" class="form-control">
+                                                <option>Children</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                            </select>
+                                        </span>
+                                        <span class="submit-btn">
+                                            <button class="btn btn-transparent">Book Now</button>
+                                            <a href="#" class="advanced">Advanced Search</a>
+                                        </span>
+                                    </form>
+                                </li>
+                                <!-- End Resorts -->
+                                <!-- Start Private Suites -->
+                                <li class="tab-content">
+                                    <form action="http://new.uouapps.com/petra-html/index.html" class="default-form">
+                                        <span class="arrival calendar">
+                                            <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="departure calendar">
+                                            <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="adults select-box">
+                                            <select name="adults" data-placeholder="Adults" class="form-control">
+                                                <option>Adults</option>
+                                                <option value="1">2 adults</option>
+                                                <option value="2">3 adults</option>
+                                                <option value="3">4 adults</option>
+                                            </select>
+                                        </span>
+                                        <span class="children select-box">
+                                            <select name="children" data-placeholder="Children" class="form-control">
+                                                <option>Children</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                            </select>
+                                        </span>
+                                        <span class="submit-btn">
+                                            <button class="btn btn-transparent">Book Now</button>
+                                            <a href="#" class="advanced">Advanced Search</a>
+                                        </span>
+                                    </form>
+                                </li>
+                                <!-- End Private Suites -->
+                                <!-- Start Bed & Breakfast -->
+                                <li class="tab-content">
+                                    <form action="http://new.uouapps.com/petra-html/index.html" class="default-form">
+                                        <span class="arrival calendar">
+                                            <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="departure calendar">
+                                            <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <span class="adults select-box">
+                                            <select name="adults" data-placeholder="Adults" class="form-control">
+                                                <option>Adults</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                            </select>
+                                        </span>
+                                        <span class="children select-box">
+                                            <select name="children" data-placeholder="Children" class="form-control">
+                                                <option>Children</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                                <option value="3">4</option>
+                                            </select>
+                                        </span>
+                                        <span class="submit-btn">
+                                            <button class="btn btn-transparent">Book Now</button>
+                                            <a href="#" class="advanced">Advanced Search</a>
+                                        </span>
+                                    </form>
+                                </li>
+                                <!-- End Bed & Breakfast -->
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Banner-Search -->
+
+            </div>
+        </div>
+    </section>
+    <!-- End Banner -->
+    <!-- Start About -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="preamble col-md-12">
+                    <h3>Hotel Cuatrivago</h3>
+
+                    <p>@Model.Hotel.homeInformation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About -->
 }
 
 @section advertisement{
-    
-@foreach (var item in Model.advertisement)
-{
-    <div>
-        <a href="@Html.DisplayFor(modelitem => item.url)"><img src="~/Content/imagesAdvertisement/@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
-    </div>
+
+    @foreach (var item in Model.advertisement)
+    {
+        <div>
+            <a href="@Html.DisplayFor(modelitem => item.url)"><img src="~/Content/imagesAdvertisement/@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
+        </div>
+    }
 }
-    
-}
+
