@@ -102,6 +102,16 @@
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont78ce.svg" />
+    <Content Include="Content\imgInstalations\1.jpg" />
+    <Content Include="Content\imgInstalations\2.jpg" />
+    <Content Include="Content\imgInstalations\3.jpg" />
+    <Content Include="Content\imgInstalations\4.jpg" />
+    <Content Include="Content\imgInstalations\5.jpg" />
+    <Content Include="Content\imgInstalations\bar.jpg" />
+    <Content Include="Content\imgInstalations\buffet.jpg" />
+    <Content Include="Content\imgInstalations\habitacion.jpg" />
+    <Content Include="Content\imgInstalations\jacuzzi.jpg" />
+    <Content Include="Content\imgInstalations\piscina.jpg" />
     <Content Include="Content\img\about1.jpg" />
     <Content Include="Content\img\about2.jpg" />
     <Content Include="Content\img\about3.jpg" />
