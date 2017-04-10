@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+
+
+
+
+<!doctype html>
 <html lang="en">
 
 <!-- Mirrored from new.uouapps.com/petra-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:15:16 GMT -->
@@ -6,12 +11,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>@ViewBag.Title</title>
+    <link href="~/Content/img/cuatrivago_logo.png" rel="shortcut icon">
+    <title>Cuatrivago</title>
 
     <!-- Stylesheets -->
-    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
-    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/content/css/style.css">
+    <link rel="stylesheet" href="~/content/css/owl.carousel.css">
 
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -19,7 +24,7 @@
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
 
     <!--[if IE 9]>
-      <script src="js/media.match.min.js"></script>
+      <script src="~/content/js/media.match.min.js"></script>
     <![endif]-->
 </head>
 
@@ -27,9 +32,9 @@
 
     <!-- Start Main-Wrapper -->
     <div id="main-wrapper">
-        
         <!-- Start Header -->
         <header id="header">
+            @RenderBody()
             <div class="header-navi">
                 <div class="container">
                     <div class="row">
@@ -37,44 +42,16 @@
                             <div class="row">
                                 <div class="col-lg-5 col-md-5 col-sm-12">
                                     <ul class="nav navbar-nav main-nav">
-                                        <li class="active">@Html.ActionLink("Cuatrivago", "index", "Index")</li>
-                                        <li class="has-submenu">
-                                            <a href="">Submenu</a>
-                                            <ul class="sub-menu custom-list">
-                                                <li>@Html.ActionLink("Facilidades del hotel", "Facilities", "Index")</li>
-                                                <li>@Html.ActionLink("Información hotel", "index", "Index")</li>
-                                                <li><a href="">Submenu</a></li>
-                                                <li class="has-submenu">
-                                                    <a href="">Submenu</a>
-                                                    <ul class="sub-menu custom-list">
-                                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-submenu">
-                                                    <a href="">Submenu</a>
-                                                    <ul class="sub-menu custom-list">
-                                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
+                                        <li class="active"><a href="">Inicio</a></li>
+                                        <li><a href="#about">Habitaciones</a></li>
+                                        <li><a href="#facilities">Facilidades</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
                                     <ul class="nav navbar-nav main-nav pull-right text-right">
-                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                        <li class="has-submenu">
-                                            <a href="news.html">Submenu</a>
-                                            <ul class="sub-menu custom-list">
-                                                <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
-                                            </ul>
-                                        </li>
-                                        <li>@Html.ActionLink("Submenu", "controlador", "vista")</li>
+                                        <li><a href="#galery">Galería</a></li>
+                                        <li>@Html.ActionLink("Localización", "index", "Localization")</li>
+                                        <li><a href="#footer">Contacto</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -84,36 +61,95 @@
             </div>
         </header>
         <!-- End Header -->
-
         <!-- Start Header-Toggle -->
         <div id="header-toggle">
             <i class="fa fa-bars"></i>
         </div>
         <!-- End Header-Toggle -->
-
         <!-- Start Header-Logo -->
         <div class="header-logo">
             <div class="header-logo-inner">
                 <div class="css-table">
                     <div class="css-table-cell">
                         <a href="#">
-                            <img src="~/Content/img/cuatrivago_logo.png" alt="" class="img-responsive center-block">
+                            <img src="~/content/img/cuatrivago_logo.png" alt="" class="img-responsive center-block">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- End Header-Logo -->
+        <!-- Start Banner -->
+        <section id="banner">
 
-        @RenderSection("content", false)
+            <div class="banner-bg">
+                <div class="banner-bg-item"><img src="~/content/img/banner-bg-1.jpg" alt=""></div>
+                <div class="banner-bg-item"><img src="~/content/img/banner-bg-2.jpg" alt=""></div>
+                <div class="banner-bg-item"><img src="~/content/img/banner-bg-3.jpg" alt=""></div>
+                <div class="banner-bg-item"><img src="~/content/img/banner-bg-4.jpg" alt=""></div>
+            </div>
 
+            <div class="css-table">
+                <div class="css-table-cell">
+
+                    <!-- Start Banner-Search -->
+                    <div class="banner-search">
+                        <div class="container">
+                            <div id="hero-tabs" class="banner-search-inner">
+                                <ul class="custom-list tab-title-list clearfix">
+                                    <li class="tab-title active"><a href="#yachts">Hotel</a></li>
+                                </ul>
+                                <ul class="custom-list tab-content-list">
+
+                                    <!-- Start Hotel -->
+                                    <li class="tab-content active">
+                                        <form action="http://new.uouapps.com/petra-html/index.html" class="default-form">
+                                            <span class="arrival calendar">
+                                                <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <span class="departure calendar">
+                                                <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <span class="adults select-box">
+                                                <select name="adults" data-placeholder="Adults" class="form-control">
+                                                    <option>Adults</option>
+                                                    <option value="1">1 adult</option>
+                                                    <option value="2">2 adults</option>
+                                                    <option value="3">3 adults</option>
+                                                    <option value="4">4 adults</option>
+                                                </select>
+                                            </span>
+                                            <span class="children select-box">
+                                                <select name="children" data-placeholder="Children" class="form-control">
+                                                    <option>Children</option>
+                                                    <option value="1">1 children</option>
+                                                    <option value="2">2 childrens</option>
+                                                    <option value="3">3 childrens</option>
+                                                    <option value="4">4 childrens</option>
+                                                </select>
+                                            </span>
+                                            <span class="submit-btn">
+                                                <button class="btn btn-transparent">Book Now</button>
+                                                <a href="#" class="advanced">Advanced Search</a>
+                                            </span>
+                                        </form>
+                                    </li>
+                                    <!-- End Hotel -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Banner-Search -->
+                </div>
+            </div>
+        </section>
         <!-- Start Partners -->
         <section class="partners">
             <div class="container">
                 <div class="row">
-                    <div class="preamble col-md-12">
-                        <h3>Anuncios</h3>
-                    </div>
+     
                     <div class="col-md-12">
                         <div id="clients-slider" class="owl-carousel">
                             @RenderSection("advertisement", false)
@@ -122,8 +158,70 @@
                 </div>
             </div>
         </section>
+        <!-- End Banner -->
+        <!-- Start About -->
+        <section class="about" id="about" style="background: #acc4d8;">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="preamble col-md-12">
+                        <h3>Habitaciones</h3>
+                        <p>@RenderSection("description",false)</p>
+                    </div>
+                    @RenderSection("rooms",false)
+
+                </div>
+            </div>
+        </section>
+        <!-- End About -->
+        <!-- Start Supertabs -->
+        <section class="supertabs" id="facilities">
+            <div class="container">
+                <div class="row">
+
+                    <div class="preamble col-md-12">
+                        <h3>Facilidades</h3>
+                        <p></p>
+                    </div>
+
+                    <!-- Start Tab-Navigation -->
+                    <div class="col-md-4 tab-navigation">
+                        <ul class="custom-list">
+                            @RenderSection("facilitiesName",false)
+                       
+                        </ul>
+                    </div>
+                    <!-- End Tab-Navigation -->
+                    <!-- Start Tab-Content -->
+                    <div class="col-md-8 tab-content">
+                        @RenderSection("facilitiesImageDescription",false)
+                        
+                    </div>
+                    <!-- End Tab-Content -->
+
+                </div>
+            </div>
+        </section>
+        <!-- End Supertabs -->
+        <!-- Start Partners -->
+        <section id="galery" style="background: #acc4d8; ">
+            <div class="container">
+                <div class="row">
+                    <div class="preamble col-md-12">
+                        <h3>Galería</h3>
+                    </div>
+                    <div class="col-md-12">
+                        @RenderSection("galery",false)
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- End Partners -->
 
+      
+
+        <!-- End Partners -->
         <!-- Start Footer -->
         <footer id="footer">
 
@@ -131,12 +229,9 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 logo-footer">
-                            <img src="img/logo-footer.png" alt="" class="img-responsive">
-                        </div>
                         <div class="col-md-4 widget widget-about">
                             <h5 class="title">
-                                About Us
+                                Contacto
                             </h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Etiam sit amet lectus quis est congue mollis.</p>
                         </div>
@@ -149,25 +244,6 @@
                                 <li><a href="#">Proin nibh augue suscipit scelerisque</a></li>
                                 <li><a href="#">Etiam pellentesque aliquet tellus</a></li>
                             </ul>
-                        </div>
-                        <div class="col-md-4 widget widget-newsletter">
-                            <h5 class="title">
-                                Newsletter
-                            </h5>
-                            <form action="#" class="default-form">
-                                <input type="text" placeholder="Your email">
-                                <button class="btn btn-transparent pull-right">Sign Up</button>
-                            </form>
-                            <div class="social">
-                                <h5 class="title pull-left">
-                                    Stay in touch
-                                </h5>
-                                <ul class="custom-list list-inline pull-right">
-                                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,20 +267,21 @@
     </div>
     <!-- End Main-Wrapper -->
     <!-- Scripts -->
-    <script src="~/Content/js/jquery-2.1.4.min.js"></script>
-    <script src="~/Content/js/scripts.js"></script>
+    <script src="~/content/js/jquery-2.1.4.min.js"></script>
+    <script src="~/content/js/scripts.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-    <script src="~/Content/js/gmap3.min.js"></script>
-    <script src="~/Content/js/owl.carousel.min.js"></script>
-    <script src="~/Content/js/jquery-ui-1.10.4.custom.min.js"></script>
-    <script src="~/Content/js/jquery.ba-outside-events.min.js"></script>
-    <script src="~/Content/js/jqueryui.js"></script>
-    <script src="~/Content/js/jquery.vide.min.js"></script>
-    <script src="~/Content/js/tab.js"></script>
-    <script src="~/Content/js/transition.js"></script>
-    <script src="~/Content/js/jquery.matchHeight-min.js"></script>
-    <script src="js/jquery.matchHeight-min.js"></script>body>
+    <script src="~/content/js/gmap3.min.js"></script>
+    <script src="~/content/js/owl.carousel.min.js"></script>
+    <script src="~/content/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/content/js/jquery.ba-outside-events.min.js"></script>
+    <script src="~/content/js/jqueryui.js"></script>
+    <script src="~/content/js/jquery.vide.min.js"></script>
+    <script src="~/content/js/tab.js"></script>
+    <script src="~/content/js/transition.js"></script>
+    <script src="~/content/js/jquery.matchHeight-min.js"></script>
+</body>
 
-    <!-- Mirrored from new.uouapps.com/petra-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:19:37 GMT -->
+<!-- Mirrored from new.uouapps.com/petra-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:19:37 GMT -->
 </html>
+
 

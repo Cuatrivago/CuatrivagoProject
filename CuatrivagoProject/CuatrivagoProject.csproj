@@ -187,13 +187,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\AdvertisementContext.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DetailRoomController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LocalizationController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Advertisement.cs" />
     <Compile Include="Models\ModelsForIndex.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,8 +211,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
-    <Content Include="Views\Index\Facilities.cshtml" />
-    <Content Include="Views\HTML Template\template.cshtml" />
+    <Content Include="Views\Room\Details.cshtml" />
+    <Content Include="Views\DetailRoom\Details.cshtml" />
+    <Content Include="Views\Localization\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -219,6 +225,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\imagesAdvertisement\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
