@@ -7,10 +7,12 @@ namespace CuatrivagoProject.Models
 {
     public class RoomType
     {
-        public int idRoomType { get; set; }
+        public string idRoomType { get; set; }
         public string name { get; set; }
         public string description_ { get; set; }
-        public int quantity { get; set; }
-        public int price { get; set; }
+        public string quantity { get; set; }
+        public string priceColon { get; set; }
+        public string priceDolar { get; set; }
+        public string path { get; set; }
     }
 }

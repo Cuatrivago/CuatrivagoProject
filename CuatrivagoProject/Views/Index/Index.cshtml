@@ -12,22 +12,30 @@
 
 @section rooms{
 
-
-    <div class="col-md-3 col-sm-6 feature text-center">
-        <div class="overlay">
-            <img src="~/content/img/about1.jpg" alt="" class="img-responsive">
-            <div class="overlay-shadow">
-                <div class="overlay-content">
-                    <div class="btn btn-transparent-white">@Html.ActionLink("Ver más", "Details", "Room", new { id = 1 }, null)</div>
+    @foreach (var item in Model.roomType)
+    {
+        <div class="col-md-3 col-sm-6 feature text-center">
+            <div class="overlay">
+                <img src="@item.path" alt="" class="img-responsive">
+                <div class="overlay-shadow">
+                    <div class="overlay-content">
+                        <div class="btn btn-transparent-white">@Html.ActionLink("Ver más", "Details", "Room", new { id = item.idRoomType }, null)</div>
+                    </div>
                 </div>
             </div>
+            <h4 id="rooms">@item.name</h4>
+            <p>
+                Precio en dolares = @item.priceColon
+                <br />
+                Precio en colones = @item.priceDolar
+                <br />
+                Cantidad de habitaciones = @item.quantity
+                <br />
+                @item.description_
+            </p>
         </div>
-        <h4 id="rooms">Habitaciones</h4>
-        <p>Lorem ipsum dolor sit amet, consect adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed.</p>
-    </div>
-
-
-}
+    }
+ }
 
 
 @section facilitiesName{
@@ -38,6 +46,7 @@
             if (first)
             {
                 first = false;
+
                 <li class="active">
                     <a data-toggle="tab" href="#facilitie_@item.idFacilitie">
                         <h5 class="title">@item.name</h5>
@@ -69,6 +78,7 @@
             if (first)
             {
                 first = false;
+
                 <div id="facilitie_@item.idFacilitie" class="tab-pane fade in active">
                     <img src="@item.path" alt="">
                     <header>
@@ -84,7 +94,7 @@
                     <header>
                         <h5 class="title">@item.name</h5>
                     </header>
-                    <p></p>
+                    <p>@item.description_</p>
                 </div>
             }
 

@@ -16,6 +16,7 @@ namespace CuatrivagoProject.Controllers
         private HotelContext hotelContext = new HotelContext();
         private AdvertisementContext advertisementContext = new AdvertisementContext();
         private FacilitieContext facilitieContext = new FacilitieContext();
+        private RoomTypeContext roomTypeContext = new RoomTypeContext();
 
         // GET: Index
         public ActionResult Index()
@@ -25,6 +26,7 @@ namespace CuatrivagoProject.Controllers
             vm.Hotel = hotelContext.getInformationHotel(conn);
             vm.advertisement = advertisementContext.getInformationAdvertisement(conn);
             vm.facilitie = facilitieContext.getAllFacilities(conn);
+            vm.roomType = roomTypeContext.getAllRoomType(conn);
 
             return View(vm);
         }
