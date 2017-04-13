@@ -11,7 +11,6 @@ namespace CuatrivagoProject.Context
 {
     public class AdvertisementContext
     {
-
         public List<Advertisement> getInformationAdvertisement(string conn)
         {
 
@@ -50,6 +49,5 @@ namespace CuatrivagoProject.Context
 
 
         }
-
     }
 }

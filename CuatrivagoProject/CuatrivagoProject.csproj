@@ -189,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\FacilitieContext.cs" />
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\AdvertisementContext.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -199,10 +200,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Facilitie.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Advertisement.cs" />
     <Compile Include="Models\ModelsForIndex.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

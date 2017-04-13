@@ -15,6 +15,7 @@ namespace CuatrivagoProject.Controllers
 
         private HotelContext hotelContext = new HotelContext();
         private AdvertisementContext advertisementContext = new AdvertisementContext();
+        private FacilitieContext facilitieContext = new FacilitieContext();
 
         // GET: Index
         public ActionResult Index()
@@ -30,7 +31,11 @@ namespace CuatrivagoProject.Controllers
         // GET: Information
         public ActionResult Facilities()
         {
-            return View();
+            ModelsForIndex vm = new ModelsForIndex();
+
+            vm.facilitie = facilitieContext.getAllFacilities(conn);
+
+            return View(vm);
         }
     }
 }

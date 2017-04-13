@@ -5,11 +5,11 @@ using System.Web;
 
 namespace CuatrivagoProject.Models
 {
-    public class Room
+    public class Facilitie
     {
-        public int idRoom { get; set; }
-        public int capacity { get; set; }
+        public int idFacilitie { get; set; }
+        public string name { get; set; }
         public string description_ { get; set; }
-        public int roomType { get; set; }
+        public string path { get; set; }
     }
 }

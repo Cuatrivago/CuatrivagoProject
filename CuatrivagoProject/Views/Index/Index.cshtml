@@ -5,14 +5,14 @@
 }
 
 @section description{
-   
+
     @Model.Hotel.homeInformation
-   
+
 }
 
 @section rooms{
-    
-    
+
+
     <div class="col-md-3 col-sm-6 feature text-center">
         <div class="overlay">
             <img src="~/content/img/about1.jpg" alt="" class="img-responsive">
@@ -25,68 +25,44 @@
         <h4 id="rooms">Habitaciones</h4>
         <p>Lorem ipsum dolor sit amet, consect adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed.</p>
     </div>
-        
-    
+
+
 }
 
 
 @section facilitiesName{
 
-    <li class="active">
-        <a data-toggle="tab" href="#fleet">
-            <h5 class="title">Highest Standards</h5>
-            <h6 class="subtitle">No compromises</h6>
-        </a>
-    </li>
-    <li>
-        <a data-toggle="tab" href="#drivers">
-            <h5 class="title">Qualified Staff</h5>
-            <h6 class="subtitle">You are in good hands</h6>
-        </a>
-    </li>
-    <li>
-        <a data-toggle="tab" href="#location">
-            <h5 class="title">Around the World</h5>
-            <h6 class="subtitle">Meet us everywhere</h6>
-        </a>
-    </li>
+    @foreach (var item in Model.facilitie)
+    {
+        <li>
+            <a data-toggle="tab" href="#facilitie @item.idFacilitie">
+                <h5 class="title">@item.name</h5>
+            </a>
+        </li>
+    }
 
 }
 
 
 @section facilitiesImageDescription{
-    <div id="fleet" class="tab-pane fade in active">
-        <img src="~/Content/img/supertabs.jpg" alt="">
-        <header>
-            <h5 class="title">Around the world</h5>
-            <h6 class="subtitle">We are available</h6>
-        </header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae a aut consequatur similique tempora excepturi iusto provident eum quam aperiam id est, voluptas recusandae quisquam, pariatur rerum tempore atque illo!</p>
-    </div>
-    <div id="drivers" class="tab-pane fade">
-        <img src="~/content/img/supertabs-2.jpg" alt="">
-        <header>
-            <h5 class="title">Our location</h5>
-            <h6 class="subtitle">We are available</h6>
-        </header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae a aut consequatur similique tempora excepturi iusto provident eum quam aperiam id est, voluptas recusandae quisquam, pariatur rerum tempore atque illo!</p>
-    </div>
-    <div id="location" class="tab-pane fade">
-        <img src="~/content/img/supertabs-3.jpg" alt="">
-        <header>
-            <h5 class="title">Our location</h5>
-            <h6 class="subtitle">We are available</h6>
-        </header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae a aut consequatur similique tempora excepturi iusto provident eum quam aperiam id est, voluptas recusandae quisquam, pariatur rerum tempore atque illo!</p>
-    </div>
-    
+
+    @foreach (var item in Model.facilitie)
+    {
+        <div id="facilitie @item.idFacilitie" class="tab-pane fade in active">
+            <img src="@item.path" alt="">
+            <header>
+                <h5 class="title">@item.name</h5>
+            </header>
+            <p>@item.description_</p>
+        </div>
+    }
 }
 
 @section galery{
 
-   <h3>Agregar carousel aquí</h3> 
-    
-    
+    <h3>Agregar carousel aquí</h3>
+
+
 }
 
 @section advertisement{
@@ -96,7 +72,7 @@
         <div>
             <a href="@Html.DisplayFor(modelitem => item.url)"><img src="@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
         </div>
-    
+
     }
 }
 
