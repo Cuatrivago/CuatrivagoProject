@@ -31,31 +31,66 @@
 
 
 @section facilitiesName{
+    @{bool first = true;
 
-    @foreach (var item in Model.facilitie)
-    {
-        <li>
-            <a data-toggle="tab" href="#facilitie @item.idFacilitie">
-                <h5 class="title">@item.name</h5>
-            </a>
-        </li>
+        foreach (var item in Model.facilitie)
+        {
+            if (first)
+            {
+                first = false;
+                <li class="active">
+                    <a data-toggle="tab" href="#facilitie_@item.idFacilitie">
+                        <h5 class="title">@item.name</h5>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a data-toggle="tab" href="#facilitie_@item.idFacilitie">
+                        <h5 class="title">@item.name</h5>
+                    </a>
+                </li>
+            }
+
+        }
     }
+
 
 }
 
 
 @section facilitiesImageDescription{
+    @{bool first = true;
 
-    @foreach (var item in Model.facilitie)
-    {
-        <div id="facilitie @item.idFacilitie" class="tab-pane fade in active">
-            <img src="@item.path" alt="">
-            <header>
-                <h5 class="title">@item.name</h5>
-            </header>
-            <p>@item.description_</p>
-        </div>
+        foreach (var item in Model.facilitie)
+        {
+
+            if (first)
+            {
+                first = false;
+                <div id="facilitie_@item.idFacilitie" class="tab-pane fade in active">
+                    <img src="@item.path" alt="">
+                    <header>
+                        <h5 class="title">@item.name</h5>
+                    </header>
+                    <p>@item.description_</p>
+                </div>
+            }
+            else
+            {
+                <div id="facilitie_@item.idFacilitie" class="tab-pane fade">
+                    <img src="@item.path" alt="">
+                    <header>
+                        <h5 class="title">@item.name</h5>
+                    </header>
+                    <p></p>
+                </div>
+            }
+
+        }
     }
+
 }
 
 @section galery{

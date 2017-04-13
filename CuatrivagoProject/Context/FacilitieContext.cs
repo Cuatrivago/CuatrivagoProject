@@ -15,9 +15,9 @@ namespace CuatrivagoProject.Context
 
             SqlConnection connection = new SqlConnection(conn);
 
-            string sqlStoredProcedure = "";
+            string sqlStoredProcedure = "SP_Retrieve_Facilitie_All";
             SqlCommand cmdFacilitie = new SqlCommand(sqlStoredProcedure, connection);
-
+            
             cmdFacilitie.CommandType = CommandType.StoredProcedure;
 
             cmdFacilitie.Connection.Open();
@@ -32,7 +32,7 @@ namespace CuatrivagoProject.Context
                 while (reader.Read())
                 {
                     Facilitie facilitie = new Facilitie();
-                    facilitie.idFacilitie = reader.GetInt32(0);
+                    facilitie.idFacilitie = reader.GetString(0);
                     facilitie.name = reader.GetString(1);
                     facilitie.description_ = reader.GetString(2);
                     facilitie.path = reader.GetString(3);

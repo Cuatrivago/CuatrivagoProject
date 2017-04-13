@@ -102,6 +102,10 @@
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont78ce.svg" />
+    <Content Include="Content\imagesFacilities\bar.jpg" />
+    <Content Include="Content\imagesFacilities\buffete.JPG" />
+    <Content Include="Content\imagesFacilities\jacuzzi.jpg" />
+    <Content Include="Content\imagesFacilities\piscina.jpg" />
     <Content Include="Content\imagesRoom\junnior.jpg" />
     <Content Include="Content\imagesRoom\standard.jpg" />
     <Content Include="Content\imagesRoom\suite.jpg" />

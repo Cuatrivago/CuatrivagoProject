@@ -24,18 +24,10 @@ namespace CuatrivagoProject.Controllers
 
             vm.Hotel = hotelContext.getInformationHotel(conn);
             vm.advertisement = advertisementContext.getInformationAdvertisement(conn);
-
-            return View(vm);
-        }
-
-        // GET: Information
-        public ActionResult Facilities()
-        {
-            ModelsForIndex vm = new ModelsForIndex();
-
             vm.facilitie = facilitieContext.getAllFacilities(conn);
 
             return View(vm);
         }
+
     }
 }
