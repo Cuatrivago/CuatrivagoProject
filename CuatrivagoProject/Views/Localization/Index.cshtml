@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -11,6 +10,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
     <link href="~/Content/img/cuatrivago_logo.png" rel="shortcut icon">
     <title>Cuatrivago</title>
 
@@ -22,6 +23,33 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #mapg {
+            height: 400px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 400px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #floating-panel {
+            top: 10px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto','sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+    </style>
 
     <!--[if IE 9]>
       <script src="js/media.match.min.js"></script>
@@ -35,7 +63,7 @@
 
         <!-- Start Header -->
         <header id="header">
-        
+
             <div class="header-navi">
                 <div class="container">
                     <div class="row">
@@ -43,7 +71,7 @@
                             <div class="row">
                                 <div class="col-lg-5 col-md-5 col-sm-12">
                                     <ul class="nav navbar-nav main-nav">
-                                        <li>@Html.ActionLink("Inicio","index","Index")</li>
+                                        <li>@Html.ActionLink("Inicio", "index", "Index")</li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
@@ -79,22 +107,87 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3 class="title-section pull-left">
-                           Localización
+                            Localización
                         </h3>
-                       
+
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Header-Section -->
+        <!-- MAP -->
+        <div>
+            <div id="floating-panel">
+                <b>Modo de viaje: </b>
+                <select id="mode">
+                    <option value="DRIVING">Manejando</option>
+                    <option value="WALKING">Caminando</option>
+                    <option value="BICYCLING">Bicicleta</option>
+                    <option value="TRANSIT">Transito</option>
+                </select>
+
+                <img src="~/Content/img/origen.jpg" /><b>Origen</b>
+                <img src="~/Content/img/des.jpg" /><b>Destino</b>
+
+            </div>
+            <div id="mapg"></div>
+            <script>
+            function initMap() {
+                var directionsDisplay = new google.maps.DirectionsRenderer;
+                var directionsService = new google.maps.DirectionsService;
+                var map = new google.maps.Map(document.getElementById('mapg'), {
+                    zoom: 14,
+                    center: { lat: 37.77, lng: -122.447 }
+                });
+                directionsDisplay.setMap(map);
+
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+                document.getElementById('mode').addEventListener('change', function () {
+                    calculateAndDisplayRoute(directionsService, directionsDisplay);
+                });
+            }
+
+            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+                var selectedMode = document.getElementById('mode').value;
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+
+                        directionsService.route({
+                            origin: { lat: position.coords.latitude, lng: position.coords.longitude },  // Haight.
+                            destination: { lat: 9.905984, lng: -83.684192 },  // Ocean Beach.
+                            // Note that Javascript allows us to access the constant
+                            // using square brackets and a string value as its
+                            // "property."
+                            travelMode: google.maps.TravelMode[selectedMode]
+                        }, function (response, status) {
+                            if (status == 'OK') {
+                                directionsDisplay.setDirections(response);
+                            } else {
+                                window.alert('Se ha producido un error en la solicitud de ' + status);
+                            }
+                        });
+
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('Location found.');
+                        map.setCenter(pos);
+                    }, function () {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTuazTT4ftRrTOscHQYPabgJPLiBS9YXc&callback=initMap">
+            </script>
+        </div>
+        <!-- END MAP -->
         <!-- Start Locations -->
         <section class="locations">
 
-            <!-- Start Locations-Top -->
-            <div class="locations-top">
-                <div id="location-map"></div>
-            </div>
-            <!-- End Locations-Top -->
             <!-- Start Locations-Bottom -->
             <div class="locations-bottom">
                 <div class="container">
@@ -103,35 +196,34 @@
                             <div class="location-single">
                                 <div class="offices">
                                     <h3 class="title">
-                                        Switzerland Office
+                                        Hotel Cuatrivago
                                     </h3>
-                                    <h5 class="sub-title">Office</h5>
+                                    <h5 class="sub-title">Información</h5>
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
                                             <ul class="location-details custom-list">
-                                                <li>PO Box 16122 Collins Street West</li>
-                                                <li>Victoria 8007 Australia</li>
-                                                <li>Envato Headquarters</li>
+                                                <li>PO Box 16122 Avenida 0</li>
+                                                <li>Turrialba</li>
+                                                <li>Frente de la iglesia catolica</li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <ul class="location-details custom-list">
-                                                <li>Phone 1: +61 3 8376 6284</li>
-                                                <li>Phone 2: +61 3 8376 6284</li>
-                                                <li>Fax 1: +61 3 8376 6284</li>
+                                                <li>Teléfono 1: +506 88888888</li>
+                                                <li>Teléfono 2: +506 2556 56 56</li>
+                                                <li>Fax 1: +506 52790464</li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <ul class="location-details custom-list">
-                                                <li>121 King Street, Melbourne</li>
-                                                <li>Victoria 8007 Australia</li>
-                                                <li>Envato Pty Ltd</li>
+                                                <li>121 Avenida 0, Turrialba</li>
+                                                <li>Frente a la iglesia catolica</li>
                                             </ul>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <ul class="location-details custom-list">
-                                                <li>Email 1: roman.ul.ferdosh@gmail.com</li>
-                                                <li>Website 1: www.example.com</li>
+                                                <li>Email : hotel_cuatrivago@gmail.com</li>
+                                                <li>Sitio web : www.cuatrivago.com</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -142,34 +234,33 @@
                     </div>
                 </div>
             </div>
-    
-    <!-- End Locations-Bottom -->
-    </section>
-    <!-- End Locations -->
-    <!-- Start Footer -->
-    <footer id="footer">
 
-        <!-- Start Footer-Copyrights -->
-        <div class="footer-copyrights">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>Copyright 2015 Â© PetraHotel. All rights reserved. Powered by <a href="#">UOUapps</a></p>
+            <!-- End Locations-Bottom -->
+        </section>
+        <!-- End Locations -->
+        <!-- Start Footer -->
+        <footer id="footer">
+
+            <!-- Start Footer-Copyrights -->
+            <div class="footer-copyrights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright 2015 Â© Cuatrivago. Todos los derechos reservados. Powered by <a href="#">Grupo cuatrivago</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End Footer-Copyrights -->
+            <!-- End Footer-Copyrights -->
 
-    </footer>
-    <!-- End Footer -->
+        </footer>
+        <!-- End Footer -->
     </div>
     <!-- End Main-Wrapper -->
     <!-- Scripts -->
     <script src="~/Content/js/jquery-2.1.4.min.js"></script>
     <script src="~/Content/js/scripts.js"></script>
     <script src="~/Content/js/owl.carousel.min.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="~/Content/js/gmap3.min.js"></script>
     <script src="~/Content/js/modal.js"></script>
     <script src="~/Content/js/jquery-ui-1.10.4.custom.min.js"></script>
@@ -180,7 +271,5 @@
     <script src="~/Content/js/transition.js"></script>
     <script src="~/Content/js/jquery.matchHeight-min.js"></script>
 </body>
-
 <!-- Mirrored from new.uouapps.com/petra-html/locations.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:20:47 GMT -->
 </html>
-

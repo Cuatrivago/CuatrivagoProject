@@ -140,6 +140,7 @@
     <Content Include="Content\img\customer-logo.png" />
     <Content Include="Content\img\customer-logo2.png" />
     <Content Include="Content\img\customer-logo3.png" />
+    <Content Include="Content\img\des.jpg" />
     <Content Include="Content\img\footer-bg.jpg" />
     <Content Include="Content\img\header-listing.jpg" />
     <Content Include="Content\img\header-room.jpg" />
@@ -152,6 +153,7 @@
     <Content Include="Content\img\member2.jpg" />
     <Content Include="Content\img\member3.jpg" />
     <Content Include="Content\img\member4.jpg" />
+    <Content Include="Content\img\origen.jpg" />
     <Content Include="Content\img\room-1.jpg" />
     <Content Include="Content\img\staff-thumbnail-2.png" />
     <Content Include="Content\img\staff-thumbnail-3.png" />
