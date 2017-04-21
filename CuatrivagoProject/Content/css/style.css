@@ -7618,10 +7618,11 @@ hr {
   position: relative;
 }
 .container .contact-box {
-  position: absolute;
+  /*position: absolute;*/
   right: 15px;
   top: 0;
   width: 475px;
+  margin-bottom: 35px;
   z-index: 1;
 }
 .container .contact-box .preamble {

@@ -1,17 +1,28 @@
 ﻿@model CuatrivagoProject.Models.ModelsForIndex
-
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml"; bool temp = true;
 }
 
 @section description{
-
     @Model.Hotel.homeInformation
+}
+@section allRoomType
+    {
+    @foreach (var item in Model.roomType)
+    {
+        if (temp)
+        {
+            <option value="@item.idRoomType" active>@item.name</option>
+            temp = false;
+        }
+        else
+        {
+            <option value="@item.idRoomType">@item.name</option>
+        }
+    }
 
 }
-
 @section rooms{
-
     @foreach (var item in Model.roomType)
     {
         <div class="col-md-3 col-sm-6 feature text-center">
@@ -35,9 +46,7 @@
             </p>
         </div>
     }
- }
-
-
+}
 @section facilitiesName{
     @{bool first = true;
 
@@ -65,10 +74,7 @@
         }
     }
 
-
 }
-
-
 @section facilitiesImageDescription{
     @{bool first = true;
 
@@ -100,24 +106,61 @@
 
         }
     }
+}
+@{
+    int count = 0, count2 = 0;
 
 }
-
-@section galery{
-
-    <h3>Agregar carousel aquí</h3>
-
+@section galleryGrid{
+    @foreach (var item in Model.image)
+    {
+        <li class="col-sm-3">
+            <a class="thumbnail" id="carousel-selector-@count">
+                <img src="@item.path" />
+            </a>
+        </li>
+        count++;
+    }
 
 }
+@section gallery{
+    @foreach (var item in Model.image)
+    {
+        if (count2 == 0)
+        {
+            <div class="active item" data-slide-number="@count2">
+                <img src="@item.path" />
+            </div>
+        }
+        else
+        {
+            <div class="item" data-slide-number="@count2">
+                <img src="@item.path" />
+            </div>
 
+        }
+        count2++;
+    }
+}
+
+@section result{
+    @if(@ViewBag.result != null)
+    {    <section class="partners">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="result">@ViewBag.result</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+}
 @section advertisement{
-
     @foreach (var item in Model.advertisement)
     {
         <div>
             <a href="@Html.DisplayFor(modelitem => item.url)"><img src="@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
         </div>
-
     }
 }
-

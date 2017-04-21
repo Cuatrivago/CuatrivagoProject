@@ -1,0 +1,35 @@
+﻿.hide-bullets {
+    list-style: none;
+    margin-left: -40px;
+    margin-top: 20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+#myGallery {
+    margin-top: 230px;
+    margin-bottom: 50px;
+}
+
+#aboutDescription {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+#aboutP {
+    text-align: center;
+    font-size: 25px;
+    line-height: 45px;
+    text-align: justify;
+}
+
+#aboutT {
+    text-align: center;
+    font-size: 25px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}

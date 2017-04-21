@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CuatrivagoProject.Context;
+using CuatrivagoProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace CuatrivagoProject.Controllers
@@ -9,6 +12,9 @@ namespace CuatrivagoProject.Controllers
     public class RoomController : Controller
     {
         // GET: Room
+        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
+        private RoomContext roomContext = new RoomContext();
+
         public ActionResult Index()
         {
             return View();
@@ -17,8 +23,25 @@ namespace CuatrivagoProject.Controllers
         // GET: Room/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ModelForRoomList roomList = new ModelForRoomList();
+            roomList.roomList = roomContext.getRoomsByType(conn, id);
+            roomList.back = 0;
+            return View("Details", roomList);
         }
+
+        public ActionResult RoomTypeList()
+        {
+            string arrival = Request.Form["arrival"].ToString();
+            string departure = Request.Form["departure"].ToString();
+            int roomType = Int32.Parse(Request.Form["roomType"].ToString());
+            ModelForRoomList roomList = new ModelForRoomList();
+            roomList.roomList = roomContext.getRoomsAvailable(conn, arrival, departure, roomType);
+            roomList.dateIn = arrival;
+            roomList.dateOut = departure;
+            roomList.back = 1;
+            return View("Details", roomList);
+        }
+
 
         // GET: Room/Create
         public ActionResult Create()

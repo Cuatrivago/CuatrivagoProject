@@ -1,0 +1,252 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/Content/img/cuatrivago_logo.png" rel="shortcut icon">
+    <title>Cuatrivago</title>
+    <!-- Stylesheets -->
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
+    @*About styles*@
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/AboutUsStyles.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-2.1.4.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Start Main-Wrapper -->
+    <div id="main-wrapper">
+
+        <!-- Start Header -->
+        <header id="header">
+            <div class="header-navi">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12" id="bs-example-navbar-collapse-1">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-12">
+                                    <ul class="nav navbar-nav main-nav">
+                                        <li><a href="">@Html.ActionLink("Inicio", "index", "Index")</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Start Header-Toggle -->
+        <div id="header-toggle">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- End Header-Toggle -->
+        <!-- Start Header-Logo -->
+        <div class="header-logo">
+            <div class="header-logo-inner">
+                <div class="css-table">
+                    <div class="css-table-cell">
+                        <a href="#">
+                            <img src="~/Content/img/cuatrivago_logo.png" alt="" class="img-responsive center-block">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="header-section contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-section pull-left">
+                            Reservación
+                        </h3>
+                        <ul class="breadcrumbs custom-list list-inline pull-right">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Header-Section -->
+        <!-- Start Contact-Form -->
+        <div class="container">
+            <section class="reservation">
+                <div class="container">
+                    <div class="contact-box" style="width:50%; margin: 40px 20%">
+                        <form action="/Reservation/Insert" class="contact-form default-form" method="post" id="commentForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="preamble col-md-12">
+                                        <h3>Hotel Cuatrivago Reservación</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <input style="text-transform: lowercase" id="mail" name="mail" type="text" placeholder="Correo" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input style="text-transform: lowercase" id="name" name="name" type="text" placeholder="Nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input style="text-transform: lowercase" id="lastName" name="lastName" type="text" placeholder="Apellido" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input style="text-transform: lowercase" id="cardNumber" name="cardNumber" type="number" placeholder="Número Tarjeta" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input style="text-transform: lowercase" id="phone" name="phone" type="number" placeholder="Teléfono" required>
+                                </div>
+                                @if (@ViewBag.back == 0)
+                                {
+                                    <div class="col-md-6">
+                                        <span class="arrival calendar">
+                                            <input style="color: white;text-transform: lowercase" type="text" id="arrival" name="arrival" placeholder="Desde" data-dateformat="yy-mm-dd" required>
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="departure calendar">
+                                            <input style="color: white;text-transform: lowercase" type="text" id="departure" name="departure" placeholder="Hasta" data-dateformat="yy-mm-dd" required>
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-md text-center">
+                                        <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
+                                    </div>
+
+                                }
+                                else
+                                {<div class="col-lg-md text-center">
+                                    <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <input name="arrival" id="arrival" style="visibility: hidden;text-transform: lowercase" value="@ViewBag.datein" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input name="departure" id="departure" style="visibility: hidden;text-transform: lowercase" value="@ViewBag.dateout" required>
+                                </div>
+                                }
+                            </div>
+
+                            <input style="visibility: hidden;position: relative; height: 0px; font-size: 1px ; margin: 0px" id="idRoom" name="idRoom" value="@ViewBag.id">
+
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- End Contact-Form -->
+        </div>
+        <footer id="footer" style="margin-top:20px">
+            <!-- Start Footer-Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 widget widget-about">
+                            <h5 class="title">
+                                Reservación
+                            </h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Etiam sit amet lectus quis est congue mollis.</p>
+                        </div>
+                        <div class="col-md-4 widget widget-news">
+                            <h5 class="title">
+                                Latest News
+                            </h5>
+                            <ul class="custom-list">
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Proin nibh augue suscipit scelerisque</a></li>
+                                <li><a href="#">Etiam pellentesque aliquet tellus</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer-Top -->
+            <!-- Start Footer-Copyrights -->
+            <div class="footer-copyrights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright 2015 Â© PetraHotel. All rights reserved. Powered by <a href="#">UOUapps</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer-Copyrights -->
+        </footer>
+
+    </div>
+    <script src="~/Content/js/AboutJS.js"></script>
+    <script src="~/Content/js/scripts.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="~/Content/js/gmap3.min.js"></script>
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <script src="~/Content/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Content/js/jquery.ba-outside-events.min.js"></script>
+    <script src="~/Content/js/jqueryui.js"></script>
+    <script src="~/Content/js/jquery.vide.min.js"></script>
+    <script src="~/Content/js/tab.js"></script>
+    <script src="~/Content/js/transition.js"></script>
+    <script src="~/Content/js/jquery.matchHeight-min.js"></script>
+    <script src="js/jquery.matchHeight-min.js"></script>
+    <script>
+        $("#commentForm").validate();
+    </script>
+    <script type="text/javascript">
+
+        window.onload = (function () {
+            try {
+                $("#mail").on('keyup', function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reservation/AjaxMethod/",
+                        data: '{email:"' + $.trim($("#mail").val()) + '"}',
+                        //data: '{email:"' + $("#mail").val() + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.id == -1) {
+
+                            }
+                            else {
+                                alert( + $("#mail").val()+' Bienvenido una vez mas a nuestro hotel.');
+                                $("#name").val(data.name);
+                                $("#lastName").val(data.lastName);
+                                $("#cardNumber").val(data.creditCard);
+                                $("#phone").val(data.phone);
+                            }
+
+                        },
+                        failure: function (data) {
+                            alert(":56");
+                            //alert(response.responseText);
+                        },
+                        error: function (data) {
+                            alert(":55");
+                            //alert(response.responseText);
+                        }
+                    });
+                }).keyup();
+            } catch (e) { }
+        });
+
+    </script>
+</body>
+</html>

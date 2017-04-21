@@ -99,6 +99,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\AboutUsStyles.css" />
+    <Content Include="Content\css\myStyle.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont78ce.svg" />
@@ -142,6 +144,13 @@
     <Content Include="Content\img\customer-logo3.png" />
     <Content Include="Content\img\des.jpg" />
     <Content Include="Content\img\footer-bg.jpg" />
+    <Content Include="Content\img\gallery\1.jpg" />
+    <Content Include="Content\img\gallery\2.jpg" />
+    <Content Include="Content\img\gallery\3.jpg" />
+    <Content Include="Content\img\gallery\4.jpg" />
+    <Content Include="Content\img\gallery\5.jpg" />
+    <Content Include="Content\img\gallery\6.jpg" />
+    <Content Include="Content\img\gallery\7.jpg" />
     <Content Include="Content\img\header-listing.jpg" />
     <Content Include="Content\img\header-room.jpg" />
     <Content Include="Content\img\header-slider-1.jpg" />
@@ -165,6 +174,7 @@
     <Content Include="Content\img\supertabs-2.jpg" />
     <Content Include="Content\img\supertabs-3.jpg" />
     <Content Include="Content\img\supertabs.jpg" />
+    <Content Include="Content\js\AboutJS.js" />
     <Content Include="Content\js\gmap3.min.js" />
     <Content Include="Content\js\jquery-2.1.4.min.js" />
     <Content Include="Content\js\jquery-ui-1.10.4.custom.min.js" />
@@ -199,22 +209,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\ClientContext.cs" />
     <Compile Include="Context\FacilitieContext.cs" />
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\AdvertisementContext.cs" />
+    <Compile Include="Context\ImageContext.cs" />
+    <Compile Include="Context\ReservationContext.cs" />
+    <Compile Include="Context\RoomContext.cs" />
     <Compile Include="Context\RoomTypeContext.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DetailRoomController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\LocalizationController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Facilitie.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Advertisement.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\ModelForRoomList.cs" />
     <Compile Include="Models\ModelsForIndex.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,6 +265,7 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Reservation\CreateReservation.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -258,7 +278,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\imagesAdvertisement\" />
     <Folder Include="Services\" />
-    <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
