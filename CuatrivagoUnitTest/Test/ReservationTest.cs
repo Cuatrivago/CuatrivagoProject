@@ -24,6 +24,8 @@ namespace CuatrivagoUnitTest.Test
 
             Debug.WriteLine(a + "\n");
 
+            Debug.WriteLine(a + "\n");
+
         }
     }
 }
