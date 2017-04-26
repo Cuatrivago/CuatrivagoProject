@@ -1,4 +1,4 @@
-﻿
+﻿@Model CuatrivagoProjectAdmin.Models.Admin
 @{
     ViewBag.Title = "AdminProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
                     First Name <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" value="@Model.name">
                 </div>
             </div>
             <div class="form-group">
@@ -23,13 +23,13 @@
                     Last Name <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                    <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" value="@Model.lastName">
                 </div>
             </div>
             <div class="form-group">
                 <label for="Email" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="Email" class="form-control col-md-7 col-xs-12" type="email" name="Email">
+                    <input id="Email" class="form-control col-md-7 col-xs-12" type="email" name="Email" value="@Model.email">
                 </div>
             </div>
             <div class="ln_solid"></div>

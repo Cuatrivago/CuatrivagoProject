@@ -16,6 +16,9 @@
             <input type="submit" class="btn btn-default submit" id="btnAccept" name="btnAccept" value="Iniciar" />
         </div>
     </form>
+    <div>
+        @Html.ActionLink("¿Aún no tiene cuenta? Registrese","Index","SignUp")
+    </div>
 </section>
     @if (Request.Cookies["Admin"] != null)
     {
