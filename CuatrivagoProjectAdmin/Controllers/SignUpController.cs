@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
-    public class SignUnController : Controller
+    public class SignUpController : Controller
     {
         // GET: SignUn
         public ActionResult Index()
