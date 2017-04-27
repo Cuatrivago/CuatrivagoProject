@@ -67,6 +67,7 @@ namespace CuatrivagoProjectAdmin.Controllers
         {
             HttpCookie galleta = new HttpCookie("Admin");
             galleta["adminId"] = null;
+            galleta["name"] = null;
             galleta.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(galleta);
             return RedirectToAction("Index");

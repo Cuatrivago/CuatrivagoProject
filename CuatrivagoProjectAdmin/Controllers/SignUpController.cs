@@ -3,52 +3,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CuatrivagoProjectAdmin.Models;
+using CuatrivagoProjectAdmin.Context;
+using System.Web.Configuration;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
     public class SignUpController : Controller
     {
-        // GET: SignUn
+        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
+        private AdminContext data = new AdminContext();
+
+        // GET: SignUp
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: SignUn/Details/5
+        // GET: SignUp/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: SignUn/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SignUn/Create
+        // GET: SignUp/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection form)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Admin adm = new Admin();
 
-                return RedirectToAction("Index");
-            }
-            catch
+            adm.name = form["first-name"];
+            adm.lastName = form["last-name"];
+            adm.email = form["Email"];
+            adm.password = form["rePass"];
+
+            HttpCookie galleta = new HttpCookie("operation");
+            
+            
+
+            if (form["Pass"] != adm.password)
             {
-                return View();
+                galleta["ans"] = "p";
+            } else
+            {
+                galleta["ans"] = data.createAdmin(conn, adm) + "";
             }
+
+            galleta.Expires = DateTime.Now.AddMinutes(2);
+            Response.Cookies.Add(galleta);
+            return RedirectToAction("Index");
         }
 
-        // GET: SignUn/Edit/5
+        // GET: SignUp/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: SignUn/Edit/5
+        // POST: SignUp/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -64,13 +76,13 @@ namespace CuatrivagoProjectAdmin.Controllers
             }
         }
 
-        // GET: SignUn/Delete/5
+        // GET: SignUp/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: SignUn/Delete/5
+        // POST: SignUp/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
