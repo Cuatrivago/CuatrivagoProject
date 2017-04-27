@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.StateRoom>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section moduleTitle{
+
+    Estado habitaciones al día de hoy
+
+}
+
+
+@section content{
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameRoom)
+                </td>
+                @if (item.state.Equals("0"))
+                {
+                    <td style="background-color: #ff0000; color: #000000;">Ocupada</td>
+                }
+                else
+                {
+                    <td style="background-color: #00ff90; color: #000000;">Disponible</td>
+                }
+            </tr>
+        }
+
+    </table>
+   
+}

@@ -215,3 +215,8 @@ C:\Users\Edwin\Desktop\Files\CuatrivagoProject\CuatrivagoProject\bin\System.Web.
 C:\Users\Edwin\Desktop\Files\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.dll
 C:\Users\Edwin\Desktop\Files\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.pdb
 C:\Users\Edwin\Desktop\Files\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.dll
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.dll
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.xml
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.xml
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache

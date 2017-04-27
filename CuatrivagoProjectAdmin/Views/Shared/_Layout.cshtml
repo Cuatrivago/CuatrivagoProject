@@ -14,7 +14,8 @@
     <!-- Font Awesome -->
     <link href="../Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="~/Contentvendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="~/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="~/Content/css/styletable.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
     <link href="~/Content/build/css/custom.min.css" rel="stylesheet">
@@ -54,8 +55,7 @@
                                 <li>
                                     <a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li>@Html.ActionLink("Estado habitaciones", "index", "Room")</li>
-                                        <li>@Html.ActionLink("Contacto", "index", "Contact")</li>
+                                        <li>@Html.ActionLink("Estado habitaciones hoy", "index", "StateRoomToday")</li>
                                         <li>@Html.ActionLink("Ejemplo formularios", "index", "ExampleForm")</li>
                                         <li><a href="#">Item</a></li>
                                         <li><a href="#">Item</a></li>
@@ -118,7 +118,7 @@
 
                                 <div class="x_content">
                                     <div class="bs-docs-section">
-                                        <h1 id="glyphicons" class="page-header">Módulo x</h1>
+                                        <h1 id="glyphicons" class="page-header">@RenderSection("moduleTitle", false)</h1>
                                         <div class="bs-docs-section">                                           
                                             <div class="bs-glyphicons">
                                                 @RenderSection("content", false)
