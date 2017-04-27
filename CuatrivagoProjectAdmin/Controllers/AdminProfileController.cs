@@ -29,7 +29,7 @@ namespace CuatrivagoProjectAdmin.Controllers
                     //Este else retorna al index de logueo con un -2, el -2 le dice al index que este usuario intentó
                     //  entrar de forma no autorizada al modulo y se le presentará un mensaje sobre eso.
                     Request.Cookies["Admin"]["adminId"] = "-2";
-                    return View("~/Views/Login/Index.cshtml");
+                    return RedirectToAction("Index", "Login");
             } else
             {
                 //Este else es en caso de que la cookie no exista, se crea y se le da el codigo -2 para devolverlo a
@@ -39,7 +39,7 @@ namespace CuatrivagoProjectAdmin.Controllers
                 galleta.Expires = DateTime.Now.AddMinutes(1);
 
                 Response.Cookies.Add(galleta);
-                return View("~/Views/Login/Index.cshtml");
+                return RedirectToAction("Index", "Login");
             }
         }
 
