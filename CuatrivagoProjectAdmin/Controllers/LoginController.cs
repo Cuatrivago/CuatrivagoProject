@@ -62,6 +62,17 @@ namespace CuatrivagoProjectAdmin.Controllers
                 return RedirectToAction("Index");
             }
         }
+        //    Login/LogOut
+        public ActionResult LogOut()
+        {
+            HttpCookie galleta = new HttpCookie("Admin");
+            galleta["adminId"] = null;
+
+            galleta.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(galleta);
+
+            return RedirectToAction("Index");
+        }
 
         public ActionResult NotFound()
         {
