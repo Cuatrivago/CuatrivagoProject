@@ -1,11 +1,11 @@
-﻿using System;
+﻿using CuatrivagoProjectAdmin.Context;
+using CuatrivagoProjectAdmin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-using CuatrivagoProjectAdmin.Models;
-using CuatrivagoProjectAdmin.Context;
 using System.Web.Configuration;
+using System.Web.Mvc;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
@@ -38,13 +38,14 @@ namespace CuatrivagoProjectAdmin.Controllers
             adm.password = form["rePass"];
 
             HttpCookie galleta = new HttpCookie("operation");
-            
-            
+
+
 
             if (form["Pass"] != adm.password)
             {
                 galleta["ans"] = "p";
-            } else
+            }
+            else
             {
                 galleta["ans"] = data.createAdmin(conn, adm) + "";
             }
