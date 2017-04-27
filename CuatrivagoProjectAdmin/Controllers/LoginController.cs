@@ -54,13 +54,23 @@ namespace CuatrivagoProjectAdmin.Controllers
             {
                 galleta.Expires = DateTime.Now.AddDays(1);
                 Response.Cookies.Add(galleta);
-                return View("~/Views/AdminProfile/Index.cshtml");
+                return RedirectToAction("Index", "AdminProfile");
             } else
             {
                 galleta.Expires = DateTime.Now.AddMinutes(1);
                 Response.Cookies.Add(galleta);
                 return RedirectToAction("Index");
             }
+        }
+
+        public ActionResult LogOut()
+        {
+            HttpCookie galleta = new HttpCookie("Admin");
+            galleta["adminId"] = null;
+            galleta["name"] = null;
+            galleta.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(galleta);
+            return RedirectToAction("Index");
         }
 
         public ActionResult NotFound()

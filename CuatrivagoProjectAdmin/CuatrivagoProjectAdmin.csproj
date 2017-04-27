@@ -117,8 +117,13 @@
     <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\SignUnController.cs" />
     <Compile Include="Controllers\StateRoomTodayController.cs" />
+=======
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
+>>>>>>> 956689b2062e42537f0fd2986aec03dd5d44dd5d
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,7 +151,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Views\SignUn\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
