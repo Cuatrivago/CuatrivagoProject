@@ -112,13 +112,17 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Context\AdminContext.cs" />
+    <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\SignUnController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +133,9 @@
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\ExampleForm\Index.cshtml" />
+    <Content Include="Views\AdminProfile\Index.cshtml" />
+    <Content Include="Views\Shared\_LogLayout.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,7 +146,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\SignUn\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

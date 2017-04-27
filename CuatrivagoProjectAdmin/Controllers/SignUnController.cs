@@ -1,55 +1,32 @@
-﻿using CuatrivagoProject.Context;
-using CuatrivagoProject.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
-    public class RoomController : Controller
+    public class SignUnController : Controller
     {
-        // GET: Room
-        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
-        private RoomContext roomContext = new RoomContext();
-
+        // GET: SignUn
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Room/Details/5
+        // GET: SignUn/Details/5
         public ActionResult Details(int id)
         {
-            ModelForRoomList roomList = new ModelForRoomList();
-            roomList.roomList = roomContext.getRoomsByType(conn, id);
-            roomList.back = 0;
-            return View("Details", roomList);
+            return View();
         }
 
-        public ActionResult RoomTypeList()
-        {
-            string arrival = Request.Form["arrival"].ToString();
-            string departure = Request.Form["departure"].ToString();
-            int roomType = Int32.Parse(Request.Form["roomType"].ToString());
-            ModelForRoomList roomList = new ModelForRoomList();
-            roomList.roomList = roomContext.getRoomsAvailable(conn, arrival, departure, roomType);
-            roomList.dateIn = arrival;
-            roomList.dateOut = departure;
-            roomList.back = 1;
-            return View("Details", roomList);
-        }
-
-
-        // GET: Room/Create
+        // GET: SignUn/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Room/Create
+        // POST: SignUn/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -65,13 +42,13 @@ namespace CuatrivagoProjectAdmin.Controllers
             }
         }
 
-        // GET: Room/Edit/5
+        // GET: SignUn/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Room/Edit/5
+        // POST: SignUn/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -87,13 +64,13 @@ namespace CuatrivagoProjectAdmin.Controllers
             }
         }
 
-        // GET: Room/Delete/5
+        // GET: SignUn/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Room/Delete/5
+        // POST: SignUn/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
