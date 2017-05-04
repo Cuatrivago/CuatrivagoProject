@@ -61,7 +61,7 @@ namespace CuatrivagoProjectAdmin.Controllers
             DateTime dateIn = DateTime.Parse(Request.Form["dateIn"]);
             DateTime dateOut = DateTime.Parse(Request.Form["dateOut"]);
             int type = int.Parse(Request.Form["type"]);
-            return View(room.getInformationRangeDateRoom(conn, dateIn, dateOut , type), );
+            return View(room.getInformationRangeDateRoom(conn, dateIn, dateOut , type));
         }
 
     }
