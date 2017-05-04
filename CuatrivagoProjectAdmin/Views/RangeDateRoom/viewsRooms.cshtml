@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.RangeDateRoom>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+
+    Lista de habitaciones por rango de fechas
+
+}
+
+@section content{
+    <table class="table">
+        <tr>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Capacidad
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Precio
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.capacity)
+                </td>
+
+                @if (item.available.Equals("0"))
+                {
+                    <td style="background-color: #ff0000; color: #000000;">Ocupada</td>
+                }
+                else
+                {
+                    <td style="background-color: #00ff90; color: #000000;">Disponible</td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.price)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
+
+

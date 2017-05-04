@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.RoomType>
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+    Seleccionar habitaciones por rango de fechas
+}
+
+@section content{
+    <!-- page content -->
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+
+            <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left" method="post" action="/RangeDateRoom/viewsRooms" id="form">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha inicio</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="date" name="dateIn" class="form-control" id="dateIn">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha final</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="date" name="dateOut" class="form-control" id="dateOut">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select class="form-control" id="type" name="type">
+                                <option value="0">Todos</option>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.type)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                            <input type="button" class="btn btn-success" value="Consultar" onclick="validateRangeDate()">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+    <script>
+
+        function validateRangeDate() {
+            var dateIn = document.getElementById("dateIn").value;
+            var dateOut = document.getElementById("dateOut").value;
+
+            if (dateIn == "") {
+                alert("Seleccione una fecha inicial");
+                return;
+            }
+
+            if (dateOut == "") {
+                alert("Seleccione una fecha final");
+                return;
+            }
+
+            if (validate_fechaMayorQue(dateIn, dateOut)) {
+                document.getElementById("form").submit();
+            } else {
+                alert("La fecha inicial es menor que la final");
+            }
+        }
+
+        function validate_fechaMayorQue(dateIn, dateOut) {
+            valuesStart = dateIn.split("-");
+            valuesEnd = dateOut.split("-");
+
+            // Verificamos que la fecha no sea posterior a la actual
+            var dateStart = new Date(valuesStart[0], (valuesStart[1] - 1), valuesStart[2]);
+            var dateEnd = new Date(valuesEnd[0], (valuesEnd[1] - 1), valuesEnd[2]);
+
+            if (dateStart >= dateEnd) {
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+}
