@@ -28,7 +28,7 @@ namespace CuatrivagoProject.Context
             List<RoomType> allRoomType = new List<RoomType>();
 
             cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos client = new cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos();
-            //DataSet typeChange = client.ObtenerIndicadoresEconomicos("317", DateTime.Today.ToString("d"), DateTime.Today.ToString("d"), "Cuatrivago", "n");
+            DataSet typeChange = client.ObtenerIndicadoresEconomicos("317", DateTime.Today.ToString("d"), DateTime.Today.ToString("d"), "Cuatrivago", "n");
 
             if (reader.HasRows)
             {
@@ -40,8 +40,7 @@ namespace CuatrivagoProject.Context
                     roomType.description_ = reader.GetString(2);
                     roomType.quantity = reader.GetString(3);
                     roomType.priceColon = "$" + reader.GetString(4);
-                    //double colon  = int.Parse(reader.GetString(4)) * double.Parse(typeChange.Tables[0].Rows[0].ItemArray[2].ToString());
-                    double colon = 0.4;
+                    double colon  = int.Parse(reader.GetString(4)) * double.Parse(typeChange.Tables[0].Rows[0].ItemArray[2].ToString());
 
                     roomType.priceDolar = "₡" + colon;
                     roomType.path = reader.GetString(5);
