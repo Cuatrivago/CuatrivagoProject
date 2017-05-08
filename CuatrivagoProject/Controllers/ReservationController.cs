@@ -36,23 +36,34 @@ namespace CuatrivagoProject.Controllers
             }
             return Json(client);
         }
-        public ActionResult Insert()
+        [HttpPost]
+        public JsonResult isAvaibleRoom(string arrival, string departure, int idRoom)
         {
-            string name = Request.Form["name"].ToString();
-            string lastName = Request.Form["lastName"].ToString();
-            string mail = Request.Form["mail"].ToString();
-            int cardNumber = Int32.Parse(Request.Form["cardNumber"].ToString());
-            int phone = Int32.Parse(Request.Form["phone"].ToString());
-            string dateIn = Request.Form["arrival"].ToString();
-            string dateOut = Request.Form["departure"].ToString();
-            int idRoom = Int32.Parse(Request.Form["idRoom"].ToString());
-            Client client = new Client(0,name,lastName,mail,cardNumber,phone,0);
+            RoomContext rc = new RoomContext();
+            int roomAvaible = rc.verifyRoomAvailable(conn, arrival, departure, idRoom);
+            return Json(roomAvaible);
+        }
+        [HttpPost]
+        public int Insert(string name, string lastName, string mail,
+            int cardNumber, int phone, string dateIn,string dateOut, int idRoom)
+        {
+            //string name = Request.Form["name"].ToString();
+            //string lastName = Request.Form["lastName"].ToString();
+            //string mail = Request.Form["mail"].ToString();
+            //int cardNumber = Int32.Parse(Request.Form["cardNumber"].ToString());
+            //int phone = Int32.Parse(Request.Form["phone"].ToString());
+            //string dateIn = Request.Form["arrival"].ToString();
+            //string dateOut = Request.Form["departure"].ToString();
+            //int idRoom = Int32.Parse(Request.Form["idRoom"].ToString());
+
+
+            Client client = new Client(0, name, lastName, mail, cardNumber, phone, 0);
             int clientId = 0;
             RoomContext rc = new RoomContext();
             int roomAvaible = rc.verifyRoomAvailable(conn, dateIn, dateOut, idRoom);
-            string msgs = "";
-            if (roomAvaible == 1)
-            {
+            int msgs = 0;
+            //if (roomAvaible == 1)
+            //{
                 ClientContext cc = new ClientContext();
                 int clientExists = cc.returnClientId(conn, client.email);
 
@@ -69,18 +80,18 @@ namespace CuatrivagoProject.Controllers
                 string result = rec.insertReservation(conn, dateIn, dateOut, clientId, idRoom);
                 if (result == "n")
                 {
-                    msgs = "NO RESARVADA";
+                    msgs = -7; //no reservada
                 }
                 else
                 {
-                    msgs = "RESARVADA";
+                    msgs = -11; //reservada
                 }
-            }
-            else
-            {
-                msgs = "NO RESARVADA";
-            }
-            return RedirectToAction("msg", "Index", new { viewmsg = msgs });
+            //}
+            //else
+            //{
+            //    msgs = "NO RESARVADA";
+            //}
+            return msgs;
         }
     }
 }

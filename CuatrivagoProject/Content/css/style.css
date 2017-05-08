@@ -4638,8 +4638,9 @@ hr {
   font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn.btn-transparent-white {
-  background: transparent;
-  color: #fff;
+  /*background: transparent;*/
+  color:#136084;
+  border-color :#136084;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .btn.btn-transparent-white:hover {
@@ -5513,8 +5514,8 @@ hr {
 }
 #banner #hero-tabs .tab-content-list .tab-content span input {
   position: relative;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.3);
+  /*color: #fff;*/
+  /*background: rgba(255, 255, 255, 0.3);*/
   border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
@@ -5558,7 +5559,7 @@ hr {
   margin-top: -10px;
   right: 10px;
   top: 50%;
-  color: #fff;
+  color: black;
   cursor: pointer;
 }
 /* CALENDAR */
@@ -7630,23 +7631,31 @@ hr {
   margin: 0 0 20px 0;
 }
 .container .contact-box .preamble h3 {
-  color: #fff;
+  color: #136084;
 }
 .container .contact-box .preamble h3:after {
-  color: #fff;
+  color: #136084;
 }
 .container .contact-box .contact-form {
   position: relative;
   padding: 30px;
   width: 100%;
   float: left;
-  background: rgba(0, 0, 0, 0.65);
+  /*background: rgba(0, 0, 0, 0.65);*/
+  /*background: red;*/
+  background:#fff;
+
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .container .contact-box .contact-form input {
   position: relative;
   margin-bottom: 20px;
   color: #fff;
   background: rgba(255, 255, 255, 0.3);
+  background: #FDEDEC  ;
+
+
+    background: #EBF5FB  ;
   border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
@@ -7696,7 +7705,7 @@ hr {
   margin-top: -20px;
   right: 10px;
   top: 50%;
-  color: #fff;
+  /*color: #fff;*/
   cursor: pointer;
 }
 .container .contact-box .contact-form .btn {

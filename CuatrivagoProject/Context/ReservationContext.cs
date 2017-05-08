@@ -87,7 +87,7 @@ namespace CuatrivagoProject.Context
             parameter2.Direction = ParameterDirection.Output;
             parameter2.Value = "z";
             sqlCommand.Parameters.Add(parameter2);
-            Debug.WriteLine("z" + "\n");
+            //Debug.WriteLine("z" + "\n");
 
             sqlCommand.Connection.Open();
             sqlCommand.ExecuteNonQuery();
@@ -96,6 +96,7 @@ namespace CuatrivagoProject.Context
             string reserNumber = parameter2.Value.ToString();
 
             sqlCommand.Connection.Close();
+            Debug.WriteLine(returnValue+ "\n");
             return returnValue;
         }
     }

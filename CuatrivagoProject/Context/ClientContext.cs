@@ -90,7 +90,7 @@ namespace CuatrivagoProject.Context
             p11.Direction = ParameterDirection.Input;
             p11.Value = client.lastName;
             comm.Parameters.Add(p11);
-
+            //comm.Parameters.Add(p11);
 
 
             SqlParameter p2 = new SqlParameter();

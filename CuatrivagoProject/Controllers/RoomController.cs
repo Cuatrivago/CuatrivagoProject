@@ -2,12 +2,13 @@
 using CuatrivagoProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 
-namespace CuatrivagoProjectAdmin.Controllers
+namespace CuatrivagoProject.Controllers
 {
     public class RoomController : Controller
     {
@@ -38,6 +39,7 @@ namespace CuatrivagoProjectAdmin.Controllers
             roomList.roomList = roomContext.getRoomsAvailable(conn, arrival, departure, roomType);
             roomList.dateIn = arrival;
             roomList.dateOut = departure;
+            Debug.WriteLine(arrival + "  " + departure);
             roomList.back = 1;
             return View("Details", roomList);
         }

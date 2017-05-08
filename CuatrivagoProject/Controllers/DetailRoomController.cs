@@ -15,8 +15,12 @@ namespace CuatrivagoProject.Controllers
         }
 
         // GET: DetailRoom/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int idReservation, int back, string datein, string dateout)
         {
+            ViewBag.id = idReservation;
+            ViewBag.back = back;
+            ViewBag.datein = datein;
+            ViewBag.dateout = dateout;
             return View();
         }
 

@@ -14,6 +14,7 @@ namespace CuatrivagoProject.Context
         public List<Advertisement> getInformationAdvertisement(string conn)
         {
 
+
             SqlConnection connection = new SqlConnection(conn);
 
             string sqlStoredProcedure = "SP_Retrieve_Advertisement_All";

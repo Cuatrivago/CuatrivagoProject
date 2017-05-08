@@ -8,21 +8,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="~/Content/img/cuatrivago_logo.png" rel="shortcut icon">
     <title>Cuatrivago</title>
+
+
+
     <!-- Stylesheets -->
     <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
     <link href="~/Content/css/style.css" rel="stylesheet" />
-
     <link href="~/Content/css/myStyle.css" rel="stylesheet" />
+
+
+
+
+
+
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
     @*About styles*@
+
+
+
+
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="~/Content/css/AboutUsStyles.css" rel="stylesheet" />
     <script src="~/Content/js/jquery-2.1.4.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     @*End about styles*@
+
+    <link href="~/Content/css/StyleSheet1.css" rel="stylesheet" />
+    <script type="text/javascript">
+        (function ($) {
+            'use strict';
+            $('.carousel .touch-control').each(function () {
+                var $this = $(this);
+                var $item = $this.closest('.item');
+                var $carousel = $this.closest('.carousel');
+                var $link = $item.find('a');
+                var mc = new Hammer(this);
+                mc.on("panleft panright tap", function (ev) {
+                    switch (ev.type) {
+                        case 'panleft':
+                            $carousel.carousel('next');
+                            break;
+                        case 'panright':
+                            $carousel.carousel('prev');
+                            break;
+                        case 'tap':
+                            alert($link.attr('href'));
+                            break;
+                    }
+                });
+            });
+        })(jQuery);
+
+    </script>
 </head>
 
 <body>
@@ -40,12 +80,17 @@
                                     <ul class="nav navbar-nav main-nav">
                                         <li class="active"><a href="">Inicio</a></li>
                                         <li><a href="#about">Habitaciones</a></li>
-                                        <li><a href="#facilities">Facilidades</a></li>
+
+                                        <li><a href="#gallery">Galería</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
                                     <ul class="nav navbar-nav main-nav pull-right text-right">
-                                        <li><a href="#gallery">Galería</a></li>
+                                        
+
+                                        <li><a href="#facilities">Facilidades</a></li>
+
                                         <li>@Html.ActionLink("Localización", "index", "Localization")</li>
                                         <li><a href="#footer">Contacto</a></li>
                                     </ul>
@@ -101,46 +146,26 @@
                                     <li class="tab-content active">
                                         <form action="Room/RoomTypeList" class="default-form" method="post">
                                             <span class="arrival calendar">
-                                                <input style="color: white" type="text" name="arrival" placeholder="Arrival" data-dateformat="yy-mm-dd">
+                                                <input style="" type="text" name="arrival" placeholder="Entrada" data-dateformat="yy-mm-dd">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
                                             <span class="departure calendar">
-                                                <input style="color: white" type="text" name="departure" placeholder="Departure" data-dateformat="yy-mm-dd">
+                                                <input style="" type="text" name="departure" placeholder="Salida" data-dateformat="yy-mm-dd">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
                                             <span class="adults select-box">
-                                                <select style="color: white" name="roomType"  class="form-control">
+                                                <select style="" name="roomType"  class="form-control">
                                                     @RenderSection("allRoomType", false)
-                                                    @*<option>Adults</option>
-                                                    <option value="1">1 adult</option>
-                                                    <option value="2">2 adults</option>
-                                                    <option value="3">3 adults</option>
-                                                    <option value="4">4 adults</option>*@
                                                 </select>
                                             </span>
-                                            @*<span class="adults select-box">
-                                                <select name="adults" data-placeholder="Adults" class="form-control">
-                                                    <option>Adults</option>
-                                                    <option value="1">1 adult</option>
-                                                    <option value="2">2 adults</option>
-                                                    <option value="3">3 adults</option>
-                                                    <option value="4">4 adults</option>
-                                                </select>
-                                            </span>
-                                            <span class="children select-box">
-                                                <select name="children" data-placeholder="Children" class="form-control">
-                                                    <option>Children</option>
-                                                    <option value="1">1 children</option>
-                                                    <option value="2">2 childrens</option>
-                                                    <option value="3">3 childrens</option>
-                                                    <option value="4">4 childrens</option>
-                                                </select>
-                                            </span>*@
+                                          
                                             <span class="submit-btn">
-                                                <button class="btn btn-transparent">Book Now</button>
-                                                <a href="#" class="advanced">Advanced Search</a>
+                                                <button class="btn btn-transparent">Buscar</button>
+                                                <a href="#" class="advanced">@*Advanced Search*@</a>
                                             </span>
                                         </form>
+
+
                                     </li>
                                     <!-- End Hotel -->
                                 </ul>
@@ -169,48 +194,87 @@
         <section class="about" id="about" style="background: #acc4d8;">
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="preamble col-md-12">
                         <h3>Habitaciones</h3>
-                        <p>@RenderSection("description",false)</p>
+                        <p>@RenderSection("description", false)</p>
                     </div>
-                    @RenderSection("rooms",false)
-
+                    @RenderSection("rooms", false)
                 </div>
             </div>
         </section>
         <!-- End About -->
-        <!-- Start Supertabs -->
-        <section class="supertabs" id="facilities">
-            <div class="container">
-                <div class="row">
-
-                    <div class="preamble col-md-12">
-                        <h3>Facilidades</h3>
-                        <p></p>
-                    </div>
-
-                    <!-- Start Tab-Navigation -->
-                    <div class="col-md-4 tab-navigation">
-                        <ul class="custom-list">
-                            @RenderSection("facilitiesName",false)
-                        </ul>
-                    </div>
-                    <!-- End Tab-Navigation -->
-                    <!-- Start Tab-Content -->
-                    <div class="col-md-8 tab-content">
-                        @RenderSection("facilitiesImageDescription",false)
-                        
-                    </div>
-                    <!-- End Tab-Content -->
-
-                </div>
-            </div>
-        </section>
         <!-- End Supertabs -->
         <!-- Start Partners -->
-        <section id="gallery" style="background: #acc4d8; ">
-            <div id="myGallery">
+        <section id="gallery">
+            @*<section id="gallery" style="background: #acc4d8; ">*@
+
+            <div id="ga">
+                <div id="carousel-example-generic" class="carousel carousel-background carousel-background-16by9 slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+
+
+                        @*<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>*@
+                        @RenderSection("galleryGrid", false)
+
+
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        @*<div class="item active">
+                            <div class="item-image embed-responsive embed-responsive-16by9"
+                                 style="background-image: url('../../Content/img/gallery/1c.jpg');">
+                                <a href="#1"></a>
+                                <div class="touch-control"></div>
+                            </div>
+                        </div>*@
+
+                        @RenderSection("gallery", false)
+
+                        @*<div class="item">
+                            <div class="item-image embed-responsive embed-responsive-16by9"
+                                 style="background-image: url('../../Content/img/gallery/1b.jpg'); ">
+
+                                <a href="#2"></a>
+                                <div class="touch-control"></div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-image embed-responsive embed-responsive-16by9"
+                                 style="background-image: url('../../Content/img/gallery/1d.jpg'); ">
+
+                                <a href="#2"></a>
+                                <div class="touch-control"></div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-image embed-responsive embed-responsive-16by9"
+                                 style="background-image: url('../../Content/img/gallery/1e.jpg'); ">
+
+                                <a href="#2"></a>
+                                <div class="touch-control"></div>
+                            </div>
+                        </div>*@
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+            @*<div id="myGallery">
                 <div class="container">
                     <div id="main_area">
                         <!-- Slider -->
@@ -248,7 +312,7 @@
                                                 <span class="glyphicon glyphicon-chevron-left"></span>
                                             </a>
                                             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                             <span class="glyphicon glyphicon-chevron-right"></span>
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
                                             </a>
                                         </div>
                                     </div>
@@ -258,12 +322,34 @@
                         <!--/Slider-->
                     </div>
                 </div>
-            </div>
+            </div>*@
+        </section>
+       
+        <!-- Start Supertabs -->
+        <section class="supertabs" id="facilities">
+            <div class="container">
+                <div class="row">
+                    <div class="preamble col-md-12">
+                        <h3>Facilidades</h3>
+                        <p></p>
+                    </div>
+                    <!-- Start Tab-Navigation -->
+                    <div class="col-md-4 tab-navigation">
+                        <ul class="custom-list">
+                            @RenderSection("facilitiesName", false)
+                        </ul>
+                    </div>
+                    <!-- End Tab-Navigation -->
+                    <!-- Start Tab-Content -->
+                    <div class="col-md-8 tab-content">
+                        @RenderSection("facilitiesImageDescription", false)
 
+                    </div>
+                    <!-- End Tab-Content -->
+                </div>
+            </div>
         </section>
         <!-- End Partners -->
-
-      
 
         <!-- End Partners -->
         <!-- Start Footer -->
@@ -277,16 +363,18 @@
                             <h5 class="title">
                                 Contacto
                             </h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Etiam sit amet lectus quis est congue mollis.</p>
-                        </div>
+                            <p style="color:white">Visita Cuatrivago, abierto al público todos los días.</p>
+                            <p style="color:white">Teléfono: 25566572</p>
+                            <p style="color:white">Correo: cuatrivago@gmail.com</p>
+                         </div>
                         <div class="col-md-4 widget widget-news">
                             <h5 class="title">
-                                Latest News
+                               Enlaces
                             </h5>
                             <ul class="custom-list">
-                                <li><a href="#">Lorem ipsum dolor</a></li>
-                                <li><a href="#">Proin nibh augue suscipit scelerisque</a></li>
-                                <li><a href="#">Etiam pellentesque aliquet tellus</a></li>
+                                <li><a href="#">Habitaciones</a></li>
+                                <li><a href="#">Galería</a></li>
+                                <li><a href="#">Ubicación</a></li>
                             </ul>
                         </div>
                     </div>
@@ -298,13 +386,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>Copyright 2015 Â© PetraHotel. All rights reserved. Powered by <a href="#">UOUapps</a></p>
+                            <p>Copyright 2017© HotelCuatrivago. Todos los derechos reservados. Desarrollado por <a href="#"> CuatrivagoTeam</a></p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End Footer-Copyrights -->
-
         </footer>
         <!-- End Footer -->
 

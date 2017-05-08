@@ -20,11 +20,13 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
     @*About styles*@
+    <script src="~/Content/js/alertify.js"></script>
+    <link href="~/Content/css/alertify.core.css" rel="stylesheet" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="~/Content/css/AboutUsStyles.css" rel="stylesheet" />
     <script src="~/Content/js/jquery-2.1.4.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+    <link href="~/Content/css/alertify.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -91,7 +93,7 @@
             <section class="reservation">
                 <div class="container">
                     <div class="contact-box" style="width:50%; margin: 40px 20%">
-                        <form action="/Reservation/Insert" class="contact-form default-form" method="post" id="commentForm">
+                        <form action="/Reservation/Insert" method="post"class="contact-form default-form"  id="commentForm">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="preamble col-md-12">
@@ -193,10 +195,12 @@
         </footer>
 
     </div>
+    <link href="~/Content/css/alertify.bootstrap.css" rel="stylesheet" />
     <script src="~/Content/js/AboutJS.js"></script>
     <script src="~/Content/js/scripts.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="~/Content/js/gmap3.min.js"></script>
+    <script src="~/Content/js/alertify.min.js"></script>
     <script src="~/Content/js/owl.carousel.min.js"></script>
     <script src="~/Content/js/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="~/Content/js/jquery.ba-outside-events.min.js"></script>
@@ -206,11 +210,35 @@
     <script src="~/Content/js/transition.js"></script>
     <script src="~/Content/js/jquery.matchHeight-min.js"></script>
     <script src="js/jquery.matchHeight-min.js"></script>
-    <script>
+    <script type="text/javascript">
         $("#commentForm").validate();
     </script>
     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnGet').click(function () {
+                alert('{"arrival":"' + $.trim($("#arrival").val()) + '","departure":"' + $.trim($("#departure").val()) + '","idRoom":"' + $.trim($("#idRoom").val()) + '"}');
+                $.ajax({
+                    type: "POST",
+                    url: "/Reservation/isAvaibleRoom/",
+                    data: '{"arrival":"' + $.trim($("#arrival").val()) + '","departure":"' + $.trim($("#departure").val()) + '","idRoom":"' + $.trim($("#idRoom").val()) + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        alert(data);
+                    },
+                    failure: function (data) {
+                        alert(":56");
+                        //alert(response.responseText);
+                    },
+                    error: function (data) {
+                        alert(":55");
+                        //alert(response.responseText);
+                    }
+                });
 
+                return false; // prevent default
+            });
+        });
         window.onload = (function () {
             try {
                 $("#mail").on('keyup', function () {
@@ -232,7 +260,6 @@
                                 $("#cardNumber").val(data.creditCard);
                                 $("#phone").val(data.phone);
                             }
-
                         },
                         failure: function (data) {
                             alert(":56");
@@ -245,7 +272,10 @@
                     });
                 }).keyup();
             } catch (e) { }
-        });
+        }
+
+
+        );
 
     </script>
 </body>

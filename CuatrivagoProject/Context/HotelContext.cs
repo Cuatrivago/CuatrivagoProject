@@ -15,6 +15,8 @@ namespace CuatrivagoProject.Context
             
             SqlConnection connection = new SqlConnection(conn);
 
+
+
             string sqlStoredProcedure = "SP_Retrieve_Hotel";
             SqlCommand cmdHotel = new SqlCommand(sqlStoredProcedure, connection);
 

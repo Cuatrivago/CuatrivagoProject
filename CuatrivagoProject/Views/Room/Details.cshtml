@@ -240,17 +240,23 @@
                                                         </ul>
                                                     </div>
                                                     <div class="col-md-3 col-sm-3">
-                                                        <button class="btn btn-transparent-gray">
-                                                            @Html.ActionLink("Ver más", "Details", "DetailRoom", new { id = 1 }, null)
-                                                        </button>
+                                                        @*<button class="btn btn-transparent-gray">
+                                                            @*Html.ActionLink("Ver más", "Details", "DetailRoom", new { id = 1 }, null)*@
+                                                            @*@Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = "", dateOut = "" }, null)
+                                                        </button>*@
                                                         @if(Model.back == 0) {
-                                                        <button class="btn btn-transparent-gray" style="margin-top: 8px;">
-                                                            @Html.ActionLink("Reservar", "CreateReservation", "Reservation", new { idReservation= @item.idRoom, back = Model.back, dateIn="",dateOut="" }, null)
-                                                        </button>
+                                                        @*<button class="btn btn-transparent-gray" style="margin-top: 8px;">
+                                                            @Html.ActionLink("test", "CreateReservation", "Reservation", new { idReservation= @item.idRoom, back = Model.back, dateIn="",dateOut="" }, null)
+                                                    
+                                                            </button>*@
+                                                            <button class="btn btn-transparent-gray" style="margin-top: 8px;">
+                                                                @Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = "", dateOut = "" }, null)
+                                                            </button>
                                                         }
-                                                        else{
+                                                        else
+                                                        {
                                                         <button class="btn btn-transparent-gray" style="margin-top: 8px;">
-                                                            @Html.ActionLink("Reservar", "CreateReservation", "Reservation", new { idReservation = @item.idRoom, back = Model.back, dateIn = Model.dateIn, dateOut = Model.dateOut }, null)
+                                                            @Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = Model.dateIn, dateOut = Model.dateOut }, null)
                                                         </button>
                                                         }
                                                     </div>

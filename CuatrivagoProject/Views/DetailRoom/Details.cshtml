@@ -2,10 +2,8 @@
 @{
     Layout = null;
 }
-
 <!doctype html>
 <html lang="en">
-
 <!-- Mirrored from new.uouapps.com/petra-html/single_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:21:04 GMT -->
 <head>
     <meta charset="utf-8">
@@ -13,29 +11,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="~/Content/img/cuatrivago_logo.png" rel="shortcut icon">
     <title>Cuatrivago</title>
-
     <!-- Stylesheets -->
     <link rel="stylesheet" href="~/Content/css/style.css">
     <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
-
+    <link href="~/Content/css/myStyle.css" rel="stylesheet" />
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
-
     <!--[if IE 9]>
       <script src="js/media.match.min.js"></script>
     <![endif]-->
+    <script src="~/Content/js/alertify.js"></script>
+    <link href="~/Content/css/alertify.core.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/css/AboutUsStyles.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery-2.1.4.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="~/Content/css/alertify.css" rel="stylesheet" />
 </head>
-
 <body>
-
     <!-- Start Main-Wrapper -->
     <div id="main-wrapper">
-
         <!-- Start Header -->
         <header id="header">
-      
             <div class="header-navi">
                 <div class="container">
                     <div class="row">
@@ -43,11 +43,11 @@
                             <div class="row">
                                 <div class="col-lg-5 col-md-5 col-sm-12">
                                     <ul class="nav navbar-nav main-nav">
-                                        <li><a href="">@Html.ActionLink("Inicio","index","Index")</a></li>
-                                        <li><a href="">@Html.ActionLink("Habitaciones", "Details", "Room", new { id = 1 }, null)</a></li>                                   
+                                        <li><a href="">@Html.ActionLink("Inicio", "index", "Index")</a></li>
+                                        <li><a href="">@Html.ActionLink("Habitaciones", "Details", "Room", new { id = 1 }, null)</a></li>
                                     </ul>
                                 </div>
-                                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">                                   
+                                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                     <div class="col-md-12">
                         <h3 class="title-section pull-left">
                             Habitación
-                        </h3>                   
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -132,17 +132,105 @@
                                         <li><a href="#"><i class="fa fa-git-square"></i></a></li>
                                     </ul>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="sidebar">
+                            @*<div class="sidebar-widget">
+                                    <form action="http://new.uouapps.com/petra-html/index.html" class="default-form search-form">
+                                        <input placeholder="Search" type="text">
+                                        <button><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>*@
                             <div class="sidebar-widget">
-                                <form action="http://new.uouapps.com/petra-html/index.html" class="default-form search-form">
-                                    <input placeholder="Search" type="text">
-                                    <button><i class="fa fa-search"></i></button>
-                                </form>
+                                <h5 class="widget-title">Reservación</h5>
+                                @*<ul class="custom-list list categories-list">
+                                        <li><a href="#">Lifestyle</a></li>
+                                        <li><a href="#">Luxury</a></li>
+                                        <li><a href="#">CEO Corner</a></li>
+                                        <li><a href="#">Leisure</a></li>
+                                    </ul>*@
+                                <div class="contact-box" style="width:100%;">
+                                    <form action="/Reservation/Insert" method="post" class="contact-form default-form" id="commentForm">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="preamble col-md-12">
+                                                    <h3 style="line-height:38px;">Hotel Cuatrivago Reservación</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input style="text-transform: uppercase; text-align: center; color: black" id="mail" name="mail" type="text" placeholder="Digite su correo" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input style="text-transform: uppercase; text-align: center; color: black" id="name" name="name" type="text" placeholder="Nombre" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input style="text-transform: uppercase; text-align: center; color: black" id="lastName" name="lastName" type="text" placeholder="Apellido" required>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <input style="text-transform: uppercase; text-align: center; color: black" id="cardNumber" name="cardNumber" type="number" placeholder="Número Tarjeta" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input style="text-transform: uppercase; text-align: center; color: black" id="phone" name="phone" type="number" placeholder="Teléfono" required>
+                                            </div>
+                                            @if (@ViewBag.back == 0)
+                                            {
+                                                <div class="col-md-12">
+                                                    <span class="arrival calendar">
+                                                        <input style="text-transform: uppercase; text-align: center; color: black" type="text" id="arrival" name="arrival" placeholder="Desde" data-dateformat="yy-mm-dd" required>
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="departure calendar">
+                                                        <input style="text-transform: uppercase; text-align: center; color: black" type="text" id="departure" name="departure" placeholder="Hasta" data-dateformat="yy-mm-dd" required>
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-lg-md text-center">
+                                                    <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
+                                                </div>
+
+                                            }
+                                            else
+                                            {<div class="col-lg-md text-center">
+                                                <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input name="arrival" id="arrival" style="margin: -30px; visibility: hidden;text-transform: lowercase; " value="@ViewBag.datein" required>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input name="departure" id="departure" style="margin: -30px; visibility: hidden;text-transform: lowercase ; " value="@ViewBag.dateout" required>
+                                            </div>
+                                            }
+                                        </div>
+
+                                        <input style="visibility: hidden;position: relative; height: 0px; font-size: 1px ; margin: 0px" id="idRoom" name="idRoom" value="@ViewBag.id">
+
+                                    </form>
+                                </div>
+                                @*<form id="" class="inner" method="POST">
+                                        <div class="form-group">
+                                            <input class="form-control"  placeholder="Email" type="email" id="mail">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control"  placeholder="Name" type="text" id="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control"  placeholder="Last Name" type="text" id="name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Phone Number" type="text">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input class="form-control"  placeholder="Card Number" type="text">
+                                        </div>
+
+                                    </form>*@
                             </div>
                             <div class="sidebar-widget">
                                 <h5 class="widget-title">Categories</h5>
@@ -153,27 +241,27 @@
                                     <li><a href="#">Leisure</a></li>
                                 </ul>
                             </div>
-                            <div class="sidebar-widget">
-                                <h5 class="widget-title">Meta</h5>
-                                <ul class="custom-list list meta-list">
-                                    <li><a href="#">Lorem Ipsum</a></li>
-                                    <li><a href="#">Scelerisque Proin</a></li>
-                                    <li><a href="#">Professional Website</a></li>
-                                    <li><a href="#">Etiam nibh auque</a></li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-widget">
-                                <h5 class="widget-title">Tags</h5>
-                                <ul class="custom-list list-inline tags-list">
-                                    <li><a href="#">Lifestyle</a></li>
-                                    <li><a href="#">Luxury</a></li>
-                                    <li><a href="#">Money</a></li>
-                                    <li><a href="#">Professional</a></li>
-                                    <li><a href="#">Multilingual</a></li>
-                                    <li><a href="#">Expensive</a></li>
-                                    <li><a href="#">Top Class</a></li>
-                                </ul>
-                            </div>
+                            @*<div class="sidebar-widget">
+                                    <h5 class="widget-title">Meta</h5>
+                                    <ul class="custom-list list meta-list">
+                                        <li><a href="#">Lorem Ipsum</a></li>
+                                        <li><a href="#">Scelerisque Proin</a></li>
+                                        <li><a href="#">Professional Website</a></li>
+                                        <li><a href="#">Etiam nibh auque</a></li>
+                                    </ul>
+                                </div>*@
+                            @*<div class="sidebar-widget">
+                                    <h5 class="widget-title">Tags</h5>
+                                    <ul class="custom-list list-inline tags-list">
+                                        <li><a href="#">Lifestyle</a></li>
+                                        <li><a href="#">Luxury</a></li>
+                                        <li><a href="#">Money</a></li>
+                                        <li><a href="#">Professional</a></li>
+                                        <li><a href="#">Multilingual</a></li>
+                                        <li><a href="#">Expensive</a></li>
+                                        <li><a href="#">Top Class</a></li>
+                                    </ul>
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -185,7 +273,7 @@
             <div class="container">
                 <div class="row">
                     <div class="preamble col-md-12">
-                        <h3>Galería</h3>
+                        <h3>Publicidad</h3>
                     </div>
                     <div class="col-md-12">
                         <div id="clients-slider" class="owl-carousel">
@@ -216,25 +304,132 @@
                 </div>
             </div>
             <!-- End Footer-Copyrights -->
-
         </footer>
         <!-- End Footer -->
-
     </div>
     <!-- End Main-Wrapper -->
     <!-- Scripts -->
-    <script src="~/Content/js/jquery-2.1.4.min.js"></script>
+    <link href="~/Content/css/alertify.bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/js/AboutJS.js"></script>
+    <script src="~/Content/js/alertify.min.js"></script>
     <script src="~/Content/js/scripts.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="~/Content/js/gmap3.min.js"></script>
     <script src="~/Content/js/owl.carousel.min.js"></script>
     <script src="~/Content/js/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="~/Content/js/jquery.ba-outside-events.min.js"></script>
+    <script src="~/Content/js/jqueryui.js"></script>
     <script src="~/Content/js/jquery.vide.min.js"></script>
     <script src="~/Content/js/tab.js"></script>
     <script src="~/Content/js/transition.js"></script>
     <script src="~/Content/js/jquery.matchHeight-min.js"></script>
-</body>
+    <script src="js/jquery.matchHeight-min.js"></script>
 
+    <script>
+        $("#commentForm").validate();
+    </script>
+    <script type="text/javascript">
+
+        function createReservation() {
+            //alert('topo');
+            $.ajax({
+                type: "POST",
+                url: "/Reservation/insert/",
+                data: '{"name":"' + $.trim($("#name").val()) +
+                    '","lastName":"' + $.trim($("#lastName").val()) +
+                    '","mail":"' + $.trim($("#mail").val()) +
+                    '","cardNumber":"' + $.trim($("#cardNumber").val()) +
+                    '","phone":"' + $.trim($("#phone").val()) +
+                    '","dateIn":"' + $.trim($("#arrival").val()) +
+                    '","dateOut":"' + $.trim($("#departure").val()) +
+                    '","idRoom":"' + $.trim($("#idRoom").val()) + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data == -7) {
+                      alert("No reservada");
+                    } else {
+                      alert("Reservada");
+                    }
+
+                },
+                failure: function (data) {
+                    alert(":56");
+                    //alert(response.responseText);
+                },
+                error: function (data) {
+                    alert(":55");
+                    //alert(response.responseText);
+                }
+            });
+
+            return false; // prevent default
+        }
+        $(document).ready(function () {
+            $('#btnGet').click(function () {
+                //alert('{"arrival":"' + $.trim($("#arrival").val()) + '","departure":"' + $.trim($("#departure").val()) + '","idRoom":"' + $.trim($("#idRoom").val()) + '"}');
+                $.ajax({
+                    type: "POST",
+                    url: "/Reservation/isAvaibleRoom/",
+                    data: '{"arrival":"' + $.trim($("#arrival").val()) + '","departure":"' + $.trim($("#departure").val()) + '","idRoom":"' + $.trim($("#idRoom").val()) + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        //alert(data + "1");
+                        createReservation();
+                    },
+                    failure: function (data) {
+                        alert(":59");
+                        //alert(response.responseText);
+                    },
+                    error: function (data) {
+                        alert(":60");
+                        //alert(response.responseText);
+                    }
+                });
+
+                return false; // prevent default
+            });
+        });
+        window.onload = (function () {
+            try {
+                $("#mail").on('keyup', function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reservation/AjaxMethod/",
+                        data: '{email:"' + $.trim($("#mail").val()) + '"}',
+                        //data: '{email:"' + $("#mail").val() + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.id == -1) {
+
+                            }
+                            else {
+                                alert($("#mail").val() + ' Bienvenido una vez mas a nuestro hotel.');
+                                $("#name").val(data.name);
+                                $("#lastName").val(data.lastName);
+                                $("#cardNumber").val(data.creditCard);
+                                $("#phone").val(data.phone);
+                            }
+                        },
+                        failure: function (data) {
+                            alert(":56");
+                            //alert(response.responseText);
+                        },
+                        error: function (data) {
+                            alert(":55");
+                            //alert(response.responseText);
+                        }
+                    });
+                }).keyup();
+            } catch (e) { }
+        }
+
+
+        );
+
+    </script>
+</body>
 <!-- Mirrored from new.uouapps.com/petra-html/single_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:21:08 GMT -->
 </html>

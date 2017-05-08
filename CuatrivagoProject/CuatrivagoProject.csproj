@@ -100,9 +100,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\AboutUsStyles.css" />
+    <Content Include="Content\css\alertify.bootstrap.css" />
+    <Content Include="Content\css\alertify.core.css" />
+    <Content Include="Content\css\alertify.css" />
+    <Content Include="Content\css\alertify.default.css" />
+    <Content Include="Content\css\alertify.min.css" />
+    <Content Include="Content\css\alertify.rtl.css" />
+    <Content Include="Content\css\alertify.rtl.min.css" />
     <Content Include="Content\css\myStyle.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\StyleSheet1.css" />
     <Content Include="Content\fonts\fontawesome-webfont78ce.svg" />
     <Content Include="Content\imagesFacilities\bar.jpg" />
     <Content Include="Content\imagesFacilities\buffete.JPG" />
@@ -175,6 +183,8 @@
     <Content Include="Content\img\supertabs-3.jpg" />
     <Content Include="Content\img\supertabs.jpg" />
     <Content Include="Content\js\AboutJS.js" />
+    <Content Include="Content\js\alertify.js" />
+    <Content Include="Content\js\alertify.min.js" />
     <Content Include="Content\js\gmap3.min.js" />
     <Content Include="Content\js\jquery-2.1.4.min.js" />
     <Content Include="Content\js\jquery-ui-1.10.4.custom.min.js" />
@@ -276,6 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\themes\" />
     <Folder Include="Content\imagesAdvertisement\" />
     <Folder Include="Services\" />
   </ItemGroup>

@@ -35,15 +35,15 @@
                 </div>
             </div>
             <h4 id="rooms">@item.name</h4>
-            <p>
-                Precio en dolares = @item.priceColon
-                <br />
-                Precio en colones = @item.priceDolar
-                <br />
-                Cantidad de habitaciones = @item.quantity
-                <br />
-                @item.description_
-            </p>
+            @*<p>
+                    Precio en dolares = @item.priceColon
+                    <br />
+                    Precio en colones = @item.priceDolar
+                    <br />
+                    Cantidad de habitaciones = @item.quantity
+                    <br />
+                    @item.description_
+                </p>*@
         </div>
     }
 }
@@ -114,11 +114,15 @@
 @section galleryGrid{
     @foreach (var item in Model.image)
     {
-        <li class="col-sm-3">
-            <a class="thumbnail" id="carousel-selector-@count">
-                <img src="@item.path" />
-            </a>
-        </li>
+        if (count == 0)
+        {
+            <li data-target="#carousel-example-generic" data-slide-to="@count" class="active"></li>
+        }
+        else
+        {
+            <li data-target="#carousel-example-generic" data-slide-to="@count"></li>
+
+        }
         count++;
     }
 
@@ -126,16 +130,25 @@
 @section gallery{
     @foreach (var item in Model.image)
     {
+
         if (count2 == 0)
         {
-            <div class="active item" data-slide-number="@count2">
-                <img src="@item.path" />
+            <div class="item active">
+                <div class="item-image embed-responsive embed-responsive-16by9"
+                     style="background-image: url('@item.path');">
+                    <a href="#1"></a>
+                    <div class="touch-control"></div>
+                </div>
             </div>
         }
         else
         {
-            <div class="item" data-slide-number="@count2">
-                <img src="@item.path" />
+            <div class="item">
+                <div class="item-image embed-responsive embed-responsive-16by9"
+                     style="background-image: url('@item.path');">
+                    <a href="#2"></a>
+                    <div class="touch-control"></div>
+                </div>
             </div>
 
         }
@@ -144,7 +157,7 @@
 }
 
 @section result{
-    @if(@ViewBag.result != null)
+    @if (@ViewBag.result != null)
     {    <section class="partners">
             <div class="container">
                 <div class="row">
