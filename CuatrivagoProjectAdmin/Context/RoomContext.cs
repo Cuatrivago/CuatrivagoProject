@@ -9,7 +9,7 @@ using System.Web;
 
 namespace CuatrivagoProjectAdmin.Context
 {
-    public class Room
+    public class RoomContext
     {
         public List<StateRoom> getInformationStateRoomToday(string conn, DateTime date)
         {
@@ -157,5 +157,30 @@ namespace CuatrivagoProjectAdmin.Context
             return allRoomType;
 
         }
+
+        public List<Room> getRoomComboBox(string conn)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+            string sqlStoredProcedure = "SP_Retrieve_Room_ComboBox";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Connection.Open();
+            sqlCommand.ExecuteNonQuery();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            List<Room> roomList = new List<Room>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Room room = new Room();
+                    room.idRoom = reader.GetInt32(0);
+                    room.description_ = reader.GetString(1);
+                    roomList.Add(room);
+                }
+            }
+            sqlCommand.Connection.Close();
+            return roomList;
+        }
+
     }
 }

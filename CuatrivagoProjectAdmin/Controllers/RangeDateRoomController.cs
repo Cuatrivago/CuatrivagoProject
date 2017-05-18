@@ -12,7 +12,7 @@ namespace CuatrivagoProjectAdmin.Controllers
     public class RangeDateRoomController : Controller
     {
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
-        Room room = new Room();
+        RoomContext room = new RoomContext();
 
         public ActionResult Index()
         {

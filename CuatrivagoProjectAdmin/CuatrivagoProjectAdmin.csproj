@@ -113,18 +113,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\AdminContext.cs" />
-    <Compile Include="Context\Room.cs" />
+    <Compile Include="Context\ImageContext.cs" />
+    <Compile Include="Context\RoomContext.cs" />
     <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RangeDateRoomController.cs" />
+    <Compile Include="Controllers\RoomImageController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\StateRoomTodayController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\ModelsForRoomImage.cs" />
     <Compile Include="Models\RangeDateRoom.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomType.cs" />
     <Compile Include="Models\StateRoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +147,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\RangeDateRoom\index.cshtml" />
     <Content Include="Views\RangeDateRoom\viewsRooms.cshtml" />
+    <Content Include="Views\RoomImage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,6 +158,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CuatrivagoProject\CuatrivagoProject.csproj">
+      <Project>{660a144e-2499-44a2-9194-73a071b7ba97}</Project>
+      <Name>CuatrivagoProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
