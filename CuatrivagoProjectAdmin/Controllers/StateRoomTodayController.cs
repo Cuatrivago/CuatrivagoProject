@@ -11,7 +11,7 @@ namespace CuatrivagoProjectAdmin.Controllers
     public class StateRoomTodayController : Controller
     {
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
-        private Room stateRoom = new Room();
+        private RoomContext stateRoom = new RoomContext();
 
 
         public ActionResult Index()
