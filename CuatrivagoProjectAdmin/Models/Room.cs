@@ -11,5 +11,6 @@ namespace CuatrivagoProjectAdmin.Models
         public int capacity { get; set; }
         public string description_ { get; set; }
         public int roomType { get; set; }
+        public int price { get; set; }
     }
 }

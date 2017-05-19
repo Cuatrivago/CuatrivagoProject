@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.RoomType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+    Actualizar habitaciones
+}
+
+@section content{
+    <!-- page content -->
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+
+            <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left" method="GET" action="/UpdateRoom/viewsRoomsByType" id="form">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Tipo de habitación</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control" id="type" name="type">                                                              
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.type)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                            <input type="submit" class="btn btn-success" value="Consultar" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+}

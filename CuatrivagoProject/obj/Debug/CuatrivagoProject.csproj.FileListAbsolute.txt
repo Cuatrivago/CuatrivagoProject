@@ -360,3 +360,7 @@ R:\Kevin\Universidad\IF7100\Proyecto\Cuatrivago\CuatrivagoProject\CuatrivagoProj
 R:\Kevin\Universidad\IF7100\Proyecto\Cuatrivago\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache
 R:\Kevin\Universidad\IF7100\Proyecto\Cuatrivago\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.dll
 R:\Kevin\Universidad\IF7100\Proyecto\Cuatrivago\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.pdb
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.dll
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.dll
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.xml
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.xml
