@@ -1,0 +1,99 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Room>
+
+@{
+    ViewBag.Title = "viewsRoomsByType";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+
+    Habitaciones
+
+}
+
+@section content{
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                    Nombre
+                </label>
+            </th>
+            <th>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                    Capacidad
+                </label>
+            </th>
+            <th>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                    Precio
+                </label>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <form class="form-horizontal form-label-left" method="post" action="/UpdateRoom/UpdateOneRoom">
+                <tr>
+                    <td>
+                        <input type="text" class="form-control col-md-7 col-xs-12" value="@Html.DisplayFor(modelItem => item.description_)" name="description"
+                               minlength="5" maxlength="500" />
+                    </td>
+                    <td>
+                        <input type="number" class="form-control col-md-3 col-xs-12" value="@Html.DisplayFor(modelItem => item.capacity)" name="capacity"
+                               required pattern="[0-9]{3}" />
+
+                    </td>
+                    <td>
+                        <input type="number" class="form-control col-md-3 col-xs-12" value="@Html.DisplayFor(modelItem => item.price)" name="price"
+                               required pattern="[0-9]{3}" />
+                    </td>
+
+                    <td>
+                        <input type="hidden" value="@Html.DisplayFor(modelItem => item.idRoom)" name="idRoom" />
+                        <input type="hidden" value="@Html.DisplayFor(modelItem => item.roomType)" name="idTypeRoom" />
+                        <input type="submit" class="btn btn-success" value="Actualizar" />
+                    </td>
+                </tr>
+            </form>
+
+
+
+        }
+
+
+
+    </table>
+
+
+
+}
+
+
+
+@section error{
+
+    @if (Request.Cookies["error"] != null && Request.Cookies["error"]["errorUpdate"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Error al realizar la actualización!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+    @if (Request.Cookies["errorData"] != null && Request.Cookies["errorData"]["errorData"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Debe ingresar todos los datos válidos!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+
+    <script>
+        function modalSelect(modalMessage, modalTitle) {
+            document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+            document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+        }
+    </script>
+}

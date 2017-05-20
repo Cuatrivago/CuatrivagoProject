@@ -1,0 +1,52 @@
+﻿@model CuatrivagoProjectAdmin.Models.Room
+
+@{
+    ViewBag.Title = "viewsRoomsByType";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+
+    Detalle actualización
+
+}
+
+@section content{
+
+    <div>
+        <h4>@Html.DisplayFor(model => model.description_)</h4>
+        <hr />
+        <dl class="dl-horizontal">                  
+            
+            <dt>
+                Nombre:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.description_)
+            </dd>   
+
+            <dt>
+               Capacidad:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.capacity)
+            </dd>                       
+
+            <dt>
+               Precio:
+            </dt>
+
+            <dd>
+                ₡ @Html.DisplayFor(model => model.price)
+            </dd>
+
+        </dl>
+        <h2 style="color:#4fb671;"> La actualización fue exitosa</h2>
+    </div>
+    <p>
+        @Html.ActionLink("Atrás", "viewsRoomsByType", new { type = Model.roomType }) 
+       
+    </p>
+}
