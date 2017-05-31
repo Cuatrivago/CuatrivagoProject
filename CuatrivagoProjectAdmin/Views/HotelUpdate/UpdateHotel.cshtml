@@ -1,13 +1,17 @@
 ﻿@model CuatrivagoProjectAdmin.Models.Hotel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section content{
     <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                        <legend class="text-center header">Contact us</legend>
+                        <legend class="text-center header">Información del Hotel</legend>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
                                 <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
@@ -18,32 +22,52 @@
                             <div class="col-md-8">
                                 <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
                             </div>
-                        </div>
-
+                        </div>*@
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-car bigicon"></i><p>Dirección</p></span>
+                            
                             <div class="col-md-8">
-                                <input id="email" value="@Model.email" name="email" type="text" placeholder="Email Address" class="form-control">
+                                <input id="lname" name="name" value="@Model.address_"type="text" placeholder="Dirección" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i><p>Teléfono</p></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                                <input id="phone" name="phone" value="@Model.phone" placeholder="Teléfono" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i><p>Email 1</p></span>
                             <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                                <input id="email"  name="email" value="@Model.email" type="text" placeholder="Correo atención al cliente" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i><p>Email 2</p></span>
+                            <div class="col-md-8">
+                                <input id="email"  name="email" value="@Model.postMail" type="text" placeholder="Correo sugerencias" class="form-control">
                             </div>
                         </div>
 
+                       
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Sobre nosotros</p></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="message" name="message" placeholder="Descripción sobre nosotros" rows="7">@Model.aboutUs</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Descripción facilidades</p></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="message" name="message"  placeholder="Descripción sobre facilidades." rows="7">@Model.homeInformation</textarea>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                             </div>
                         </div>
                     </fieldset>
