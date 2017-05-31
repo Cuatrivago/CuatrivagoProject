@@ -6,6 +6,10 @@
 @section description{
     @Model.Hotel.homeInformation
 }
+@section aboutus{
+    @Model.Hotel.aboutUs
+}
+
 @section allRoomType
     {
     @foreach (var item in Model.roomType)
@@ -176,4 +180,78 @@
             <a href="@Html.DisplayFor(modelitem => item.url)"><img src="@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
         </div>
     }
+}
+@section footer{
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 widget widget-about">
+                        <h5 class="title">
+                         Dirección
+                        </h5>
+                        <p style="color:white">
+                            PO Box 16122 Avenida 0
+                            Turrialba
+                            Frente de la iglesia catolica
+                        </p>
+                        <p style="color:white">Visita Cuatrivago, abierto al público todos los días.</p>
+                        <ul class="custom-list">
+                            <li><a href="#">Ir al mapa</a></li>
+                            
+                        </ul>
+    @*<p style="color:white">Visita Cuatrivago, abierto al público todos los días.</p>
+                            <p style="color:white">Teléfono: 25566572</p>
+                            <p style="color:white">Correo: cuatrivago@gmail.com</p>
+                            <p style="color:white">Correo: cuatrivago@gmail.com</p>*@
+                    </div>
+                    <div class="col-md-4 widget widget-about">
+                        <h5 class="title">
+                            Contacto
+                        </h5>
+                        <p style="color:white">Fax: 25561343</p>
+                        <p style="color:white">Teléfono: @Model.Hotel.phone</p>
+                        <p style="color:white">Atención al cliente: @Model.Hotel.postMail</p>
+                        <p style="color:white">Sugerencias: @Model.Hotel.email</p>
+                    </div>
+
+                    <div class="col-md-4 widget widget-news">
+                        <h5 class="title">
+                            Enlaces
+                        </h5>
+                        <ul class="custom-list">
+                            <li><a href="#">Habitaciones</a></li>
+                            <li><a href="#">Galería</a></li>
+                            <li><a href="#">Ubicación</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright 2017© HotelCuatrivago. Todos los derechos reservados. Desarrollado por <a href="#"> CuatrivagoTeam</a></p>
+                    </div>
+                    <div class="col-md-3">
+                        
+                        
+                            <a href="#">Facebook</a>
+                          
+                       
+                    </div>
+                    <div class="col-md-3">
+
+                        
+                            
+
+                            <a href="#">Instragram</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 }

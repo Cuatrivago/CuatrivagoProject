@@ -5643,6 +5643,17 @@ hr {
 .about .feature .overlay-content {
   margin-top: -25px;
 }
+
+.aboutustext{
+     font: bold 90% monospace;
+     font-size: 50px;
+}
+.aboutustitle{
+     font-family: cursive;
+   
+}
+
+
 .overlay {
   position: relative;
   display: block;

@@ -13,7 +13,6 @@ namespace CuatrivagoProject.Controllers
     public class IndexController : Controller
     {
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
-
         private HotelContext hotelContext = new HotelContext();
         private AdvertisementContext advertisementContext = new AdvertisementContext();
         private FacilitieContext facilitieContext = new FacilitieContext();
