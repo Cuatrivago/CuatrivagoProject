@@ -7,71 +7,58 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center header">Información del Hotel</legend>
+                @*<form class="form-horizontal" action="HotelUpdate/UpdateHotelSave" method="post">*@
+                    <form class="form-horizontal" action="@Url.Action("UpdateHotelSave", "HotelUpdate")" method="post">
+                        <fieldset>
+                            <legend class="text-center header">Información del Hotel</legend>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-car bigicon"></i><p>Dirección</p></span>
 
-                        @*<div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
+                                <div class="col-md-8">
+                                    <input id="lname" name="address" value="@Model.address_" type="text" placeholder="Dirección" class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>*@
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-car bigicon"></i><p>Dirección</p></span>
-                            
-                            <div class="col-md-8">
-                                <input id="lname" name="name" value="@Model.address_"type="text" placeholder="Dirección" class="form-control">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i><p>Teléfono</p></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" value="@Model.phone" placeholder="Teléfono" class="form-control">
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i><p>Teléfono</p></span>
+                                <div class="col-md-8">
+                                    <input id="phone" name="phone" value="@Model.phone" placeholder="Teléfono" class="form-control">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i><p>Email 1</p></span>
-                            <div class="col-md-8">
-                                <input id="email"  name="email" value="@Model.email" type="text" placeholder="Correo atención al cliente" class="form-control">
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i><p>Email 1</p></span>
+                                <div class="col-md-8">
+                                    <input id="email" name="email" value="@Model.email" type="text" placeholder="Correo atención al cliente" class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i><p>Email 2</p></span>
-                            <div class="col-md-8">
-                                <input id="email"  name="email" value="@Model.postMail" type="text" placeholder="Correo sugerencias" class="form-control">
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i><p>Email 2</p></span>
+                                <div class="col-md-8">
+                                    <input id="email" name="email2" value="@Model.postMail" type="text" placeholder="Correo sugerencias" class="form-control">
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Sobre nosotros</p></span>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" id="message" name="about" placeholder="Descripción sobre nosotros" rows="7">@Model.aboutUs</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Descripción facilidades</p></span>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" id="message" name="home" placeholder="Descripción sobre facilidades." rows="7">@Model.homeInformation</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
 
-                       
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Sobre nosotros</p></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Descripción sobre nosotros" rows="7">@Model.aboutUs</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Descripción facilidades</p></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message"  placeholder="Descripción sobre facilidades." rows="7">@Model.homeInformation</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
             </div>
         </div>
     </div>
