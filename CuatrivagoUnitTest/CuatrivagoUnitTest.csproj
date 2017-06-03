@@ -59,8 +59,13 @@
     <Compile Include="Test\ReservationTest.cs" />
     <Compile Include="Test\ClientTest.cs" />
     <Compile Include="Test\PathTest.cs" />
+    <Compile Include="Test\HotelTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CuatrivagoProjectAdmin\CuatrivagoProjectAdmin.csproj">
+      <Project>{4E8B570E-B3AE-4812-90DA-539AC1D4189A}</Project>
+      <Name>CuatrivagoProjectAdmin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CuatrivagoProject\CuatrivagoProject.csproj">
       <Project>{660a144e-2499-44a2-9194-73a071b7ba97}</Project>
       <Name>CuatrivagoProject</Name>

@@ -18,5 +18,14 @@ namespace CuatrivagoProject.Models
         public string postMail { get; set; }
         public string email { get; set; }
 
+
+    // public Hotel(int id_, string description_, string path_)
+    //{
+    //    //this.id = id_;
+    //    //this.description = description_;
+    //    //this.path = path_;
+    //}
+
     }
+   
 }
