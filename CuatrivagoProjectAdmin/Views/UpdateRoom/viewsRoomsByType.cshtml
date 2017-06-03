@@ -32,6 +32,11 @@
                     Precio
                 </label>
             </th>
+            <th>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                    Imágenes
+                </label>
+            </th>
             <th></th>
         </tr>
 
@@ -51,8 +56,13 @@
                     <td>
                         <input type="number" class="form-control col-md-3 col-xs-12" value="@Html.DisplayFor(modelItem => item.price)" name="price"
                                required pattern="[0-9]{3}" />
-                    </td>
-
+                    </td>                    
+                    <th>
+                        <a href="@Url.Action("Create", "ImagesRoom", new {idObject = item.idRoom })">Agregar</a>
+                    </th>
+                    <th>
+                        <a href="@Url.Action("getImagesByObject", "ImagesRoom", new {id = item.idRoom })">Eliminar</a>
+                    </th>
                     <td>
                         <input type="hidden" value="@Html.DisplayFor(modelItem => item.idRoom)" name="idRoom" />
                         <input type="hidden" value="@Html.DisplayFor(modelItem => item.roomType)" name="idTypeRoom" />
@@ -60,7 +70,7 @@
                     </td>
                 </tr>
             </form>
-
+           
 
 
         }

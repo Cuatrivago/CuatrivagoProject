@@ -10,5 +10,6 @@ namespace CuatrivagoProjectAdmin.Models
         public int idImage { get; set; }
         public string description { get; set; }
         public string path { get; set; }
+        public int idObject { get; set; }
     }
 }

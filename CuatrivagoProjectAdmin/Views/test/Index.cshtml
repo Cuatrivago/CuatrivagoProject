@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@section moduleTitle{
+    Imágenes Habitación
+}
+
+@section content{
+
+    <div id="formUpload">
+        <label>Imagenes actuales</label>
+
+    </div>
+
+    <label>Imagen nueva</label>
+    <input type="file" name="file" id="file" />
+    <input type="submit" class="btn btn-default submit" id="btnAccept" name="btnAccept" value="Cambiar" />
+    <input type="hidden" value="" id="image" name="image" />
+
+
+
+
+
+
+
+}
+
+@section script{
+    <script>
+        function leerArchivo() {
+            if (this.files && this.files[0]) {
+                var FR = new FileReader();
+                FR.onload = function (e) {
+                    document.getElementById("image").value = e.target.result;
+                    console.log(e.target.result);
+                };
+                FR.readAsDataURL(this.files[0]);
+            }
+        }
+        document.getElementById("file").addEventListener("change", leerArchivo, false);
+    </script>
+
+}

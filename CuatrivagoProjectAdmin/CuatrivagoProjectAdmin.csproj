@@ -4378,11 +4378,12 @@
     <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
     <Compile Include="Controllers\HotelUpdateController.cs" />
+    <Compile Include="Controllers\ImagesRoomController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RangeDateRoomController.cs" />
-    <Compile Include="Controllers\RoomImageController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\StateRoomTodayController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Controllers\UpdateRoomController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -4416,12 +4417,15 @@
     <Content Include="App_Browsers\qt.browser" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.11.0.intellisense.js" />
-    <Content Include="Views\RoomImage\Index.cshtml" />
     <Content Include="Views\UpdateRoom\Index.cshtml" />
     <Content Include="Views\UpdateRoom\UpdateOneRoom.cshtml" />
     <Content Include="Views\UpdateRoom\viewsRoomsByType.cshtml" />
     <Content Include="Views\HotelUpdate.cshtml" />
     <Content Include="Views\HotelUpdate\UpdateHotel.cshtml" />
+    <Content Include="Views\ImagesRoom\getImagesByObject.cshtml" />
+    <Content Include="Views\ImagesRoom\Index.cshtml" />
+    <Content Include="Views\ImagesRoom\Create.cshtml" />
+    <Content Include="Views\test\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
