@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Image>
+
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section moduleTitle{
+    Imágenes Hotel
+}
+
+@section content{
+
+
+
+    <div class="x_content">
+
+        <div class="row">
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-55">
+                    <div class="thumbnail">
+                        <div class="image view view-first">
+                            <img style="width: 100%; display: block;" src="@Html.DisplayFor(modelItem => item.path)" alt="image" />
+                            <div class="mask">
+                                <div class="tools tools-bottom">
+                                    <a href="@Url.Action("DeleteImage", "ImagesHome", new {idImage = item.idImage, idRoom = item.idObject })"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="caption">
+                            <p>@Html.DisplayFor(modelItem => item.description)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <p>
+            <a href="@Url.Action("create", "ImagesHome", new { idOject = 1 })">Insertar imágenes</a>
+        </p>
+        
+
+
+    </div>
+
+
+
+}
+
+@section error{
+
+    @if (Request.Cookies["error"] != null && Request.Cookies["error"]["errorDelete"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Error al eliminar la imagen!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+    @if (Request.Cookies["success"] != null && Request.Cookies["success"]["successDelete"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Eliminación exitosa!', 'Éxito'); $('#myModal').modal('show'); });</script>
+
+    }
+
+    <script>
+        function modalSelect(modalMessage, modalTitle) {
+            document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+            document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+        }
+    </script>
+}

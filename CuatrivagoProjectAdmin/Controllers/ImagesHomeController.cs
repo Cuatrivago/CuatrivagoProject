@@ -10,9 +10,8 @@ using System.Web.Mvc;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
-    public class ImagesRoomController : Controller
+    public class ImagesHomeController : Controller
     {
-
         ImageContext image = new ImageContext();
         private string conn = WebConfigurationManager.ConnectionStrings["connectionUCR"].ToString();
         // GET: ImagesRoom
@@ -25,22 +24,22 @@ namespace CuatrivagoProjectAdmin.Controllers
         [HttpGet]
         public ActionResult getImagesByObject(int id)
         {
-            return View(image.getImagesByObject(conn, id, 'R'));
+            return View(image.getImagesByObject(conn, id, 'H'));
         }
 
         // GET: ImagesRoom/Create
         [HttpGet]
         public ActionResult Create(int idObject)
         {
-            Room room = new Room();
-            room.idRoom = idObject;
-            return View(room);
+            Hotel hotel = new Hotel();
+            hotel.idHotel = idObject;
+            return View(hotel);
         }
 
         [HttpPost]
         public ActionResult CreateImage()
         {
-            
+
             int id = int.Parse(Request.Form["idObject"].ToString());
             HttpPostedFileBase imageRoom = Request.Files["file"];
 
@@ -53,10 +52,10 @@ namespace CuatrivagoProjectAdmin.Controllers
                 thePictureAsBytes = theReader.ReadBytes(imageRoom.ContentLength);
             }
 
-            string thePictureDataAsString = "data:" + contentType +";base64," + Convert.ToBase64String(thePictureAsBytes);
+            string thePictureDataAsString = "data:" + contentType + ";base64," + Convert.ToBase64String(thePictureAsBytes);
 
             Image imageM = new Image();
-            imageM.description = "Imagen Habitacion";
+            imageM.description = "Imagen Home";
             imageM.path = thePictureDataAsString;
 
             int idImage = image.createImageByObject(conn, imageM);
@@ -66,18 +65,21 @@ namespace CuatrivagoProjectAdmin.Controllers
             {
                 result = image.asociateImageObject(conn, 'R', id, idImage);
             }
-            else {
+            else
+            {
                 flag = true;
             }
             if (result != -1)
             {
                 return RedirectToAction("Create", new { idObject = id });
             }
-            else {
+            else
+            {
                 flag = true;
             }
 
-            if (flag) {
+            if (flag)
+            {
                 HttpCookie cookie = new HttpCookie("error");
                 cookie["errorUpdate"] = "error";
                 cookie.Expires = DateTime.Now.AddSeconds(4);
@@ -94,7 +96,7 @@ namespace CuatrivagoProjectAdmin.Controllers
         [HttpGet]
         public ActionResult DeleteImage(int idImage, int idRoom)
         {
-            int result = image.deleteImageById(conn,idImage);
+            int result = image.deleteImageById(conn, idImage);
 
             if (result == -1)
             {
@@ -104,7 +106,8 @@ namespace CuatrivagoProjectAdmin.Controllers
                 Response.Cookies.Add(cookie);
                 return RedirectToAction("getImagesByObject", new { id = idRoom });
             }
-            else {
+            else
+            {
 
                 HttpCookie cookie = new HttpCookie("success");
                 cookie["successDelete"] = "success";
@@ -115,7 +118,5 @@ namespace CuatrivagoProjectAdmin.Controllers
             }
 
         }
-
-
     }
 }

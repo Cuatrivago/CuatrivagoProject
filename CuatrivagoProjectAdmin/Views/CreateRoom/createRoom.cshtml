@@ -1,0 +1,42 @@
+﻿@model CuatrivagoProjectAdmin.Models.Room
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+
+    Detalle Registro
+
+}
+
+@section content{
+
+    <div>
+        <h4>@Html.DisplayFor(model => model.description_)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                Nombre:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.description_)
+            </dd>
+
+            <dt>
+                Capacidad:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.capacity)
+            </dd>
+
+        </dl>
+        <h2 style="color:#4fb671;"> El registro fue exitoso</h2>
+    </div>
+    <p>
+        <a href="@Url.Action("viewsRoomsByTypet", "CreateRoom", new { type = Model.roomType })">Actualizar</a>
+    </p>
+}

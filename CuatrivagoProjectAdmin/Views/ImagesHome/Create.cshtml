@@ -1,0 +1,45 @@
+﻿@model CuatrivagoProjectAdmin.Models.Hotel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section moduleTitle{
+    Agregar Imágenes
+}
+
+@section content{
+
+
+    <div class="x_content">
+        <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+        <form action="/ImagesHome/CreateImage" method="post" class="dropzone" id="file" name="file">
+            <input type="hidden" value="@Html.DisplayFor(model => model.idHotel)" id="idObject" name="idObject" />
+        </form>
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+
+
+}
+
+@section error{
+
+    @if (Request.Cookies["error"] != null && Request.Cookies["error"]["errorUpdate"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Error al cargar la imagen!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+
+    <script>
+        function modalSelect(modalMessage, modalTitle) {
+            document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+            document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+        }
+    </script>
+}
