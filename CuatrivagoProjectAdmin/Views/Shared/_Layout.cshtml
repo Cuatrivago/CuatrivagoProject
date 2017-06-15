@@ -12,7 +12,7 @@
     <!-- Bootstrap -->
     <link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="~/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
     <link href="~/Content/css/styletable.css" rel="stylesheet">
@@ -35,6 +35,8 @@
     <link href="~/Content/vendors/starrr/dist/starrr.css" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
     <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    @*<link href="~/Content/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">*@
 
     <!-- Custom Theme Style -->
     <link href="~/Content/build/css/custom.min.css" rel="stylesheet">
@@ -42,6 +44,10 @@
     <!-- Custom styling plus plugins -->
     <link href="~/Content/build/css/custom.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
 </head>
 
 <body class="nav-md">
@@ -81,9 +87,11 @@
                                         <li>@Html.ActionLink("Estado habitaciones hoy", "index", "StateRoomToday")</li>
                                         @*<li>@Html.ActionLink("Ejemplo formularios", "index", "ExampleForm")</li>*@
                                         <li>@Html.ActionLink("Habitaciones por rango de fechas", "index", "RangeDateRoom")</li>
+                                        <li>@Html.ActionLink("Registrar Habitaciones", "index", "CreateRoom")</li>
                                         <li>@Html.ActionLink("Actualizar Habitaciones", "index", "UpdateRoom")</li>
                                         <li>@Html.ActionLink("Actualizar Hotel", "UpdateHotel", "HotelUpdate")</li>
-                                      
+                                        <li>@Html.ActionLink("Imágenes Home", "getImagesByObject", "ImagesHome", new { id = 1})</li>
+                                        <li>@Html.ActionLink("Actualizar Facilidades", "Index", "UpdateFacilitie")</li>
                                         
                                           @*<li><a href="#">Item</a></li>
                                             <li><a href="#">Item</a></li>
@@ -192,6 +200,7 @@
     </div>
 
    @RenderSection("error", false)
+    @RenderSection("script", false)
 
     <!-- jQuery -->
     <script src="~/Content/vendors/jquery/dist/jquery.min.js"></script>

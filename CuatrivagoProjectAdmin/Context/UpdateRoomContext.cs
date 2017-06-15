@@ -32,8 +32,9 @@ namespace CuatrivagoProjectAdmin.Context
                     Room room = new Room();
                     room.idRoom = reader.GetInt32(0);
                     room.capacity = reader.GetInt32(1);
-                    room.description_ = reader.GetString(2);                    
-                    room.price = reader.GetInt32(3);
+                    room.description_ = reader.GetString(2);
+                    //room.price = reader.GetInt32(3);
+                    room.price = 0;
                     room.roomType = idTypeRoom;
                     roomList.Add(room);
                 }

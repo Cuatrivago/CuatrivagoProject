@@ -113,7 +113,6 @@ namespace CuatrivagoProjectAdmin.Context
                     room.available = reader.GetString(3);
                     room.type = reader.GetString(4);
                     room.price = reader.GetInt32(5).ToString();
-
                     rooms.Add(room);
                 }
             }
@@ -181,6 +180,52 @@ namespace CuatrivagoProjectAdmin.Context
             sqlCommand.Connection.Close();
             return roomList;
         }
+
+
+        public int createRoom(string conn, Room room)
+        {
+
+            SqlConnection connection = new SqlConnection(conn);
+
+            string sqlStoredProcedure = "SP_Create_Room";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.Add(new SqlParameter("@Capacity", room.capacity));
+            sqlCommand.Parameters.Add(new SqlParameter("@Description", room.description_));
+            sqlCommand.Parameters.Add(new SqlParameter("@RoomType", room.roomType));
+
+
+            SqlParameter resultCreate = new SqlParameter("@R", "");
+            resultCreate.Direction = ParameterDirection.Output;
+            sqlCommand.Parameters.Add(resultCreate);
+
+            SqlParameter idNewRoom = new SqlParameter("@Room",0);
+            idNewRoom.Direction = ParameterDirection.Output;
+            sqlCommand.Parameters.Add(idNewRoom);
+
+
+
+            sqlCommand.Connection.Open();
+
+            sqlCommand.ExecuteNonQuery();
+
+            string result = sqlCommand.Parameters["@R"].Value.ToString();
+            int idNewRoom2 = Int32.Parse(sqlCommand.Parameters["@Room"].Value.ToString());
+
+            if (result.Equals("y"))
+            {
+                return idNewRoom2;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+
+
 
     }
 }

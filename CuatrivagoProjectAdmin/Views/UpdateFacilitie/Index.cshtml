@@ -1,0 +1,112 @@
+﻿@model CuatrivagoProjectAdmin.Models.ModelsForUpdateFacilitie
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section content{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <div id="combo" align="center">
+                        <select id="box" onchange="getFacilitie(this.value);">
+                            <option value="-5"> Seleccione una facilidad </option>
+                            @foreach (var facilitie in Model.list)
+                            {
+                                <option value="@facilitie.IdFacilitie">@facilitie.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div id="answerDb" align="center"></div>
+                    <div id="hdnForm" name="hdnForm">
+                        <fieldset>
+                            <legend class="text-center header">Información de la Facilidad</legend>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-car bigicon"></i><p>Nombre</p></span>
+
+                                <div class="col-md-8">
+                                    <input id="FName" name="FName" value="" type="text" placeholder="Dirección" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Descripcion</p></span>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" id="FDescription" name="FDescription" placeholder="DescripcionFacilidad" rows="7"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="updateFacilitie();">Guardar</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <input type="hidden" id="hdnId" readonly />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#hdnForm').hide();
+        });
+
+        function getFacilitie(str) {
+            if (str != '-5') {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "@Url.Action("RetrieveFacilitie", "UpdateFacilitie")",
+                    data: "{'id':" + str + "}",
+                    dataType: "json",
+                    success: function (data) {
+                        $('#hdnForm').fadeOut();
+                        setTimeout(function () {
+                            $('#FName').attr('value', data.Name);
+                            document.getElementById("FDescription").value = data.Description;
+                            $('#hdnId').attr('value', data.IdFacilitie);
+                            $('#hdnForm').fadeIn();
+                        }, 500);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(errorThrown + ' ' + textStatus);
+                    }
+                });
+            }
+        }
+
+        function updateFacilitie() {
+            var str, str2, str3;
+
+            str = document.getElementById("hdnId").value;
+            str2 = document.getElementById("FName").value;
+            str3 = document.getElementById("FDescription").value;
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "@Url.Action("updateFacilitie", "UpdateFacilitie")",
+                data: "{'id':'" + str + "', 'nam':'" + str2 + "', 'desc': '" + str3 + "'}",
+                dataType: "json",
+                success: function (answer) {
+                    var labelll;
+                    if(answer == 'y'){
+                        labelll = '<font color="green"><label>Éxito al actualizar.</label></font>';
+                    } else {
+                        labelll = '<font color="red"><label>No se pudo actualizar.</label></font>';
+                    }
+                    $('#answerDb').html(labelll);
+                    setTimeout(function () {
+                        $('#answerDb').show('slow');
+                        $('#answerDb').delay(2000).fadeOut();
+                    }, 500);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown + ' ' + textStatus);
+                }
+            });
+        }
+
+    </script>
+
+}
