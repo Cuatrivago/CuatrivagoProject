@@ -21,6 +21,7 @@ namespace CuatrivagoProject.Controllers
             ViewBag.back = back;
             ViewBag.datein = datein;
             ViewBag.dateout = dateout;
+
             return View();
         }
 

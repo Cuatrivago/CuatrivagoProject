@@ -5,54 +5,90 @@
 @section content{
     <div class="container">
         <div class="row">
+
             <div class="col-md-12">
-                <div class="well well-sm">
-                    <div id="combo" align="center">
-                        <select id="box" onchange="getFacilitie(this.value);">
-                            <option value="-5"> Seleccione una facilidad </option>
+                <div id="combo" align="center">
+                    <fieldset>
+                        <legend class="text-center header">Seleccione una facilidad</legend>
+                    </fieldset>
+                    <span class="adults select-box">
+
+                        <select class="form-control" id="box" onchange="getFacilitie(this.value);">
+                            <option class="optionStyle" value="-5">Seleccione una facilidad</option>
                             @foreach (var facilitie in Model.list)
                             {
-                                <option value="@facilitie.IdFacilitie">@facilitie.Name</option>
+                                <option class="optionStyle" value="@facilitie.IdFacilitie">@facilitie.Name</option>
                             }
                         </select>
-                    </div>
-                    <div id="answerDb" align="center"></div>
-                    <div id="hdnForm" name="hdnForm">
-                        <fieldset>
-                            <legend class="text-center header">Información de la Facilidad</legend>
-                            <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-car bigicon"></i><p>Nombre</p></span>
+                    </span>
 
-                                <div class="col-md-8">
-                                    <input id="FName" name="FName" value="" type="text" placeholder="Dirección" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i><p>Descripcion</p></span>
-                                <div class="col-md-8">
-                                    <textarea class="form-control" id="FDescription" name="FDescription" placeholder="DescripcionFacilidad" rows="7"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 text-center">
-                                    <button type="button" class="btn btn-primary btn-lg" onclick="updateFacilitie();">Guardar</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <input type="hidden" id="hdnId" readonly />
                 </div>
             </div>
         </div>
-    </div>
+        <div class="row" id="hdnForm" name="hdnForm">
+            <fieldset>
+                <legend class="text-center header">Información de la Facilidad</legend>
+                <div id="answerDb" align="center"></div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <span class="col-md-2"><i class="fa fa-car bigicon"></i><p>Nombre&nbsp&nbsp &nbsp&nbsp </p></span>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <input id="FName" name="FName" value="" type="text" placeholder="Dirección" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                </div>
 
+
+                <div class="row">
+
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <span class="col-md-4"><i class="fa fa-pencil-square-o bigicon"></i><p>Descripcion</p></span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <textarea rows="3" class="form-control" id="FDescription" name="FDescription" placeholder="DescripcionFacilidad"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 col-md-5">  </div>
+                    <div class="col-sm-7 col-md-7">
+                        <div class="form-group">
+                            <div class="col-md-4 text-center">
+                                <button type="button" class="btn btn-primary btn-lg" onclick="updateFacilitie();">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-sm-4 col-md-4">  </div>*@
+                </div>
+            </fieldset>
+            <input type="hidden" id="hdnId" readonly />
+        </div>
+    </div>
+    <link href="~/Content/css/StyleBack.css" rel="stylesheet" />
     <script>
         $(document).ready(function () {
             $('#hdnForm').hide();
         });
 
         function getFacilitie(str) {
-            if (str != '-5') {
+            str = parseInt(str);
+            if (str > 0) {
                 $.ajax({
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
@@ -62,7 +98,7 @@
                     success: function (data) {
                         $('#hdnForm').fadeOut();
                         setTimeout(function () {
-                            $('#FName').attr('value', data.Name);
+                            document.getElementById("FName").value = data.Name;
                             document.getElementById("FDescription").value = data.Description;
                             $('#hdnId').attr('value', data.IdFacilitie);
                             $('#hdnForm').fadeIn();
@@ -72,6 +108,8 @@
                         alert(errorThrown + ' ' + textStatus);
                     }
                 });
+            } else {
+                $('#hdnForm').fadeOut();
             }
         }
 
@@ -90,7 +128,7 @@
                 dataType: "json",
                 success: function (answer) {
                     var labelll;
-                    if(answer == 'y'){
+                    if (answer == 'y') {
                         labelll = '<font color="green"><label>Éxito al actualizar.</label></font>';
                     } else {
                         labelll = '<font color="red"><label>No se pudo actualizar.</label></font>';
@@ -99,6 +137,9 @@
                     setTimeout(function () {
                         $('#answerDb').show('slow');
                         $('#answerDb').delay(2000).fadeOut();
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2300);
                     }, 500);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

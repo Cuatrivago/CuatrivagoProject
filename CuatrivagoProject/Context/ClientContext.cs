@@ -163,26 +163,13 @@ namespace CuatrivagoProject.Context
 
             Client client = new Client();
             SqlDataReader reader = sqlCommand.ExecuteReader();
-            //List<Image> imageList = new List<Image>();
-            //if (reader.HasRows)
-            //{
-            //    while (reader.Read())
-            //    {
-            //        Image image = new Image();
-            //        image.id = Int32.Parse(reader.GetString(0));
-            //        image.description = reader.GetString(1);
-            //        image.path = reader.GetString(2);
-            //        imageList.Add(image);
-            //    }
-            //}
+          
             reader.Read();
             Debug.WriteLine(reader.GetString(0));
             client.id = int.Parse(reader.GetString(0));
             client.name = reader.GetString(1);
             client.lastName = reader.GetString(2);
-            //client.phone = Int32.Parse(reader.GetString(3));
-            //client.creditCard = int.Parse(reader.GetString(4));
-            //client.idCard = int.Parse(reader.GetString(5));
+         
             client.creditCard = 0;
             client.idCard = 0;
             client.phone = 0;

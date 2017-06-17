@@ -103,7 +103,7 @@
                                     </h5>
                                     <span class="pull-right date">21 July 2014</span>
                                 </header>
-                                <div class="post-meta">
+                                @*<div class="post-meta">
                                     <span class="category">
                                         <i class="fa fa-tags"></i>
                                         <a href="#">Lifestyle</a>, <a href="#">Luxury</a>
@@ -116,14 +116,14 @@
                                         <i class="fa fa-comment"></i>
                                         <a href="#">2 Comments</a>
                                     </span>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</p>
-                                <ul class="custom-list tags-list list-inline">
+                                </div>*@
+                                <p>@*Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus.*@</p>
+                                <p>Urna quam viverra nisi, in interdum massa nibh nec erat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</p>
+                                @*<ul class="custom-list tags-list list-inline">
                                     <li><a href="#">Lifestyle</a></li>
                                     <li><a href="#">Luxury</a></li>
                                     <li><a href="#">Money</a></li>
-                                </ul>
+                                </ul>*@
                                 <div class="post-share">
                                     <p class="pull-left">Share this story</p>
                                     <ul class="custom-list social list-inline pull-right">
@@ -137,20 +137,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="sidebar">
-                            @*<div class="sidebar-widget">
-                                    <form action="http://new.uouapps.com/petra-html/index.html" class="default-form search-form">
-                                        <input placeholder="Search" type="text">
-                                        <button><i class="fa fa-search"></i></button>
-                                    </form>
-                                </div>*@
+                          
                             <div class="sidebar-widget">
                                 <h5 class="widget-title">Reservación</h5>
-                                @*<ul class="custom-list list categories-list">
-                                        <li><a href="#">Lifestyle</a></li>
-                                        <li><a href="#">Luxury</a></li>
-                                        <li><a href="#">CEO Corner</a></li>
-                                        <li><a href="#">Leisure</a></li>
-                                    </ul>*@
+                             
                                 <div class="contact-box" style="width:100%;">
                                     <form action="/Reservation/Insert" method="post" class="contact-form default-form" id="commentForm">
                                         <div class="row">
@@ -189,50 +179,48 @@
                                                         <i class="fa fa-calendar"></i>
                                                     </span>
                                                 </div>
+
+                                                <div class="col-md-8">
+                                                    <h1 style="font-size: 17px; margin-left: 20px; margin-top: 10px" required>Recibir ofertas </h1>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="checkbox" style="margin-left: 20px;height:25px; width:25px" id="subscription" required>
+                                                </div>
                                                 <div class="col-lg-md text-center">
                                                     <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
                                                 </div>
 
                                             }
                                             else
-                                            {<div class="col-lg-md text-center">
-                                                <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input name="arrival" id="arrival" style="margin: -30px; visibility: hidden;text-transform: lowercase; " value="@ViewBag.datein" required>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input name="departure" id="departure" style="margin: -30px; visibility: hidden;text-transform: lowercase ; " value="@ViewBag.dateout" required>
-                                            </div>
+                                            {
+
+                                                <div class="col-md-8">
+                                                    <h1 style="font-size: 17px; margin-left: 20px; margin-top: 10px" required>Recibir ofertas </h1>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="checkbox" style="margin-left: 20px;height:25px; width:25px" id="subscription" required>
+                                                </div>
+                                                <div class="col-lg-md text-center">
+                                                    <button id="btnGet" class="btn btn-transparent-white">Reservar</button>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input name="arrival" id="arrival" style="margin: -30px; visibility: hidden;text-transform: lowercase; " value="@ViewBag.datein" required>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input name="departure" id="departure" style="margin: -30px; visibility: hidden;text-transform: lowercase ; " value="@ViewBag.dateout" required>
+                                                </div>
                                             }
+
+
                                         </div>
 
                                         <input style="visibility: hidden;position: relative; height: 0px; font-size: 1px ; margin: 0px" id="idRoom" name="idRoom" value="@ViewBag.id">
 
                                     </form>
                                 </div>
-                                @*<form id="" class="inner" method="POST">
-                                        <div class="form-group">
-                                            <input class="form-control"  placeholder="Email" type="email" id="mail">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control"  placeholder="Name" type="text" id="name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control"  placeholder="Last Name" type="text" id="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control" placeholder="Phone Number" type="text">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input class="form-control"  placeholder="Card Number" type="text">
-                                        </div>
-
-                                    </form>*@
+                             
                             </div>
-                            <div class="sidebar-widget">
+                            @*<div class="sidebar-widget">
                                 <h5 class="widget-title">Categories</h5>
                                 <ul class="custom-list list categories-list">
                                     <li><a href="#">Lifestyle</a></li>
@@ -240,28 +228,8 @@
                                     <li><a href="#">CEO Corner</a></li>
                                     <li><a href="#">Leisure</a></li>
                                 </ul>
-                            </div>
-                            @*<div class="sidebar-widget">
-                                    <h5 class="widget-title">Meta</h5>
-                                    <ul class="custom-list list meta-list">
-                                        <li><a href="#">Lorem Ipsum</a></li>
-                                        <li><a href="#">Scelerisque Proin</a></li>
-                                        <li><a href="#">Professional Website</a></li>
-                                        <li><a href="#">Etiam nibh auque</a></li>
-                                    </ul>
-                                </div>*@
-                            @*<div class="sidebar-widget">
-                                    <h5 class="widget-title">Tags</h5>
-                                    <ul class="custom-list list-inline tags-list">
-                                        <li><a href="#">Lifestyle</a></li>
-                                        <li><a href="#">Luxury</a></li>
-                                        <li><a href="#">Money</a></li>
-                                        <li><a href="#">Professional</a></li>
-                                        <li><a href="#">Multilingual</a></li>
-                                        <li><a href="#">Expensive</a></li>
-                                        <li><a href="#">Top Class</a></li>
-                                    </ul>
-                                </div>*@
+                            </div>*@
+                         
                         </div>
                     </div>
                 </div>
@@ -331,7 +299,6 @@
     <script type="text/javascript">
 
         function createReservation() {
-            //alert('topo');
             $.ajax({
                 type: "POST",
                 url: "/Reservation/insert/",
@@ -342,14 +309,16 @@
                     '","phone":"' + $.trim($("#phone").val()) +
                     '","dateIn":"' + $.trim($("#arrival").val()) +
                     '","dateOut":"' + $.trim($("#departure").val()) +
-                    '","idRoom":"' + $.trim($("#idRoom").val()) + '"}',
+                    '","idRoom":"' + $.trim($("#idRoom").val()) +
+                    '","subscription":"' + $.trim($("#subscription").prop('checked')) + '"}',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
+                    //alert("data");
                     if (data == -7) {
-                      alert("No reservada");
+                        alert("No reservada");
                     } else {
-                      alert("Reservada");
+                        alert("Reservada");
                     }
 
                 },

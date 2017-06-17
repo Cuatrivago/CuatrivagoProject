@@ -125,6 +125,7 @@
     <Content Include="Content\build\js\custom.js" />
     <Content Include="Content\build\js\custom.min.js" />
     <Content Include="Content\css\maps\jquery-jvectormap-2.0.3.css" />
+    <Content Include="Content\css\StyleBack.css" />
     <Content Include="Content\css\styletable.css" />
     <Content Include="Content\images\american-express.png" />
     <Content Include="Content\images\cropper.jpg" />

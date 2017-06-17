@@ -1,6 +1,9 @@
 ﻿@model CuatrivagoProject.Models.ModelForRoomList
-@{
+@*@{
     Layout = null;
+}*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 <!doctype html>
 <html lang="en">
@@ -32,6 +35,23 @@
                     <div class="row">
                         <div class="col-md-12" id="bs-example-navbar-collapse-1">
                             <div class="row">
+
+                                @*<div class="col-lg-5 col-md-5 col-sm-12">
+                                    <ul class="nav navbar-nav main-nav">
+                                        <li class="active"><a href="">Inicio</a></li>
+                                        <li><a href="#aboutus">Nosotros</a></li>
+                                        <li><a href="#about">Habitaciones</a></li>
+                                        <li><a href="#gallery">Galería</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                                    <ul class="nav navbar-nav main-nav pull-right text-right">
+                                        <li><a href="#facilities">Facilidades</a></li>
+                                        <li>@Html.ActionLink("Localización", "index", "Localization")</li>
+                                        <li><a href="#footer">Contacto</a></li>
+                                    </ul>
+                                </div>*@
+
                                 <div class="col-lg-5 col-md-5 col-sm-12">
                                     <ul class="nav navbar-nav main-nav">
                                         <li><a href="">@Html.ActionLink("Inicio", "index", "Index")</a></li>
@@ -76,214 +96,218 @@
                 </div>
             </div>
         </section>
+
+
         <!-- End Header-Section -->
         <section id="listing">
             <div class="container">
                 <div class="row">
-                    <div class="sidebar col-md-3">
-                        <div class="fleets-filters toggle-container">
-                            <h5 class="toggle-title">Filters</h5>
-                            <aside class="toggle-content">
-                                <div class="search">
-                                    <form action="#" class="default-form">
-                                        <input type="text" placeholder="Search">
-                                        <i class="fa fa-search"></i>
-                                    </form>
-                                </div>
-                                <div class="general">
-                                    <h5 class="title">General</h5>
-                                    <form action="#" class="default-form">
-                                        <span class="arrival calendar">
-                                            <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                        <span class="departure calendar">
-                                            <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                        <span class="adults select-box">
-                                            <select name="adults" data-placeholder="Adults">
-                                                <option>Adults</option>
-                                                <option value="1">1 adult</option>
-                                                <option value="2">2 adults</option>
-                                                <option value="3">3 adults</option>
-                                                <option value="4">4 adults</option>
-                                            </select>
-                                        </span>
-                                        <span class="children select-box">
-                                            <select name="children" data-placeholder="Children">
-                                                <option>Children</option>
-                                                <option value="1">1 children</option>
-                                                <option value="2">2 childrens</option>
-                                                <option value="3">3 childrens</option>
-                                                <option value="4">4 childrens</option>
-                                            </select>
-                                        </span>
-                                    </form>
-                                    <h5 class="title">Price</h5>
-                                    <div class="slider-range-container box-row">
-                                        <div class="slider-range" data-min="2000" data-max="100000" data-step="2000" data-default-min="2000" data-default-max="50000" data-currency="$">
-                                        </div>
-                                        <div class="clearfix">
-                                            <input type="text" class="range-from" value="$2000">
-                                            <input type="text" class="range-to" value="$50000">
-                                        </div>
-                                    </div>
-                                    <h5 class="title">Amenities</h5>
-                                    <ul class="custom-list additional-filter-list clearfix">
-                                        <li>
-                                            <span class="checkbox-input">
-                                                <input id="additional-filter-ac" checked="checked" type="checkbox">
-                                                <label for="additional-filter-ac">AC</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="checkbox-input">
-                                                <input id="additional-filter-hotbath" checked="checked" type="checkbox">
-                                                <label for="additional-filter-hotbath">Hotbath</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="checkbox-input">
-                                                <input id="additional-filter-parking" type="checkbox">
-                                                <label for="additional-filter-parking">Parking</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="checkbox-input">
-                                                <input id="additional-filter-room-service" type="checkbox">
-                                                <label for="additional-filter-room-service">Room Service</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="checkbox-input">
-                                                <input id="additional-filter-safe" checked="checked" type="checkbox">
-                                                <label for="additional-filter-safe">Safe</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="checkbox-input">
-                                                <input id="additional-filter-tv" checked="checked" type="checkbox">
-                                                <label for="additional-filter-tv">TV</label>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="checkbox-input active">
-                                                <input id="additional-filter-wifi" checked="checked" type="checkbox">
-                                                <label for="additional-filter-wifi">Wifi</label>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="buttons">
-                                    <button class="btn btn-transparent-gray pull-left">
-                                        Filter
-                                    </button>
-                                    <button class="btn btn-transparent-gray pull-right">
-                                        Reset
-                                    </button>
-                                </div>
-                            </aside>
+                    <div class="col-md-2"> </div>
+                        @*<div class="sidebar col-md-3">
+                <div class="fleets-filters toggle-container">
+                    <h5 class="toggle-title">Filters</h5>
+                    <aside class="toggle-content">
+                        <div class="search">
+                            <form action="#" class="default-form">
+                                <input type="text" placeholder="Search">
+                                <i class="fa fa-search"></i>
+                            </form>
                         </div>
-                    </div>
-                    <div class="listing-content col-md-9">
-                        @foreach (var item in Model.roomList)
-                        {
-                            <div class="listing-room-list">
-                                <div class="thumbnail">
-                                    <div class="thumbnail-slider">
-                                        <img src="~/Content/img/listing-1.jpg" alt="" class="img-responsive">
-                                        <img src="~/Content/img/listing-1.jpg" alt="" class="img-responsive">
-                                        <img src="~/Content/img/listing-1.jpg" alt="" class="img-responsive">
-                                    </div>
+                        <div class="general">
+                            <h5 class="title">General</h5>
+                            <form action="#" class="default-form">
+                                <span class="arrival calendar">
+                                    <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                <span class="departure calendar">
+                                    <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                <span class="adults select-box">
+                                    <select name="adults" data-placeholder="Adults">
+                                        <option>Adults</option>
+                                        <option value="1">1 adult</option>
+                                        <option value="2">2 adults</option>
+                                        <option value="3">3 adults</option>
+                                        <option value="4">4 adults</option>
+                                    </select>
+                                </span>
+                                <span class="children select-box">
+                                    <select name="children" data-placeholder="Children">
+                                        <option>Children</option>
+                                        <option value="1">1 children</option>
+                                        <option value="2">2 childrens</option>
+                                        <option value="3">3 childrens</option>
+                                        <option value="4">4 childrens</option>
+                                    </select>
+                                </span>
+                            </form>
+                            <h5 class="title">Price</h5>
+                            <div class="slider-range-container box-row">
+                                <div class="slider-range" data-min="2000" data-max="100000" data-step="2000" data-default-min="2000" data-default-max="50000" data-currency="$">
                                 </div>
-                                <div class="listing-room-content">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <header>
-                                                <div class="pull-left">
-                                                    <h5 class="title">
-                                                        <a href="#">@item.description_</a>
-                                                    </h5>
-                                                    <ul class="tags custom-list list-inline pull-left">
-                                                        <li><a href="#">1 Bed</a></li>
-                                                        <li><a href="#">2 People</a></li>
-                                                        <li><a href="#">Sea View</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <span class="price">
-                                                        from $99/day
-                                                    </span>
-                                                </div>
-                                            </header>
-                                            <div class="listing-facitilities">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <ul class="facilities-list custom-list">
-                                                            <li><i class="fa fa-leaf"></i><span>AC</span></li>
-                                                            <li><i class="fa fa-heart-o"></i><span>Hotbath</span></li>
-                                                            <li><i class="fa fa-car"></i><span>Parking</span></li>
+                                <div class="clearfix">
+                                    <input type="text" class="range-from" value="$2000">
+                                    <input type="text" class="range-to" value="$50000">
+                                </div>
+                            </div>
+                            <h5 class="title">Amenities</h5>
+                            <ul class="custom-list additional-filter-list clearfix">
+                                <li>
+                                    <span class="checkbox-input">
+                                        <input id="additional-filter-ac" checked="checked" type="checkbox">
+                                        <label for="additional-filter-ac">AC</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="checkbox-input">
+                                        <input id="additional-filter-hotbath" checked="checked" type="checkbox">
+                                        <label for="additional-filter-hotbath">Hotbath</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="checkbox-input">
+                                        <input id="additional-filter-parking" type="checkbox">
+                                        <label for="additional-filter-parking">Parking</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="checkbox-input">
+                                        <input id="additional-filter-room-service" type="checkbox">
+                                        <label for="additional-filter-room-service">Room Service</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="checkbox-input">
+                                        <input id="additional-filter-safe" checked="checked" type="checkbox">
+                                        <label for="additional-filter-safe">Safe</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="checkbox-input">
+                                        <input id="additional-filter-tv" checked="checked" type="checkbox">
+                                        <label for="additional-filter-tv">TV</label>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="checkbox-input active">
+                                        <input id="additional-filter-wifi" checked="checked" type="checkbox">
+                                        <label for="additional-filter-wifi">Wifi</label>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="buttons">
+                            <button class="btn btn-transparent-gray pull-left">
+                                Filter
+                            </button>
+                            <button class="btn btn-transparent-gray pull-right">
+                                Reset
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </div>*@
+                        <div class="listing-content col-md-8">
+                            @foreach (var item in Model.roomList)
+                            {
+                                <div class="listing-room-list">
+                                    <div class="thumbnail">
+                                        <div class="thumbnail-slider">
+                                            <img src="~/Content/img/listing-1.jpg" alt="" class="img-responsive">
+                                            <img src="~/Content/img/listing-1.jpg" alt="" class="img-responsive">
+                                            <img src="~/Content/img/listing-1.jpg" alt="" class="img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="listing-room-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <header>
+                                                    <div class="pull-left">
+                                                        <h5 class="title">
+                                                            <a href="#">@item.description_</a>
+                                                        </h5>
+                                                        <ul class="tags custom-list list-inline pull-left">
+                                                            <li><a href="#">1 Bed</a></li>
+                                                            <li><a href="#">2 People</a></li>
+                                                            <li><a href="#">Sea View</a></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <ul class="facilities-list custom-list">
-                                                            <li><i class="fa fa-female"></i><span>Room service</span></li>
-                                                            <li><i class="fa fa-key"></i><span>Free safe</span></li>
-                                                            <li><i class="fa fa-desktop"></i><span>TV & Audio</span></li>
-                                                        </ul>
+                                                    <div class="pull-right">
+                                                        <span class="price">
+                                                            from $99/day
+                                                        </span>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <ul class="facilities-list custom-list">
-                                                            <li><i class="fa fa-wifi"></i><span>WIFI access</span></li>
-                                                            <li><i class="fa fa-clock-o"></i><span>24/7 Service</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-3">
-                                                        @*<button class="btn btn-transparent-gray">
-                                                            @*Html.ActionLink("Ver más", "Details", "DetailRoom", new { id = 1 }, null)*@
+                                                </header>
+                                                <div class="listing-facitilities">
+                                                    <div class="row">
+                                                        <div class="col-md-3 col-sm-3">
+                                                            <ul class="facilities-list custom-list">
+                                                                <li><i class="fa fa-leaf"></i><span>AC</span></li>
+                                                                <li><i class="fa fa-heart-o"></i><span>Hotbath</span></li>
+                                                                <li><i class="fa fa-car"></i><span>Parking</span></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3">
+                                                            <ul class="facilities-list custom-list">
+                                                                <li><i class="fa fa-female"></i><span>Room service</span></li>
+                                                                <li><i class="fa fa-key"></i><span>Free safe</span></li>
+                                                                <li><i class="fa fa-desktop"></i><span>TV & Audio</span></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3">
+                                                            <ul class="facilities-list custom-list">
+                                                                <li><i class="fa fa-wifi"></i><span>WIFI access</span></li>
+                                                                <li><i class="fa fa-clock-o"></i><span>24/7 Service</span></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3">
+                                                            @*<button class="btn btn-transparent-gray">
+                                                @*Html.ActionLink("Ver más", "Details", "DetailRoom", new { id = 1 }, null)*@
                                                             @*@Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = "", dateOut = "" }, null)
-                                                        </button>*@
-                                                        @if(Model.back == 0) {
-                                                        @*<button class="btn btn-transparent-gray" style="margin-top: 8px;">
-                                                            @Html.ActionLink("test", "CreateReservation", "Reservation", new { idReservation= @item.idRoom, back = Model.back, dateIn="",dateOut="" }, null)
-                                                    
-                                                            </button>*@
-                                                            <button class="btn btn-transparent-gray" style="margin-top: 8px;">
-                                                                @Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = "", dateOut = "" }, null)
-                                                            </button>
-                                                        }
-                                                        else
-                                                        {
-                                                        <button class="btn btn-transparent-gray" style="margin-top: 8px;">
-                                                            @Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = Model.dateIn, dateOut = Model.dateOut }, null)
-                                                        </button>
-                                                        }
+                                                </button>*@
+                                                            @if (Model.back == 0)
+                                                            {
+                                                                @*<button class="btn btn-transparent-gray" style="margin-top: 8px;">
+                                                    @Html.ActionLink("test", "CreateReservation", "Reservation", new { idReservation= @item.idRoom, back = Model.back, dateIn="",dateOut="" }, null)
+
+                                                    </button>*@
+                                                                <button class="btn btn-transparent-gray" style="margin-top: 8px;">
+                                                                    @Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = "", dateOut = "" }, null)
+                                                                </button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button class="btn btn-transparent-gray" style="margin-top: 8px;">
+                                                                    @Html.ActionLink("Reservar", "Details", "DetailRoom", new { idReservation = @item.idRoom, back = Model.back, dateIn = Model.dateIn, dateOut = Model.dateOut }, null)
+                                                                </button>
+                                                            }
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
+                            }
 
-                        <div class="listing-pagination footer">
-                            <ul class="pagination custom-list list-inline text-center no-margin">
-                                <li class="prev"><a href="#">Prev</a></li>
-                                <li class="number"><a href="#">1</a></li>
-                                <li class="number"><a href="#">2</a></li>
-                                <li class="number"><a href="#">3</a></li>
-                                <li class="next"><a href="#">Next</a></li>
-                            </ul>
+                            @*<div class="listing-pagination footer">
+                                <ul class="pagination custom-list list-inline text-center no-margin">
+                                    <li class="prev"><a href="#">Prev</a></li>
+                                    <li class="number"><a href="#">1</a></li>
+                                    <li class="number"><a href="#">2</a></li>
+                                    <li class="number"><a href="#">3</a></li>
+                                    <li class="next"><a href="#">Next</a></li>
+                                </ul>
+                            </div>*@
                         </div>
                     </div>
-                </div>
             </div>
         </section>
         <!-- Start Footer -->
         <footer id="footer">
-
+            @RenderSection("footer", false)
             <!-- Start Footer-Copyrights -->
             <div class="footer-copyrights">
                 <div class="container">

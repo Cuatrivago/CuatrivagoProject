@@ -1,17 +1,20 @@
 ﻿using CuatrivagoProject.Models;
+using CuatrivagoProjectAdmin.Context;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 
 namespace CuatrivagoProject.Context
 {
     public class ReservationContext
     {
-        public string insertReservation(string conn, string dateIn_, string dateOut_, int client_, int room_)
+        private MailContext serverMail = new MailContext();
+        public string insertReservation(string conn, string dateIn_, string dateOut_, int client_, int room_, string mail, string subscription)
         {
             SqlConnection connection = new SqlConnection(conn);
             string sqlStoredProcedure = "SP_Make_Reservation";
@@ -96,7 +99,29 @@ namespace CuatrivagoProject.Context
             string reserNumber = parameter2.Value.ToString();
 
             sqlCommand.Connection.Close();
-            Debug.WriteLine(returnValue+ "\n");
+            Debug.WriteLine(returnValue + "\n");
+
+            // aca informe
+
+            try
+            {
+                String msg = "Código: " + identificadorUnico + "\n" +
+                    "Desde: " + dateIn_ + "\n" +
+                    "Hasta: " + dateOut_ + "\n";
+                MailMessage mnsj = new MailMessage();
+                mnsj.Subject = "Reservacion Cuatrivago";
+                mnsj.To.Add(new MailAddress(mail));
+
+                mnsj.From = new MailAddress("cuatrivagoucr@gmail.com", "ucrcuatrivago");
+                mnsj.Body = msg;
+                if (subscription=="true") { serverMail.sendMail(mnsj); }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString() + "abcassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+            }
+
             return returnValue;
         }
     }

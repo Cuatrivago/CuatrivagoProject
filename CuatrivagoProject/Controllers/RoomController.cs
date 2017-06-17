@@ -15,7 +15,7 @@ namespace CuatrivagoProject.Controllers
         // GET: Room
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
         private RoomContext roomContext = new RoomContext();
-
+         private HotelContext hotelContext = new HotelContext();
         public ActionResult Index()
         {
             return View();
@@ -25,9 +25,10 @@ namespace CuatrivagoProject.Controllers
         public ActionResult Details(int id)
         {
             ModelForRoomList roomList = new ModelForRoomList();
+            roomList.hotel = hotelContext.getInformationHotel(conn);
             roomList.roomList = roomContext.getRoomsByType(conn, id);
             roomList.back = 0;
-            return View("Details", roomList);
+            return View("Index", roomList);
         }
 
         public ActionResult RoomTypeList()
@@ -38,10 +39,11 @@ namespace CuatrivagoProject.Controllers
             ModelForRoomList roomList = new ModelForRoomList();
             roomList.roomList = roomContext.getRoomsAvailable(conn, arrival, departure, roomType);
             roomList.dateIn = arrival;
+            roomList.hotel = hotelContext.getInformationHotel(conn);
             roomList.dateOut = departure;
             Debug.WriteLine(arrival + "  " + departure);
             roomList.back = 1;
-            return View("Details", roomList);
+            return View("Index", roomList);
         }
 
 
