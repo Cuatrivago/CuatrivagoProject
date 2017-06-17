@@ -428,3 +428,5 @@ C:\Users\luisd\Desktop\Analisis\Clonación\CuatrivagoProject\CuatrivagoProject\b
 C:\Users\luisd\Desktop\Analisis\Clonación\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache
 C:\Users\luisd\Desktop\Analisis\Clonación\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.dll
 C:\Users\luisd\Desktop\Analisis\Clonación\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.pdb
+C:\Users\luisd\Desktop\Analisis\Clonación\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.xml
+C:\Users\luisd\Desktop\Analisis\Clonación\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.xml
