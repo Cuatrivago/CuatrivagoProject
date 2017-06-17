@@ -89,7 +89,8 @@
                                         <li>@Html.ActionLink("Registrar Habitaciones", "index", "CreateRoom")</li>
                                         <li>@Html.ActionLink("Actualizar Habitaciones", "index", "UpdateRoom")</li>
                                         <li>@Html.ActionLink("Actualizar Hotel", "UpdateHotel", "HotelUpdate")</li>
-                                        <li>@Html.ActionLink("Imágenes Home", "getImagesByObject", "ImagesHome", new { id = 1})</li>
+                                        <li><a href="@Url.Action("getImagesByObject", "ImagesHome", new { id = 1})">Imágenes Inicio</a></li>
+                                        @*<li>@Html.ActionLink("Imágenes Home", "getImagesByObject", "ImagesHome", new { id = 1})</li>*@
                                         <li>@Html.ActionLink("Actualizar Facilidades", "Index", "UpdateFacilitie")</li>
                                         <li>@Html.ActionLink("Crear Oferta", "index", "Offer")</li>
                                         <li>@Html.ActionLink("Eliminar Oferta", "deleteOfferView", "Offer")</li>
