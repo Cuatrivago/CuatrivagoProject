@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuatrivagoProject", "CuatrivagoProject\CuatrivagoProject.csproj", "{660A144E-2499-44A2-9194-73A071B7BA97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuatrivagoUnitTest", "CuatrivagoUnitTest\CuatrivagoUnitTest.csproj", "{7F89FAAB-F5DD-4B1B-AA89-005236998AA9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuatrivagoProjectAdmin", "CuatrivagoProjectAdmin\CuatrivagoProjectAdmin.csproj", "{4E8B570E-B3AE-4812-90DA-539AC1D4189A}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{660A144E-2499-44A2-9194-73A071B7BA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660A144E-2499-44A2-9194-73A071B7BA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{660A144E-2499-44A2-9194-73A071B7BA97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F89FAAB-F5DD-4B1B-AA89-005236998AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F89FAAB-F5DD-4B1B-AA89-005236998AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F89FAAB-F5DD-4B1B-AA89-005236998AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F89FAAB-F5DD-4B1B-AA89-005236998AA9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E8B570E-B3AE-4812-90DA-539AC1D4189A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E8B570E-B3AE-4812-90DA-539AC1D4189A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E8B570E-B3AE-4812-90DA-539AC1D4189A}.Release|Any CPU.ActiveCfg = Release|Any CPU

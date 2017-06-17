@@ -181,7 +181,6 @@ namespace CuatrivagoProjectAdmin.Context
             return roomList;
         }
 
-
         public int createRoom(string conn, Room room)
         {
 
@@ -223,9 +222,6 @@ namespace CuatrivagoProjectAdmin.Context
             }
 
         }
-
-
-
 
     }
 }
