@@ -176,5 +176,23 @@ namespace CuatrivagoProjectAdmin.Context
 
         }
 
+        /// <summary>
+        /// Este metodo llama "por debajo de la mesa" a un sp que activa o elimina ofertas segun sea necesario sin devolver valores.
+        /// </summary>
+        /// <param name="conn">Conection String para base de datos</param>
+        public void callForCheckOffer(string conn)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+
+            string sqlStoredProcedure = "SP_Verify_Offer";
+
+            SqlCommand cmdVerifyOffer = new SqlCommand(sqlStoredProcedure, connection);
+
+            cmdVerifyOffer.Connection.Open();
+            cmdVerifyOffer.ExecuteNonQuery();
+            cmdVerifyOffer.Connection.Close();
+
+        }
+
     }
 }
