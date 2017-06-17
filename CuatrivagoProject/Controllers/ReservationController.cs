@@ -1,9 +1,11 @@
 ﻿using CuatrivagoProject.Context;
 using CuatrivagoProject.Models;
+using CuatrivagoProjectAdmin.Context;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -15,6 +17,7 @@ namespace CuatrivagoProject.Controllers
     {
         // GET: Reservation
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
+
         public ActionResult CreateReservation(int idReservation, int back, string datein, string dateout)
         {
             ViewBag.id = idReservation;
@@ -45,52 +48,36 @@ namespace CuatrivagoProject.Controllers
         }
         [HttpPost]
         public int Insert(string name, string lastName, string mail,
-            int cardNumber, int phone, string dateIn,string dateOut, int idRoom)
+            int cardNumber, int phone, string dateIn, string dateOut, int idRoom, string subscription)
         {
-            //string name = Request.Form["name"].ToString();
-            //string lastName = Request.Form["lastName"].ToString();
-            //string mail = Request.Form["mail"].ToString();
-            //int cardNumber = Int32.Parse(Request.Form["cardNumber"].ToString());
-            //int phone = Int32.Parse(Request.Form["phone"].ToString());
-            //string dateIn = Request.Form["arrival"].ToString();
-            //string dateOut = Request.Form["departure"].ToString();
-            //int idRoom = Int32.Parse(Request.Form["idRoom"].ToString());
-
-
+            Debug.WriteLine("abc" + subscription + "1234");
             Client client = new Client(0, name, lastName, mail, cardNumber, phone, 0);
             int clientId = 0;
             RoomContext rc = new RoomContext();
             int roomAvaible = rc.verifyRoomAvailable(conn, dateIn, dateOut, idRoom);
             int msgs = 0;
-            //if (roomAvaible == 1)
-            //{
-                ClientContext cc = new ClientContext();
-                int clientExists = cc.returnClientId(conn, client.email);
+            ClientContext cc = new ClientContext();
+            int clientExists = cc.returnClientId(conn, client.email);
 
-                if (clientExists == -1)
-                {
-                    clientId = cc.insertClient(conn, client);
-                }
-                else
-                {
-                    clientId = clientExists;
-                }
+            if (clientExists == -1)
+            {
+                clientId = cc.insertClient(conn, client);
+            }
+            else
+            {
+                clientId = clientExists;
+            }
 
-                ReservationContext rec = new ReservationContext();
-                string result = rec.insertReservation(conn, dateIn, dateOut, clientId, idRoom);
-                if (result == "n")
-                {
-                    msgs = -7; //no reservada
-                }
-                else
-                {
-                    msgs = -11; //reservada
-                }
-            //}
-            //else
-            //{
-            //    msgs = "NO RESARVADA";
-            //}
+            ReservationContext rec = new ReservationContext();
+            string result = rec.insertReservation(conn, dateIn, dateOut, clientId, idRoom, mail, subscription);
+            if (result == "n")
+            {
+                msgs = -7; //no reservada
+            }
+            else
+            {
+                msgs = -11; //reservada 
+            }
             return msgs;
         }
     }

@@ -270,6 +270,7 @@
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\AdvertisementContext.cs" />
     <Compile Include="Context\ImageContext.cs" />
+    <Compile Include="Context\MailContext.cs" />
     <Compile Include="Context\ReservationContext.cs" />
     <Compile Include="Context\RoomContext.cs" />
     <Compile Include="Context\RoomTypeContext.cs" />
@@ -325,6 +326,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Reservation\CreateReservation.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
