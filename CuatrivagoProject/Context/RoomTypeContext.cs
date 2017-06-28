@@ -28,7 +28,7 @@ namespace CuatrivagoProject.Context
             List<RoomType> allRoomType = new List<RoomType>();
 
             cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos client = new cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos();
-            //DataSet typeChange = client.ObtenerIndicadoresEconomicos("317", DateTime.Today.ToString("d"), DateTime.Today.ToString("d"), "Cuatrivago", "n");
+            DataSet typeChange = client.ObtenerIndicadoresEconomicos("317", DateTime.Today.ToString("d"), DateTime.Today.ToString("d"), "Cuatrivago", "n");
 
             if (reader.HasRows)
             {

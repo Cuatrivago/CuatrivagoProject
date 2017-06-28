@@ -2,6 +2,7 @@
 using CuatrivagoProjectAdmin.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -112,16 +113,24 @@ namespace CuatrivagoProjectAdmin.Controllers
                 {
                     string name = Request.Form["description"].ToString();
                     int capacity = int.Parse(Request.Form["capacity"].ToString());
-                    int price = int.Parse(Request.Form["price"].ToString());
+                    //string price = Request.Form["price"].ToString();
                     int idRoom = int.Parse(Request.Form["idRoom"].ToString());
                     int idTypeRoom = int.Parse(Request.Form["idTypeRoom"].ToString());
                     Room room = new Room();
                     room.description_ = name;
                     room.capacity = capacity;
-                    room.price = price;
+                    room.priceDolar = Request.Form["priceDolar"].ToString();
+
+                    //cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos client = new cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos();
+                    //DataSet typeChange = client.ObtenerIndicadoresEconomicos("317", DateTime.Today.ToString("d"), DateTime.Today.ToString("d"), "Cuatrivago", "n");
+                    //double colon = double.Parse(typeChange.Tables[0].Rows[0].ItemArray[2].ToString());
+
+                    room.priceColon = Request.Form["priceColon"].ToString();
+
                     room.idRoom = idRoom;
                     room.roomType = idTypeRoom;
-                    if (name.Length > 1 && capacity > 0 && price > 0)
+
+                    if (name.Length > 1 && capacity > 0)
                     {
                         int result = roomUpdate.updateRoomByType(conn, room);
                         if (result != -1)

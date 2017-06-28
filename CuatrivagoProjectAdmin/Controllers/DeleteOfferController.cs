@@ -1,23 +1,23 @@
-﻿using CuatrivagoProjectAdmin.Context;
+﻿using System;
+using CuatrivagoProjectAdmin.Context;
 using CuatrivagoProjectAdmin.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Mvc;
+using System.Web.Configuration;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
-    public class OfferController : Controller
+    public class DeleteOfferController : Controller
     {
-        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
         OfferContext offerContext = new OfferContext();
-        RoomContext room = new RoomContext();
-        List<Offer> offer = new List<Offer>();
+        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
 
+        // GET: DeleteOffer
         public ActionResult Index()
         {
+
             //Estos If se necesitan en todos los controllers del modulo administrativo
 
             //Este pregunta si existe una cookie con el id del admin, esta se crea SI este inicia sesion con naturalidad.
@@ -30,17 +30,18 @@ namespace CuatrivagoProjectAdmin.Controllers
                 //  codigo que se asigna cuando no pudo autenticar
                 if (access > 0)
                 {
-                    //Aquí va su código normal, lo demás es control de seguridad.
 
-                    return View(room.getAllRoomType(conn));
-                    //return View("deleteOfferView");
+                    //Aquí va su código normal, lo demás es control de seguridad.
+                    OffertList offer = new OffertList();
+                    offer.offers = offerContext.getOffers(conn);
+                    return View(offer);
                 }
                 else
                 {
                     //Este else retorna al index de logueo con un -2, el -2 le dice al index que este usuario intentó
                     //  entrar de forma no autorizada al modulo y se le presentará un mensaje sobre eso.
                     Request.Cookies["Admin"]["adminId"] = "-2";
-                    return RedirectToAction("Index", "Login"); //Cambio de redirect, este es mejor
+                    return RedirectToAction("Index", "Login");
                 }
             }
             else
@@ -52,33 +53,8 @@ namespace CuatrivagoProjectAdmin.Controllers
                 galleta.Expires = DateTime.Now.AddMinutes(1);
 
                 Response.Cookies.Add(galleta);
-                return RedirectToAction("Index", "Login"); //Cambio de redirect, este es mejor
+                return RedirectToAction("Index", "Login");
             }
-
-        }
-
-        [HttpPost]
-        public ActionResult offerView(FormCollection form)
-        {
-            DateTime dateIn = DateTime.Parse(Request.Form["dateIn"]);
-            DateTime dateOut = DateTime.Parse(Request.Form["dateOut"]);
-            int discount = int.Parse(Request.Form["discount"]);
-            int type = int.Parse(Request.Form["type"]);
-            offer = offerContext.createOffer(conn, dateIn, dateOut, discount, type);
-            return View(offer);
-        }
-
-        [HttpPost]
-        public ActionResult deleteOfferView()
-        {
-            offer = offerContext.getOffers(conn);
-            return View(offer);
-        }
-
-        public ActionResult deleteOffer(int id)
-        {
-            offerContext.deleteOffer(conn, id);
-            return RedirectToAction("Index", "DeleteOffer");
         }
     }
 }

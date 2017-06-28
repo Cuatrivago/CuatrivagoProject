@@ -4354,6 +4354,10 @@
     <Content Include="Content\vendors\validator\.bower.json" />
     <Content Include="Content\vendors\validator\README.md" />
     <Content Include="Content\vendors\validator\validator.jquery.json" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -4380,6 +4384,7 @@
     <Compile Include="Context\UpdateRoomContext.cs" />
     <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\CreateRoomController.cs" />
+    <Compile Include="Controllers\DeleteOfferController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
     <Compile Include="Controllers\HotelUpdateController.cs" />
     <Compile Include="Controllers\ImagesHomeController.cs" />
@@ -4401,6 +4406,7 @@
     <Compile Include="Models\ModelsForRoomImage.cs" />
     <Compile Include="Models\ModelsForUpdateFacilitie.cs" />
     <Compile Include="Models\Offer.cs" />
+    <Compile Include="Models\OffertList.cs" />
     <Compile Include="Models\RangeDateRoom.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomType.cs" />
@@ -4409,6 +4415,16 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\cr.fi.bccr.indicadoreseconomicos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -4441,7 +4457,13 @@
     <Content Include="Views\UpdateFacilitie\Index.cshtml" />
     <Content Include="Views\Offer\index.cshtml" />
     <Content Include="Views\Offer\offerView.cshtml" />
-    <Content Include="Views\Offer\deleteOffer.cshtml" />
+    <Content Include="Views\Offer\deleteOfferView.cshtml" />
+    <Content Include="Web References\cr.fi.bccr.indicadoreseconomicos\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\DeleteOffer\Index.cshtml" />
+    <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4459,6 +4481,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsindicadoreseconomicos.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cr.fi.bccr.indicadoreseconomicos\</RelPath>
+      <UpdateFromURL>http://indicadoreseconomicos.bccr.fi.cr/indicadoreseconomicos/WebServices/wsindicadoreseconomicos.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CuatrivagoProjectAdmin_cr_fi_bccr_indicadoreseconomicos_wsIndicadoresEconomicos</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

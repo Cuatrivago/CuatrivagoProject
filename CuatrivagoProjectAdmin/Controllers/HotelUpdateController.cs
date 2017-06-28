@@ -23,14 +23,8 @@ namespace CuatrivagoProjectAdmin.Controllers
 
            Hotel vm = new Hotel();
             vm = hotelContext.getInformationHotel(conn);
-            //vm.Hotel = hotelContext.getInformationHotel(conn);
-            //vm.advertisement = advertisementContext.getInformationAdvertisement(conn);
-            //vm.facilitie = facilitieContext.getAllFacilities(conn);
-            //vm.roomType = roomTypeContext.getAllRoomType(conn);
-            //vm.image = imageContext.getAllImage(conn);
 
             return View(vm);
-            //return View();
         }
         //public RedirectResult UpdateHotelSave()
         //{
