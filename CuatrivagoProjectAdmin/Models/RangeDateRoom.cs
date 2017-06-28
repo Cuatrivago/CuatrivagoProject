@@ -13,5 +13,6 @@ namespace CuatrivagoProjectAdmin.Models
         public string available { get; set; }
         public string type { get; set; }
         public string price { get; set; }
+        public string priceColon { get; set; }
     }
 }

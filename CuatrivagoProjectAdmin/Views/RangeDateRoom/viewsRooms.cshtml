@@ -25,7 +25,10 @@
                     Tipo
                 </th>
                 <th>
-                    Precio
+                    Precio Dolares
+                </th>
+                <th>
+                    Precio Colones
                 </th>
             </tr>
 
@@ -51,7 +54,10 @@
                         @Html.DisplayFor(modelItem => item.type)
                     </td>
                     <td>
-                        $@Html.DisplayFor(modelItem => item.price)
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.priceColon)
                     </td>
                 </tr>
             }

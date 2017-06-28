@@ -78,12 +78,14 @@ namespace CuatrivagoProjectAdmin.Context
         {
             SqlConnection connection = new SqlConnection(conn);
 
-            string sqlStoredProcedure = "";
+            string sqlStoredProcedure = "SP_Retrieve_All_Offer";
             SqlCommand cmdOffert = new SqlCommand(sqlStoredProcedure, connection);
 
             cmdOffert.CommandType = CommandType.StoredProcedure;
 
             cmdOffert.Connection.Open();
+
+            cmdOffert.ExecuteNonQuery();
 
             SqlDataReader reader = cmdOffert.ExecuteReader();
 
@@ -99,8 +101,20 @@ namespace CuatrivagoProjectAdmin.Context
                     offerTemp.dateOut = reader.GetDateTime(2);
                     offerTemp.discount = reader.GetInt32(3);
                     offerTemp.roomType = reader.GetString(4);
+                    offerTemp.active = reader.GetInt32(5);
                     offer.Add(offerTemp);
                 }
+            }
+            else
+            {
+                Offer offerTemp = new Offer();
+                offerTemp.id = -1;
+                offerTemp.dateIn = DateTime.Today;
+                offerTemp.dateOut = DateTime.Today;
+                offerTemp.discount = 10;
+                offerTemp.roomType = "No hay ofertas";
+                offerTemp.active = 1;
+                offer.Add(offerTemp);
             }
 
             cmdOffert.Connection.Close();
@@ -166,6 +180,11 @@ namespace CuatrivagoProjectAdmin.Context
             currentId.Direction = ParameterDirection.Input;
             currentId.Value = id;
 
+            SqlParameter r = new SqlParameter("@R", " ");
+            r.SqlDbType = SqlDbType.Char;
+            r.Size = 1;
+            r.Direction = ParameterDirection.Output;
+            cmdOffert.Parameters.Add(r);
             cmdOffert.Parameters.Add(currentId);
 
             cmdOffert.Connection.Open();

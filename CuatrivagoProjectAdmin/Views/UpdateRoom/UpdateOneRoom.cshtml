@@ -35,11 +35,19 @@
             </dd>                       
 
             <dt>
-               Precio:
+               Precio Dolares:
             </dt>
 
             <dd>
-                ₡ @Html.DisplayFor(model => model.price)
+                @Html.DisplayFor(model => model.priceDolar)
+            </dd>
+
+            <dt>
+                Precio Colones:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.priceColon)
             </dd>
 
         </dl>

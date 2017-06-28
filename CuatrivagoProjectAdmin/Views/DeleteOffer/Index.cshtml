@@ -1,6 +1,5 @@
-﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Offer>
+﻿@model CuatrivagoProjectAdmin.Models.OffertList
 @{
-    ViewBag.Title = "index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -25,11 +24,14 @@
                     Tipo de habitación
                 </th>
                 <th>
+                    Activa
+                </th>
+                <th>
                     Eliminar oferta
                 </th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.offers)
     {
                 <tr>
                     <td>
@@ -46,7 +48,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.roomType)
                     </td>
-
+                    @if (item.active == 1)
+                    {
+                        <td>Activa</td>
+                    }
+                    else
+                    {
+                        <td>No activa</td>
+                    }
                     <td>
                         <a href="@Url.Action("deleteOffer", "Offer", new {id = item.id })">Eliminar</a>
                     </td>
@@ -69,9 +78,3 @@
         });
     </script>
 }
-
-
-
-
-
-

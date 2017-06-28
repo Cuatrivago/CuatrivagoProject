@@ -102,6 +102,12 @@ namespace CuatrivagoProjectAdmin.Context
 
             List<RangeDateRoom> rooms = new List<RangeDateRoom>();
 
+            cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos client = new cr.fi.bccr.indicadoreseconomicos.wsIndicadoresEconomicos();
+            DataSet typeChange = client.ObtenerIndicadoresEconomicos("317", DateTime.Today.ToString("d"), DateTime.Today.ToString("d"), "Cuatrivago", "n");
+
+            double colon = double.Parse(typeChange.Tables[0].Rows[0].ItemArray[2].ToString());
+
+
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -112,7 +118,8 @@ namespace CuatrivagoProjectAdmin.Context
                     room.capacity = reader.GetInt32(2).ToString();
                     room.available = reader.GetString(3);
                     room.type = reader.GetString(4);
-                    room.price = reader.GetInt32(5).ToString();
+                    room.price = "$" + reader.GetDouble(5).ToString();
+                    room.priceColon = "₡" + (reader.GetDouble(5) * colon);
                     rooms.Add(room);
                 }
             }
