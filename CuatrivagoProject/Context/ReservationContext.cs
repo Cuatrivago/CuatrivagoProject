@@ -21,13 +21,15 @@ namespace CuatrivagoProject.Context
             SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            DateTime thisDate1 = new DateTime(2011, 6, 10);
+            //DateTime thisDate1 = new DateTime(2011, 6, 10);
 
             SqlParameter currentDate = new SqlParameter();
             currentDate.ParameterName = "@DateR_";
-            currentDate.SqlDbType = SqlDbType.VarChar;
+            currentDate.SqlDbType = SqlDbType.DateTime;
             currentDate.Direction = ParameterDirection.Input;
-            currentDate.Value = "2017-01-01 11:01:01.000";
+
+            currentDate.Value = DateTime.Today.ToString();
+
             sqlCommand.Parameters.Add(currentDate);
             Debug.WriteLine("2017-01-01 11:01:01.000" + "\n");
 
@@ -122,6 +124,51 @@ namespace CuatrivagoProject.Context
                 Debug.WriteLine(ex.ToString() + "abcassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
             }
 
+            return returnValue;
+        }
+
+
+        public int isAvailable(string conn, string dateIn_, string dateOut_, int room_)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+            string sqlStoredProcedure = "SP_Verify_Available_Room";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            
+            SqlParameter dateIn = new SqlParameter();
+            dateIn.ParameterName = "@DateIn";
+            dateIn.SqlDbType = SqlDbType.DateTime;
+            dateIn.Direction = ParameterDirection.Input;
+            dateIn.Value = dateIn_ + " 14:00:00.000";
+            sqlCommand.Parameters.Add(dateIn);
+            Debug.WriteLine(dateIn_ + " 14:00:00.000" + "\n");
+
+            SqlParameter dateOut = new SqlParameter();
+            dateOut.ParameterName = "@DateOut";
+            dateOut.SqlDbType = SqlDbType.DateTime;
+            dateOut.Direction = ParameterDirection.Input;
+            dateOut.Value = dateOut_ + " 12:00:00.000";
+            sqlCommand.Parameters.Add(dateOut);
+            Debug.WriteLine(dateOut_ + " 12:00:00.000" + "\n");
+
+            SqlParameter room = new SqlParameter();
+            room.ParameterName = "@Room";
+            room.SqlDbType = SqlDbType.Int;
+            room.Direction = ParameterDirection.Input;
+            room.Value = room_;
+            sqlCommand.Parameters.Add(room);
+
+            SqlParameter parameter = new SqlParameter();
+            parameter.ParameterName = "@Available";
+            parameter.SqlDbType = SqlDbType.Int;
+            parameter.Direction = ParameterDirection.Output;
+            parameter.Value = "2";
+
+            sqlCommand.Parameters.Add(parameter);
+            sqlCommand.Connection.Open();
+            sqlCommand.ExecuteNonQuery();
+            int returnValue = Int32.Parse(parameter.Value.ToString());
+            sqlCommand.Connection.Close();   
             return returnValue;
         }
     }

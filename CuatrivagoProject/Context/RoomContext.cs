@@ -11,7 +11,7 @@ namespace CuatrivagoProject.Context
 {
     public class RoomContext
     {
-        public  RoomContext (){ }
+        public RoomContext() { }
         // retorna los que estan disponibles por tipo, fechas ingreso y salida
         public List<Room> getRoomsAvailable(string conn, string arrival, string departure, int roomType)
         {
@@ -44,6 +44,31 @@ namespace CuatrivagoProject.Context
             sqlCommand.Connection.Close();
             return roomList;
         }
+        //probar estooooooooooooooooooooooooooooooo
+        public Room getRoom(string conn, int id)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+            string sqlStoredProcedure = "SP_Retrieve_Room";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@Id", id);
+
+
+            sqlCommand.Connection.Open();
+            sqlCommand.ExecuteNonQuery();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+
+
+            reader.Read();
+            Room room = new Room();
+            room.idRoom = reader.GetInt32(0);
+            room.capacity = reader.GetInt32(1);
+            room.description_ = reader.GetString(2);
+            room.roomType = reader.GetInt32(3);
+            sqlCommand.Connection.Close();
+            return room;
+        }
+
 
         public List<Room> getRoomsByType(string conn, int roomType)
         {
@@ -83,7 +108,7 @@ namespace CuatrivagoProject.Context
             dateIn.ParameterName = "@DateIn";
             dateIn.SqlDbType = SqlDbType.DateTime;
             dateIn.Direction = ParameterDirection.Input;
-            dateIn.Value = dateIn_ +  " 02:02:02";
+            dateIn.Value = dateIn_ + " 02:02:02";
             sqlCommand.Parameters.Add(dateIn);
 
             SqlParameter dateOut = new SqlParameter();

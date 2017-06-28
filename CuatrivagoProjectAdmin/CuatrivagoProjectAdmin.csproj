@@ -4374,6 +4374,7 @@
     <Compile Include="Context\AdminContext.cs" />
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\ImageContext.cs" />
+    <Compile Include="Context\OfferContext.cs" />
     <Compile Include="Context\RoomContext.cs" />
     <Compile Include="Context\UpdateFacilitieContext.cs" />
     <Compile Include="Context\UpdateRoomContext.cs" />
@@ -4384,6 +4385,7 @@
     <Compile Include="Controllers\ImagesHomeController.cs" />
     <Compile Include="Controllers\ImagesRoomController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\RangeDateRoomController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\StateRoomTodayController.cs" />
@@ -4398,6 +4400,7 @@
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ModelsForRoomImage.cs" />
     <Compile Include="Models\ModelsForUpdateFacilitie.cs" />
+    <Compile Include="Models\Offer.cs" />
     <Compile Include="Models\RangeDateRoom.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomType.cs" />
@@ -4436,6 +4439,9 @@
     <Content Include="Views\ImagesHome\getImagesByObject.cshtml" />
     <Content Include="Views\ImagesHome\Create.cshtml" />
     <Content Include="Views\UpdateFacilitie\Index.cshtml" />
+    <Content Include="Views\Offer\index.cshtml" />
+    <Content Include="Views\Offer\offerView.cshtml" />
+    <Content Include="Views\Offer\deleteOffer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

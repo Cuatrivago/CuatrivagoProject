@@ -1,0 +1,133 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.RoomType>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section content{
+    <!-- page content -->
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+
+            <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left" method="post" action="/Offert/offertView" id="form">
+                    @*DATE IN*@
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha inicio</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="date" name="dateIn" class="form-control" id="dateIn" required>
+                        </div>
+                    </div>
+
+                    @*DATE OUT*@
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha final</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="date" name="dateOut" class="form-control" id="dateOut" required>
+                        </div>
+                    </div>
+
+                    @*DISCOUNT*@
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Monto de descuento %</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input id="discount" type="number" name="discount" class="form-control" required>
+                        </div>
+                    </div>
+
+                    @*ROOM TYPE*@
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select class="form-control" id="type" name="type">
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.type)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                    <input type="button" class="btn btn-success" value="Crear oferta" onclick="valideInputs();">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+    <script>
+
+        function valideInputs() {
+            var dateIn = document.getElementById("dateIn").value;
+            var dateOut = document.getElementById("dateOut").value;
+            var discount = document.getElementById("discount").value;
+
+            var f = new Date();
+            var toDay = f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate();
+
+
+            if (dateIn == "") {
+                alert("Seleccione una fecha inicial");
+                return false;
+            }
+
+            if (dateOut == "") {
+                alert("Seleccione una fecha final");
+                return false;
+            }
+
+            if (valideDate(toDay, dateIn)) {
+                alert("La fecha inicial es menor o igual a la fecha de hoy, por favor ingrese una fecha inicial mayor a la de hoy");
+                return false;
+            }
+
+            if (valideDate(dateIn, dateOut)) {
+             
+                alert("La fecha final es menor que la inicial");
+                return false;
+            }
+
+            if (notIsInt(discount)) {
+                alert("El descuento no es valido");
+                return false;
+            }
+
+            if(discount <= 0 || discount >= 101){
+                alert("Descuento inaceptable");
+                return false;
+            }
+
+            document.getElementById("form").submit();
+        }
+
+        function notIsInt(num) {
+            if (num % 1 != 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        function valideDate(dateIn, dateOut) {
+            valuesStart = dateIn.split("-");
+            valuesEnd = dateOut.split("-");
+
+            // Verificamos que la fecha no sea posterior a la actual
+            var dateStart = new Date(valuesStart[0], (valuesStart[1] - 1), valuesStart[2]);
+            var dateEnd = new Date(valuesEnd[0], (valuesEnd[1] - 1), valuesEnd[2]);
+
+            if (dateStart >= dateEnd) {
+                return true;
+            }
+
+            return false;
+        }
+
+    </script>
+
+}
+

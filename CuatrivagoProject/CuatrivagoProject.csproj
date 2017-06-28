@@ -327,6 +327,7 @@
     </Content>
     <Content Include="Views\Reservation\CreateReservation.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\DetailRoom\Index.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

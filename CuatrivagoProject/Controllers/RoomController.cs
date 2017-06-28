@@ -15,7 +15,7 @@ namespace CuatrivagoProject.Controllers
         // GET: Room
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
         private RoomContext roomContext = new RoomContext();
-         private HotelContext hotelContext = new HotelContext();
+        private HotelContext hotelContext = new HotelContext();
         public ActionResult Index()
         {
             return View();
@@ -28,6 +28,8 @@ namespace CuatrivagoProject.Controllers
             roomList.hotel = hotelContext.getInformationHotel(conn);
             roomList.roomList = roomContext.getRoomsByType(conn, id);
             roomList.back = 0;
+
+
             return View("Index", roomList);
         }
 
