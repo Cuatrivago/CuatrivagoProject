@@ -445,5 +445,6 @@ C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\bin
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\bin\CuatrivagoProject.dll.config
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\bin\CuatrivagoProject.dll
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\bin\CuatrivagoProject.pdb
+C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.dll
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.pdb
