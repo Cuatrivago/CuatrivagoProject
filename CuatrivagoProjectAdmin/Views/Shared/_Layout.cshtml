@@ -82,15 +82,16 @@
 
                             @if (Request.Cookies["Admin"] != null)
                             {
-                                if (Request.Cookies["Admin"]["rol"] == "1")
-                                {
-                                    <ul class="nav side-menu">
-                                        <li>@Html.ActionLink("Perfil", "index", "AdminProfile")</li>
+
+                                <ul class="nav side-menu">
+                                    <li>@Html.ActionLink("Perfil", "index", "AdminProfile")</li>
+                                    @if (Request.Cookies["Admin"]["rol"] == "1")
+                                    {
                                         <li>
                                             <a><i class="fa fa-home"></i> Hotel <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li>@Html.ActionLink("Actualizar Hotel", "UpdateHotel", "HotelUpdate")</li>
-                                                <li><a href="@Url.Action("getImagesByObject", "ImagesHome", new { id = 1})">Imágenes Inicio</a></li>
+                                                <li><a href="@Url.Action("getImagesByObject", "ImagesHome", new { id = 1 })">Imágenes Inicio</a></li>
                                                 <li>@Html.ActionLink("Estado del Hotel", "index", "StatusHotel")</li>
                                             </ul>
                                         </li>
@@ -103,89 +104,42 @@
                                                 <li>@Html.ActionLink("Eliminar administradores", "showDeleteAdmins", "Admin")</li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <a><i class="fa fa-archive"></i> Habitaciones <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li>@Html.ActionLink("Estado habitaciones hoy", "index", "StateRoomToday")</li>
-                                                <li>@Html.ActionLink("Habitaciones por rango de fechas", "index", "RangeDateRoom")</li>
+                                    }
+                                    <li>
+                                        <a><i class="fa fa-archive"></i> Habitaciones <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li>@Html.ActionLink("Estado habitaciones hoy", "index", "StateRoomToday")</li>
+                                            <li>@Html.ActionLink("Habitaciones por rango de fechas", "index", "RangeDateRoom")</li>
+                                            @if (Request.Cookies["Admin"]["rol"] != "2")
+                                            {
                                                 <li>@Html.ActionLink("Registrar Habitaciones", "index", "CreateRoom")</li>
                                                 <li>@Html.ActionLink("Actualizar Habitaciones", "index", "UpdateRoom")</li>
-                                            </ul>
-                                        </li>
+                                            }
+                                        </ul>
+                                    </li>
+                                    @if (Request.Cookies["Admin"]["rol"] != "2")
+                                    {
                                         <li>
                                             <a><i class="fa fa-beer"></i> Facilidades <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li>@Html.ActionLink("Actualizar Facilidades", "Index", "UpdateFacilitie")</li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <a><i class="fa fa-calendar-o"></i> Oferta <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
+                                    }
+                                    <li>
+                                        <a><i class="fa fa-calendar-o"></i> Oferta <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            @if (Request.Cookies["Admin"]["rol"] != "2")
+                                            {
                                                 <li>@Html.ActionLink("Crear Oferta", "index", "Offer")</li>
-                                                <li>@Html.ActionLink("Ver Oferta", "Index", "DeleteOffer")</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Cerrar Sesión", "LogOut", "Login")
-                                        </li>
-                                    </ul>
-                                }
-
-                                if (Request.Cookies["Admin"]["rol"] == "2")
-                                {
-                                    <ul class="nav side-menu">
-                                        <li>@Html.ActionLink("Perfil", "index", "AdminProfile")</li>
-                                        <li>
-                                            <a><i class="fa fa-archive"></i> Habitaciones <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li>@Html.ActionLink("Estado habitaciones hoy", "index", "StateRoomToday")</li>
-                                                <li>@Html.ActionLink("Habitaciones por rango de fechas", "index", "RangeDateRoom")</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a><i class="fa fa-calendar-o"></i> Oferta <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li>@Html.ActionLink("Ver Oferta", "Index", "DeleteOffer")</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Cerrar Sesión", "LogOut", "Login")
-                                        </li>
-                                    </ul>
-                                }
-
-                                if (Request.Cookies["Admin"]["rol"] == "-1")
-                                {
-                                    <ul class="nav side-menu">
-                                        <li>@Html.ActionLink("Perfil", "index", "AdminProfile")</li>
-                                        <li>
-                                            <a><i class="fa fa-archive"></i> Habitaciones <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li>@Html.ActionLink("Estado habitaciones hoy", "index", "StateRoomToday")</li>
-                                                <li>@Html.ActionLink("Habitaciones por rango de fechas", "index", "RangeDateRoom")</li>
-                                                <li>@Html.ActionLink("Registrar Habitaciones", "index", "CreateRoom")</li>
-                                                <li>@Html.ActionLink("Actualizar Habitaciones", "index", "UpdateRoom")</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a><i class="fa fa-beer"></i> Facilidades <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li>@Html.ActionLink("Actualizar Facilidades", "Index", "UpdateFacilitie")</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a><i class="fa fa-calendar-o"></i> Oferta <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li>@Html.ActionLink("Crear Oferta", "index", "Offer")</li>
-                                                <li>@Html.ActionLink("Ver Oferta", "Index", "DeleteOffer")</li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Cerrar Sesión", "LogOut", "Login")
-                                        </li>
-                                    </ul>
-                                }
-
+                                            }
+                                            <li>@Html.ActionLink("Ver Oferta", "Index", "DeleteOffer")</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Cerrar Sesión", "LogOut", "Login")
+                                    </li>
+                                </ul>
                             }
                         </div>
 
@@ -301,4 +255,3 @@
 
 </body>
 </html>
-
