@@ -51,6 +51,7 @@
         </div>
     }
 }
+
 @section facilitiesName{
     @{bool first = true;
 
@@ -92,9 +93,9 @@
                 <div id="facilitie_@item.idFacilitie" class="tab-pane fade in active">
                     <img src="@item.path" alt="">
                     <header>
-                        <h5 class="title">@item.name</h5>
+                        <h5><span style="background: black; color: white">&nbsp; @item.name &nbsp;</span></h5>
                     </header>
-                    <p>@item.description_</p>
+                    <p> <span style="background: black; color: white">&nbsp; @item.description_ &nbsp;</span></p>
                 </div>
             }
             else
@@ -102,9 +103,9 @@
                 <div id="facilitie_@item.idFacilitie" class="tab-pane fade">
                     <img src="@item.path" alt="">
                     <header>
-                        <h5 class="title">@item.name</h5>
+                        <h5><span style="background: black; color: white">&nbsp; @item.name &nbsp;</span></h5>
                     </header>
-                    <p>@item.description_</p>
+                    <p> <span style="background: black; color: white">&nbsp; @item.description_ &nbsp;</span></p>
                 </div>
             }
 
