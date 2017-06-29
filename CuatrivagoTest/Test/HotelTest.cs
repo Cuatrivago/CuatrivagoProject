@@ -1,8 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using CuatrivagoProjectAdmin.Models;
+//using CuatrivagoProjectAdmin.Models;
 using CuatrivagoProjectAdmin.Context;
+using CuatrivagoProject.Context;
+using CuatrivagoProject.Models;
 
 namespace CuatrivagoUnitTest.Test
 {
@@ -26,7 +28,7 @@ namespace CuatrivagoUnitTest.Test
             newHotel.postMail = "catrivago@cuatrivago.com";
             newHotel.aboutUs = "Durante años hemos trabajado en estrecha colaboración con organizaciones gubernamentales para implementar programas que beneficien a nuestro medio ambiente natural y nos permitan colaborar en la protección de la belleza natural de la región. Ejemplo de ello es la reconocida Certificación para la Sostenibilidad Turística.";
             newHotel.homeInformation = "Como líder global en el negocio de la hospitalidad, en el Hotel Cuatrivago  reconocemos nuestra responsabilidad de proteger el medio ambiente en la ejecución de nuestra labor.  Estamos comprometidos a realizar todas las acciones necesarias para ser un hotel sostenible y responsable con nuestra comunidad.";
-            rc.updateHotel(newHotel, conn);
+            //rc.updateHotel(newHotel, conn);
         }
 }
 }

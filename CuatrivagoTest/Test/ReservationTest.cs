@@ -17,10 +17,9 @@ namespace CuatrivagoUnitTest.Test
         [TestMethod]
         public void reservation()
         {
-          string a = rc.insertReservation(conn,"2017-01-01","2017-01-04",1,1);
-
-
-            Debug.WriteLine(a + "\n");
+            int a = rc.isAvailable(conn, "2017-07-28", "2017-07-29", 1);
+         
+            Debug.WriteLine("Test" +  a + "\n");
 
             Debug.WriteLine(a + "\n");
 

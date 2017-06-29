@@ -69,16 +69,27 @@ namespace CuatrivagoProject.Controllers
             }
 
             ReservationContext rec = new ReservationContext();
-            string result = rec.insertReservation(conn, dateIn, dateOut, clientId, idRoom, mail, subscription);
-            if (result == "n")
+
+            //código
+            int retorno = rec.isAvailable(conn, dateIn, dateOut, idRoom);
+            if (retorno == 0)
             {
-                msgs = -7; //no reservada
+                return 15;
             }
             else
             {
-                msgs = -11; //reservada 
+                string result = rec.insertReservation(conn, dateIn, dateOut, clientId, idRoom, mail, subscription);
+                if (result == "n")
+                {
+                    return -7; //no reservada
+                }
+                else
+                {
+                    return -11; //reservada 
+                }
             }
-            return msgs;
+
+            //return msgs;
         }
     }
 }

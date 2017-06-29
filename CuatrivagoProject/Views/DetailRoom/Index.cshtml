@@ -1,6 +1,15 @@
 ﻿@model CuatrivagoProject.Models.ModelForRoomList
 @{
-    Layout = "~/Views/Room/Details.cshtml"; bool temp = true;
+    Layout = "~/Views/DetailRoom/Details.cshtml";
+}
+@section description{
+    <p style="color:red">
+        tttttttttttttaaaaaaaaaaaaaaaaaaaaa
+    </p>
+    @Model.room.description_
+<p style="color:red">
+    tttttttttttttaaaaaaaaaaaaaaaaaaaaa
+</p>
 }
 @section footer{
     <footer id="footer">

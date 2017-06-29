@@ -1,7 +1,9 @@
-﻿@model CuatrivagoProject.Models.Room
+﻿@model CuatrivagoProject.Models.ModelForRoomList
 @{
     Layout = null;
+    //Layout = "~/Views/DetailRoom/Footer.cshtml";
 }
+
 <!doctype html>
 <html lang="en">
 <!-- Mirrored from new.uouapps.com/petra-html/single_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:21:04 GMT -->
@@ -102,28 +104,9 @@
                                         <a href="single_post.html">Post title goes here</a>
                                     </h5>
                                     <span class="pull-right date">21 July 2014</span>
-                                </header>
-                                @*<div class="post-meta">
-                                    <span class="category">
-                                        <i class="fa fa-tags"></i>
-                                        <a href="#">Lifestyle</a>, <a href="#">Luxury</a>
-                                    </span>
-                                    <span class="author">
-                                        <i class="fa fa-user"></i>
-                                        <a href="#">Admin</a>
-                                    </span>
-                                    <span class="comments">
-                                        <i class="fa fa-comment"></i>
-                                        <a href="#">2 Comments</a>
-                                    </span>
-                                </div>*@
-                                <p>@*Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus.*@</p>
-                                <p>Urna quam viverra nisi, in interdum massa nibh nec erat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</p>
-                                @*<ul class="custom-list tags-list list-inline">
-                                    <li><a href="#">Lifestyle</a></li>
-                                    <li><a href="#">Luxury</a></li>
-                                    <li><a href="#">Money</a></li>
-                                </ul>*@
+                                </header>                      
+                                @*<p>Urna quam viverra nisi, in interdum massa nibh nec erat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</p>*@
+                                @RenderSection("description", false)
                                 <div class="post-share">
                                     <p class="pull-left">Share this story</p>
                                     <ul class="custom-list social list-inline pull-right">
@@ -137,10 +120,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="sidebar">
-                          
+
                             <div class="sidebar-widget">
                                 <h5 class="widget-title">Reservación</h5>
-                             
+
                                 <div class="contact-box" style="width:100%;">
                                     <form action="/Reservation/Insert" method="post" class="contact-form default-form" id="commentForm">
                                         <div class="row">
@@ -158,7 +141,6 @@
                                             <div class="col-md-12">
                                                 <input style="text-transform: uppercase; text-align: center; color: black" id="lastName" name="lastName" type="text" placeholder="Apellido" required>
                                             </div>
-
                                             <div class="col-md-12">
                                                 <input style="text-transform: uppercase; text-align: center; color: black" id="cardNumber" name="cardNumber" type="number" placeholder="Número Tarjeta" required>
                                             </div>
@@ -211,25 +193,12 @@
                                                 </div>
                                             }
 
-
                                         </div>
-
                                         <input style="visibility: hidden;position: relative; height: 0px; font-size: 1px ; margin: 0px" id="idRoom" name="idRoom" value="@ViewBag.id">
-
                                     </form>
                                 </div>
-                             
+
                             </div>
-                            @*<div class="sidebar-widget">
-                                <h5 class="widget-title">Categories</h5>
-                                <ul class="custom-list list categories-list">
-                                    <li><a href="#">Lifestyle</a></li>
-                                    <li><a href="#">Luxury</a></li>
-                                    <li><a href="#">CEO Corner</a></li>
-                                    <li><a href="#">Leisure</a></li>
-                                </ul>
-                            </div>*@
-                         
                         </div>
                     </div>
                 </div>
@@ -258,9 +227,31 @@
                 </div>
             </div>
         </section>
+        <div class="container">
+            <!-- Trigger the modal with a button -->
+            <button id="mod" style="visibility:hidden" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button id="mod" type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Cuatrivago</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="message"> </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- End Partners -->
-        <!-- Start Footer -->
-        <footer id="footer">
+
+        @*<footer id="footer">
             <!-- Start Footer-Copyrights -->
             <div class="footer-copyrights">
                 <div class="container">
@@ -271,6 +262,22 @@
                     </div>
                 </div>
             </div>
+            <!--End Footer-Copyrights -->
+        </footer>*@
+        <footer id="footer">
+            @RenderSection("footer", false)
+
+
+            <!-- Start Footer-Copyrights -->
+            @*<div class="footer-copyrights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright 2015 Â© PetraHotel. All rights reserved. Powered by <a href="#">UOUapps</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
             <!-- End Footer-Copyrights -->
         </footer>
         <!-- End Footer -->
@@ -292,7 +299,6 @@
     <script src="~/Content/js/transition.js"></script>
     <script src="~/Content/js/jquery.matchHeight-min.js"></script>
     <script src="js/jquery.matchHeight-min.js"></script>
-
     <script>
         $("#commentForm").validate();
     </script>
@@ -314,21 +320,25 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
-                    //alert("data");
-                    if (data == -7) {
-                        alert("No reservada");
-                    } else {
-                        alert("Reservada");
+                    if (data == 15) {
+                        $("#message").val("Lamentablemente la habitación ya está reservada.");
                     }
-
+                    else if (data == -7) {
+                        $("#message").val("No se puede reservar");
+                    }
+                    else {
+                        $("#message").val("La habitación fue reservada con éxito.");
+                    }
+                    $("#message").text("La habitación fue reservada con éxito.");
+                    $("#mod").click();
                 },
                 failure: function (data) {
-                    alert(":56");
-                    //alert(response.responseText);
+                    $("#message").text("Error de red");
+                    $("#mod").click();
                 },
                 error: function (data) {
-                    alert(":55");
-                    //alert(response.responseText);
+                    $("#message").text("Error de red");
+                    $("#mod").click();
                 }
             });
 
@@ -336,8 +346,7 @@
         }
         $(document).ready(function () {
             $('#btnGet').click(function () {
-                //alert('{"arrival":"' + $.trim($("#arrival").val()) + '","departure":"' + $.trim($("#departure").val()) + '","idRoom":"' + $.trim($("#idRoom").val()) + '"}');
-                $.ajax({
+                 $.ajax({
                     type: "POST",
                     url: "/Reservation/isAvaibleRoom/",
                     data: '{"arrival":"' + $.trim($("#arrival").val()) + '","departure":"' + $.trim($("#departure").val()) + '","idRoom":"' + $.trim($("#idRoom").val()) + '"}',
@@ -375,7 +384,9 @@
 
                             }
                             else {
-                                alert($("#mail").val() + ' Bienvenido una vez mas a nuestro hotel.');
+                                //alert($("#mail").val() + ' Bienvenido una vez mas a nuestro hotel.');
+                                $("#message").text($("#mail").val() + ' Bienvenido una vez mas a nuestro hotel.');
+                                $("#mod").click();
                                 $("#name").val(data.name);
                                 $("#lastName").val(data.lastName);
                                 $("#cardNumber").val(data.creditCard);
@@ -394,10 +405,7 @@
                 }).keyup();
             } catch (e) { }
         }
-
-
         );
-
     </script>
 </body>
 <!-- Mirrored from new.uouapps.com/petra-html/single_post.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:21:08 GMT -->

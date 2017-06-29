@@ -1,25 +1,28 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CuatrivagoProject.Context;
-using CuatrivagoProject.Models;
 using System.Diagnostics;
 
-namespace CuatrivagoUnitTest.Test
+namespace CuatrivagoTest
 {
     [TestClass]
-    public class ClientTest
+    public class UnitTest1
     {
-        private ClientContext rc = new ClientContext();
+        private ReservationContext rc = new ReservationContext();
         string conn = "workstation id=CuatriVago.mssql.somee.com;packet size=4096;user id=cuatrivago;pwd=Cu@Tr0_V@G05;data source=CuatriVago.mssql.somee.com;persist security info=False;initial catalog=CuatriVago";
 
 
         [TestMethod]
-        public void ingrClient()
+        public void TestMethod1()
         {
-            
-            Client a = new Client(11213,"gtgt","gtgtg","645fb655",555,56567,87777);
-            int wa = rc.insertClient(conn,a);
-            Debug.WriteLine(wa + "\n");
+            //string a = rc.insertReservation(conn, "2017-01-01", "2017-01-04", 1, 1);
+
+
+            //Debug.WriteLine(a + "\n");
+
+            //Debug.WriteLine(a + "\n");
+
+            //Debug.WriteLine(a + "\n");
 
         }
     }
