@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Admin>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section content{
+
+    <div id="info">
+        <h1 id="glyphicons" class="page-header">Actualizar Administradores del Hotel</h1>
+        <table class="table">
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th>
+                    Rol
+                </th>
+                <th>
+                    Actualizar
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+
+                    @switch (item.rol)
+                    {
+                        case "1":
+                            <td>
+                                General
+                            </td>
+                            break;
+                        case "2":
+                            <td>
+                                Consulta
+                            </td>
+                            break;
+                        case "3":
+                            <td>
+                                Editar y consultar
+                            </td>
+                            break;
+                        default:
+                            <td>
+                                Error
+                            </td>
+                            break;
+                    }
+
+                    <td>
+                        <a href="@Url.Action("showUpdateAdmin", "Admin", new {id = item.idAdmin })">Actualizar</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+}

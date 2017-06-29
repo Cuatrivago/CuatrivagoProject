@@ -1,0 +1,104 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Admin>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section content{
+    <!-- page content -->
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+
+            <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left" method="post" action="/Admin/updateAdmin" id="form">
+                    @foreach (var item in Model)
+                    {
+                        <input id="idAdmin" name="idAdmin" value="@Html.DisplayFor(modelItem => item.idAdmin)" readonly style='display:none;'/>
+                        @*Name*@
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input id="name" type="text" name="name" class="form-control" required value="@Html.DisplayFor(modelItem => item.name)">
+                            </div>
+                        </div>
+                        @*Lastname*@
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellido</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input id="lastname" type="text" name="lastname" class="form-control" required value="@Html.DisplayFor(modelItem => item.lastName)">
+                            </div>
+                        </div>
+                        @*email*@
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Correo electronico</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input id="email" type="text" name="email" class="form-control" required value="@Html.DisplayFor(modelItem => item.email)">
+                            </div>
+                        </div>
+                        @*Rol*@
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Rol de administrador</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <select class="form-control" id="rol" name="rol">
+                                    @switch (item.rol)
+                                    {
+                                        case "1":
+                                    <option value="1">General</option>
+                                    <option value="2">Consulta</option>
+                                    <option value="3">Editar y Consultar</option>
+                                            break;
+                                        case "2":
+
+                                            break;
+                                        case "3":
+                                    <option value="3">Editar y Consultar</option>
+                                    <option value="1">General</option>
+                                    <option value="2">Consulta</option>
+                                            break;
+                                        default:
+                                    <option value="1">General</option>
+                                    <option value="2">Consulta</option>
+                                    <option value="3">Editar y Consultar</option>
+                                            break;
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    }
+
+                </form>
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                    <input type="button" class="btn btn-success" value="Actualizar administrador" onclick="valideInputs();">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page content -->
+
+    <script>
+
+        function valideInputs() {
+            var name = document.getElementById("name").value;
+            var lastname = document.getElementById("lastname").value;
+            var email = document.getElementById("email").value;
+
+            if (name == "") {
+                alert("Revise el nombre del administrador");
+                return false;
+            }
+
+            if (lastname == "") {
+                alert("Revise el apellido del administrador");
+                return false;
+            }
+
+            document.getElementById("form").submit();
+        }
+    </script>
+}
+
+
+
+
+

@@ -59,6 +59,7 @@ namespace CuatrivagoProjectAdmin.Context
             cmdAdmin.Parameters.Add("@LastName", SqlDbType.Char, size: 100).Value = admin.lastName;
             cmdAdmin.Parameters.Add("@Email", SqlDbType.Char, size: 200).Value = admin.email;
             cmdAdmin.Parameters.Add("@Password", SqlDbType.Char, size: 100).Value = admin.password;
+            cmdAdmin.Parameters.Add("@Rol", SqlDbType.Int).Value = int.Parse(admin.rol);
 
             //Parametro de retorno
             SqlParameter returnedChar = new SqlParameter("@R", SqlDbType.Char, size:1) { Direction = ParameterDirection.Output };
@@ -79,15 +80,17 @@ namespace CuatrivagoProjectAdmin.Context
         {
             SqlConnection connection = new SqlConnection(conn);
             char retur;
-            string sqlStoredProcedure = "";
+            string sqlStoredProcedure = "SP_Update_Admin";
             SqlCommand cmdAdmin = new SqlCommand(sqlStoredProcedure, connection);
 
             cmdAdmin.CommandType = CommandType.StoredProcedure;
 
             //Se agregan los parametros
+            cmdAdmin.Parameters.Add("@ID", SqlDbType.Int).Value = admin.idAdmin;
             cmdAdmin.Parameters.Add("@Name", SqlDbType.Char, size: 100).Value = admin.name;
             cmdAdmin.Parameters.Add("@LastName", SqlDbType.Char, size: 100).Value = admin.lastName;
             cmdAdmin.Parameters.Add("@Email", SqlDbType.Char, size: 200).Value = admin.email;
+            cmdAdmin.Parameters.Add("@Rol", SqlDbType.Int).Value = int.Parse(admin.rol);
 
             //Parametro de retorno
             SqlParameter returnedChar = new SqlParameter("@R", SqlDbType.Char, size: 1) { Direction = ParameterDirection.Output };
@@ -160,7 +163,7 @@ namespace CuatrivagoProjectAdmin.Context
         {
             SqlConnection connection = new SqlConnection(conn);
 
-            string sqlStoredProcedure = "";
+            string sqlStoredProcedure = "SP_Retrieve_Get_All_Admin";
             SqlCommand cmdAdmin = new SqlCommand(sqlStoredProcedure, connection);
 
             cmdAdmin.CommandType = CommandType.StoredProcedure;
@@ -183,7 +186,7 @@ namespace CuatrivagoProjectAdmin.Context
                     admin.lastName = reader.GetString(2);
                     admin.email = reader.GetString(3);
                     admin.password = reader.GetString(4);
-                    admin.rol = reader.GetString(5);
+                    admin.rol = reader.GetSqlInt32(5) + "";
                     listAdmins.Add(admin);
                 }
             }
@@ -197,13 +200,13 @@ namespace CuatrivagoProjectAdmin.Context
         {
             SqlConnection connection = new SqlConnection(conn);
 
-            string sqlStoredProcedure = "";
+            string sqlStoredProcedure = "SP_Retrieve_Admin";
             SqlCommand cmdAdmin = new SqlCommand(sqlStoredProcedure, connection);
 
             cmdAdmin.CommandType = CommandType.StoredProcedure;
 
             SqlParameter currentId = new SqlParameter();
-            currentId.ParameterName = "@id";
+            currentId.ParameterName = "@Admin";
             currentId.SqlDbType = SqlDbType.Int;
             currentId.Direction = ParameterDirection.Input;
             currentId.Value = id;
@@ -223,12 +226,12 @@ namespace CuatrivagoProjectAdmin.Context
                 while (reader.Read())
                 {
                     Admin admin = new Admin();
-                    admin.idAdmin = reader.GetInt32(0);
-                    admin.name = reader.GetString(1);
-                    admin.lastName = reader.GetString(2);
-                    admin.email = reader.GetString(3);
-                    admin.password = reader.GetString(4);
-                    admin.rol = reader.GetString(5);
+                    admin.idAdmin = id;
+                    admin.name = reader.GetString(0);
+                    admin.lastName = reader.GetString(1);
+                    admin.email = reader.GetString(2);
+                    //admin.password = reader.GetString(4);
+                    admin.rol = reader.GetInt32(3) + "";
                     listAdmins.Add(admin);
                 }
             }
@@ -241,7 +244,7 @@ namespace CuatrivagoProjectAdmin.Context
         public void deleteAdmin(string conn, int id)
         {
             SqlConnection connection = new SqlConnection(conn);
-            string sqlStoredProcedure = "";
+            string sqlStoredProcedure = "SP_Delete_Admin";
             SqlCommand cmdAdmin = new SqlCommand(sqlStoredProcedure, connection);
 
             cmdAdmin.CommandType = CommandType.StoredProcedure;

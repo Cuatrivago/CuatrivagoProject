@@ -4468,6 +4468,10 @@
     <Content Include="Views\DeleteOffer\Index.cshtml" />
     <Content Include="Views\StatusHotel\index.cshtml" />
     <Content Include="Views\Admin\showAdmins.cshtml" />
+    <Content Include="Views\Admin\showDeleteAdmins.cshtml" />
+    <Content Include="Views\Admin\showCreateAdmin.cshtml" />
+    <Content Include="Views\Admin\showUpdateAdmins.cshtml" />
+    <Content Include="Views\Admin\showUpdateAdmin.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
