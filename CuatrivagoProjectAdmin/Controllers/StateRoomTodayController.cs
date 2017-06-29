@@ -55,76 +55,12 @@ namespace CuatrivagoProjectAdmin.Controllers
 
         }
 
-        // GET: StateRoomToday/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: StateRoomToday/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: StateRoomToday/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult blockRoom(String id)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: StateRoomToday/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: StateRoomToday/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: StateRoomToday/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: StateRoomToday/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            char r = this.stateRoom.blockRoom(int.Parse(id), this.conn);
+            return Json("'ans':'"+r+"'" );
         }
     }
 }
