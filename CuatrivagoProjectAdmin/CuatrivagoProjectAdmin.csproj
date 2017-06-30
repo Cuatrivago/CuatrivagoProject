@@ -4376,6 +4376,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\AdminContext.cs" />
+    <Compile Include="Context\AdvertisementContext.cs" />
     <Compile Include="Context\FacilitieContext.cs" />
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\ImageContext.cs" />
@@ -4386,6 +4387,7 @@
     <Compile Include="Context\UpdateRoomContext.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminProfileController.cs" />
+    <Compile Include="Controllers\AdvertisementController.cs" />
     <Compile Include="Controllers\CreateRoomController.cs" />
     <Compile Include="Controllers\DeleteOfferController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
@@ -4405,6 +4407,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Advertisement.cs" />
     <Compile Include="Models\Facilitie.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Image.cs" />
@@ -4474,6 +4477,7 @@
     <Content Include="Views\Admin\showUpdateAdmins.cshtml" />
     <Content Include="Views\Admin\showUpdateAdmin.cshtml" />
     <Content Include="Views\Facilitie\Index.cshtml" />
+    <Content Include="Views\Advertisement\Index.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
