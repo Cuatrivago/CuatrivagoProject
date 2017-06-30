@@ -4376,6 +4376,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\AdminContext.cs" />
+    <Compile Include="Context\FacilitieContext.cs" />
     <Compile Include="Context\HotelContext.cs" />
     <Compile Include="Context\ImageContext.cs" />
     <Compile Include="Context\OfferContext.cs" />
@@ -4388,6 +4389,7 @@
     <Compile Include="Controllers\CreateRoomController.cs" />
     <Compile Include="Controllers\DeleteOfferController.cs" />
     <Compile Include="Controllers\ExampleFormController.cs" />
+    <Compile Include="Controllers\FacilitieController.cs" />
     <Compile Include="Controllers\HotelUpdateController.cs" />
     <Compile Include="Controllers\ImagesHomeController.cs" />
     <Compile Include="Controllers\ImagesRoomController.cs" />
@@ -4471,6 +4473,7 @@
     <Content Include="Views\Admin\showCreateAdmin.cshtml" />
     <Content Include="Views\Admin\showUpdateAdmins.cshtml" />
     <Content Include="Views\Admin\showUpdateAdmin.cshtml" />
+    <Content Include="Views\Facilitie\Index.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

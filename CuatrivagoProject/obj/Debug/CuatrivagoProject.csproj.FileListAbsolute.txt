@@ -471,3 +471,7 @@ C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\obj
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.dll
 C:\Users\Luis\Desktop\Analisis\Clonacion\CuatrivagoProject\CuatrivagoProject\obj\Debug\CuatrivagoProject.pdb
 >>>>>>> origin
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.dll
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.dll
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.xml
+C:\Users\mm\OneDrive\CuatrivagoProject\CuatrivagoProject\bin\EntityFramework.SqlServer.xml
