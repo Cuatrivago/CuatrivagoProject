@@ -13,6 +13,7 @@ namespace CuatrivagoProjectAdmin.Models
         public int roomType { get; set; }
         public string priceDolar { get; set; }
         public string priceColon { get; set; }
+        public int unlocked { get; set; }
 
     }
 }

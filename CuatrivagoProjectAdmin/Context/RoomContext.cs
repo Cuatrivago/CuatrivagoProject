@@ -11,7 +11,7 @@ namespace CuatrivagoProjectAdmin.Context
 {
     public class RoomContext
     {
-        public List<StateRoom> getInformationStateRoomToday(string conn, DateTime date)
+        public List<Room> getInformationStateRoomToday(string conn, DateTime date)
         {
 
             SqlConnection connection = new SqlConnection(conn);
@@ -37,16 +37,17 @@ namespace CuatrivagoProjectAdmin.Context
 
             SqlDataReader reader = cmdStateRoom.ExecuteReader();
 
-            List<StateRoom> rooms = new List<StateRoom>();
+            List<Room> rooms = new List<Room>();
 
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    StateRoom room = new StateRoom();
-                    room.nameRoom = reader.GetString(0);
-                    room.state = reader.GetString(1);
-
+                    Room room = new Room();
+                    room.idRoom = reader.GetInt32(0);
+                    room.description_ = reader.GetString(1);
+                    room.capacity = reader.GetInt32(2);
+                    room.unlocked = int.Parse(reader.GetString(3));
                     rooms.Add(room);
                 }
             }
@@ -206,7 +207,7 @@ namespace CuatrivagoProjectAdmin.Context
             resultCreate.Direction = ParameterDirection.Output;
             sqlCommand.Parameters.Add(resultCreate);
 
-            SqlParameter idNewRoom = new SqlParameter("@Room",0);
+            SqlParameter idNewRoom = new SqlParameter("@Room", 0);
             idNewRoom.Direction = ParameterDirection.Output;
             sqlCommand.Parameters.Add(idNewRoom);
 
@@ -228,6 +229,31 @@ namespace CuatrivagoProjectAdmin.Context
                 return -1;
             }
 
+        }
+
+        public char blockRoom(int id, string conn)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+
+            string sqlStoredProcedure = "Sp_Room_Block";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.Add(new SqlParameter("@Room", id));
+
+            SqlParameter resultCreate = new SqlParameter("@R", "");
+            resultCreate.SqlDbType = SqlDbType.Char;
+            resultCreate.Size = 1;
+            resultCreate.Direction = ParameterDirection.Output;
+            sqlCommand.Parameters.Add(resultCreate);
+
+            sqlCommand.Connection.Open();
+
+            sqlCommand.ExecuteNonQuery();
+
+            string result = sqlCommand.Parameters["@R"].Value.ToString();
+
+            return result[0];
         }
 
     }

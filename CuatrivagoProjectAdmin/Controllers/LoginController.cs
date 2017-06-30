@@ -43,13 +43,13 @@ namespace CuatrivagoProjectAdmin.Controllers
             Admin local = new Admin();
             local.email = mail;
             local.password = pass;
-
             local = data.logAdmin(conn, local);
 
             //Independientemente de si existe el admin se asigna el valor, pues el -1 se utilizara para mostrar un mensaje
             //  en caso de que el admin no exista.
             HttpCookie galleta = new HttpCookie("Admin");
             galleta["adminId"] = local.idAdmin + "";
+            galleta["rol"] = local.rol;
 
             if (local.idAdmin != -1)
             {

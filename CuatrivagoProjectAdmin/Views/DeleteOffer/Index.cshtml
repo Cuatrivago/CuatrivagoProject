@@ -8,7 +8,7 @@
 
 @section content{
     <div id="info">
-        <h1 id="glyphicons" class="page-header">Oferta realizada correctamente</h1>
+        <h1 id="glyphicons" class="page-header">Eliminar ofertas</h1>
         <table class="table">
             <tr>
                 <th>
@@ -26,9 +26,16 @@
                 <th>
                     Activa
                 </th>
-                <th>
-                    Eliminar oferta
-                </th>
+
+                @if (Request.Cookies["Admin"] != null)
+                {
+                    if (Request.Cookies["Admin"]["rol"] != "2")
+                    {
+                        <th>
+                            Eliminar oferta
+                        </th>
+                    }
+                }
             </tr>
 
             @foreach (var item in Model.offers)
@@ -56,9 +63,19 @@
                     {
                         <td>No activa</td>
                     }
-                    <td>
-                        <a href="@Url.Action("deleteOffer", "Offer", new {id = item.id })">Eliminar</a>
-                    </td>
+
+
+                    @if (Request.Cookies["Admin"] != null)
+                    {
+                        if (Request.Cookies["Admin"]["rol"] != "2")
+                        {
+                            <td>
+                                <a href="@Url.Action("deleteOffer", "Offer", new {id = item.id })">Eliminar</a>
+                            </td>
+                        }
+                    }
+
+
 
                 </tr>
             }

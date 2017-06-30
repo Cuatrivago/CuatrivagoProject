@@ -1,4 +1,5 @@
 ﻿using CuatrivagoProjectAdmin.Context;
+using CuatrivagoProjectAdmin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,13 @@ using System.Web.Mvc;
 
 namespace CuatrivagoProjectAdmin.Controllers
 {
-    public class StateRoomTodayController : Controller
+    public class StatusHotelController : Controller
     {
-        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
-        private RoomContext stateRoom = new RoomContext();
 
+        String conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
 
-        public ActionResult Index()
+        // GET: StatusHotel
+        public ActionResult index()
         {
             //Estos If se necesitan en todos los controllers del modulo administrativo
 
@@ -28,17 +29,14 @@ namespace CuatrivagoProjectAdmin.Controllers
                 //  codigo que se asigna cuando no pudo autenticar
                 if (access > 0)
                 {
-                    //Aquí va su código normal, lo demás es control de seguridad.
-
-                    DateTime thisDay = DateTime.Today;
-                    return View(stateRoom.getInformationStateRoomToday(conn, thisDay));
+                    return View(new StatusHotelContext().getStatustHotel(conn));
                 }
                 else
                 {
                     //Este else retorna al index de logueo con un -2, el -2 le dice al index que este usuario intentó
                     //  entrar de forma no autorizada al modulo y se le presentará un mensaje sobre eso.
                     Request.Cookies["Admin"]["adminId"] = "-2";
-                    return RedirectToAction("Index", "Login"); //Cambio de redirect, este es mejor
+                    return RedirectToAction("Index", "Login");
                 }
             }
             else
@@ -50,17 +48,8 @@ namespace CuatrivagoProjectAdmin.Controllers
                 galleta.Expires = DateTime.Now.AddMinutes(1);
 
                 Response.Cookies.Add(galleta);
-                return RedirectToAction("Index", "Login"); //Cambio de redirect, este es mejor
+                return RedirectToAction("Index", "Login");
             }
-
-        }
-
-        // POST: StateRoomToday/Create
-        [HttpPost]
-        public ActionResult blockRoom(String id)
-        {
-            char r = this.stateRoom.blockRoom(int.Parse(id), this.conn);
-            return Json("'ans':'" + r + "'");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.StateRoom>
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Room>
 
 @{
     ViewBag.Title = "Index";
@@ -19,7 +19,10 @@
                     Nombre
                 </th>
                 <th>
-                    Estado
+                    Reservada
+                </th>
+                <th>
+                    Bloqueo
                 </th>
                 <th></th>
             </tr>
@@ -28,15 +31,47 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.nameRoom)
+                        @Html.DisplayFor(modelItem => item.description_)
                     </td>
-                    @if (item.state.Equals("0"))
+                    @if (item.capacity == 0 || item.unlocked == 0)
                     {
                         <td style="background-color: #ff0000; color: #000000;">Ocupada</td>
                     }
                     else
                     {
                         <td style="background-color: #00ff90; color: #000000;">Disponible</td>
+                    }
+                    @if (item.unlocked == 1)
+                    {
+                        <td style="background-color: #00ff90; color: #000000;"><div id="bk_@Html.DisplayFor(modelItem => item.idRoom)">Desbloqueada</div></td>
+                    }
+                    else
+                    {
+                        <td style="background-color: #ff0000; color: #000000;"><div id="bk_@Html.DisplayFor(modelItem => item.idRoom)">Bloqueada</div></td>
+                    }
+                    @if (Request.Cookies["Admin"] != null)
+                    {
+                        if (Request.Cookies["Admin"]["rol"] != "2")
+                        {
+
+                            <script>
+                                $('#bk_@Html.DisplayFor(modelItem => item.idRoom)').click(function () {
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: "application/json; charset=utf-8",
+                                        url: "@Url.Action("blockRoom", "StateRoomToday")",
+                                        data: "{'id':' @Html.DisplayFor(modelItem => item.idRoom) '}",
+                                        dataType: "json",
+                                        success: function (answer) {
+                                            location.reload();
+                                        },
+                                        error: function (jqXHR, textStatus, errorThrown) {
+                                            alert(errorThrown + ' ' + textStatus);
+                                        }
+                                    });
+                                });;
+                            </script>
+                        }
                     }
                 </tr>
             }

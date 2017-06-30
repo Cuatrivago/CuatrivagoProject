@@ -1,0 +1,81 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Admin>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section content{
+
+<div id="info">
+    <h1 id="glyphicons" class="page-header">Administradores del Hotel</h1>
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Correo
+            </th>
+            <th>
+                Rol
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+
+                @switch (item.rol)
+                {
+                    case "1":
+                        <td>
+                            General
+                        </td>
+                        break;
+                    case "2":
+                        <td>
+                            Consulta
+                        </td>
+                        break;
+                    case "3":
+                        <td>
+                            Editar y consultar
+                        </td>
+                        break;
+                    default:
+                        <td>
+                            Error
+                        </td>
+                        break;
+                }
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="form-group" style="text-align: center">
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+        <button id="imp" class="btn btn-success" type="button">Generar informe</button>
+    </div>
+</div>
+
+<script>
+        $('#imp').click(function () {
+            $('#info').printThis();
+                    });
+</script>
+
+}

@@ -4380,8 +4380,10 @@
     <Compile Include="Context\ImageContext.cs" />
     <Compile Include="Context\OfferContext.cs" />
     <Compile Include="Context\RoomContext.cs" />
+    <Compile Include="Context\StatusHotelContext.cs" />
     <Compile Include="Context\UpdateFacilitieContext.cs" />
     <Compile Include="Context\UpdateRoomContext.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\CreateRoomController.cs" />
     <Compile Include="Controllers\DeleteOfferController.cs" />
@@ -4394,6 +4396,7 @@
     <Compile Include="Controllers\RangeDateRoomController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\StateRoomTodayController.cs" />
+    <Compile Include="Controllers\StatusHotelController.cs" />
     <Compile Include="Controllers\UpdateFacilitieController.cs" />
     <Compile Include="Controllers\UpdateRoomController.cs" />
     <Compile Include="Global.asax.cs">
@@ -4410,7 +4413,7 @@
     <Compile Include="Models\RangeDateRoom.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomType.cs" />
-    <Compile Include="Models\StateRoom.cs" />
+    <Compile Include="Models\StatusHotel.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -4457,12 +4460,17 @@
     <Content Include="Views\UpdateFacilitie\Index.cshtml" />
     <Content Include="Views\Offer\index.cshtml" />
     <Content Include="Views\Offer\offerView.cshtml" />
-    <Content Include="Views\Offer\deleteOfferView.cshtml" />
     <Content Include="Web References\cr.fi.bccr.indicadoreseconomicos\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <Content Include="Views\DeleteOffer\Index.cshtml" />
+    <Content Include="Views\StatusHotel\index.cshtml" />
+    <Content Include="Views\Admin\showAdmins.cshtml" />
+    <Content Include="Views\Admin\showDeleteAdmins.cshtml" />
+    <Content Include="Views\Admin\showCreateAdmin.cshtml" />
+    <Content Include="Views\Admin\showUpdateAdmins.cshtml" />
+    <Content Include="Views\Admin\showUpdateAdmin.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
