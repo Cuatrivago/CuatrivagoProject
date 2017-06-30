@@ -17,7 +17,7 @@ namespace CuatrivagoProjectAdmin.Context
 
             SqlConnection connection = new SqlConnection(conn);
 
-            string sqlStoredProcedure = "SP_Create_Facilitie";
+            string sqlStoredProcedure = "SP_Create_Advertisement";
             SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
 
             sqlCommand.CommandType = CommandType.StoredProcedure;
