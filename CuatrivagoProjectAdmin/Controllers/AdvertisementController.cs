@@ -152,6 +152,41 @@ namespace CuatrivagoProjectAdmin.Controllers
             return RedirectToAction("Index");
 
         }
-        
+
+
+
+        public ActionResult allAdvertisement() {
+            
+            return View(advertisementContext.getInformationAdvertisement(conn));
+
+        }
+
+        [HttpGet]
+        public ActionResult deleteAdvertisement(int id) {
+
+            int result = advertisementContext.deleteAdvertisementById(conn, id);
+
+            if (result == -1)
+            {
+                HttpCookie cookie = new HttpCookie("error");
+                cookie["errorDelete"] = "error";
+                cookie.Expires = DateTime.Now.AddSeconds(4);
+                Response.Cookies.Add(cookie);
+                return RedirectToAction("allAdvertisement");
+            }
+            else
+            {
+
+                HttpCookie cookie = new HttpCookie("success");
+                cookie["successDelete"] = "success";
+                cookie.Expires = DateTime.Now.AddSeconds(4);
+                Response.Cookies.Add(cookie);
+                return RedirectToAction("allAdvertisement");
+
+            }            
+
+        }
+
+
     }
 }
