@@ -6,7 +6,7 @@
 
 
 @section moduleTitle{
-    Registrar Facilidad
+    Registrar Publicidad
 }
 
 @section content{
@@ -17,40 +17,46 @@
             <div class="x_content">
                 <br />
 
-                <form class="form-horizontal form-label-left" action="/Facilitie/CreateFacilitie" method="POST">
+                <form class="form-horizontal form-label-left" action="/Advertisement/CreateAdvertisement" method="POST">
 
-                    <div class="form-horizontal">                       
+                    <div class="form-horizontal">
                         <hr />
                         <label>Nombre:</label>
-                        <div class="form-group">                            
+                        <div class="form-group">
                             <div class="col-md-10">
-                                <input class="form-control" type="text" id="txtNameFacilitie" name="txtNameFacilitie" />
+                                <input class="form-control" type="text" id="txtNameAdvertisement" name="txtNameAdvertisement" />
                             </div>
-                           
+
                         </div>
                         <label>Descripción</label>
-                        <div class="form-group">                            
+                        <div class="form-group">
                             <div class="col-md-10 col-lg-10 col-md-10">
                                 <textarea class="form-control" id="txtDescription" name="txtDescription" rows="5" style="width: 350px;"></textarea>
-                            </div>                           
+                            </div>
+                        </div>
+                        <label>URL</label>
+                        <div class="form-group">
+                            <div class="col-md-10 col-lg-10 col-md-10">
+                                <input class="form-control" type="url" id="url" name="url" >
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input class="form-control" type="submit" value="Create" class="btn btn-default" />
+                                <input class="form-control" type="submit" value="Create"  />
                             </div>
                         </div>
                     </div>
                 </form>
 
 
-                @if (Request.Cookies["idFacilitie"] != null && Request.Cookies["idFacilitie"]["idNewFacilitie"] != null)
+                @if (Request.Cookies["idAdvertisement"] != null && Request.Cookies["idAdvertisement"]["idNewAdvertisement"] != null)
                 {
 
                     <div class="x_content">
                         <p>Ingrese la imagen correspondiente a la facilidad</p>
-                        <form action="/Facilitie/CreateImage" method="post" class="dropzone" id="file" name="file">
-                            <input type="hidden" value="@Request.Cookies["idFacilitie"]["idNewFacilitie"].ToString()" id="idObject" name="idObject" />
+                        <form action="/Advertisement/CreateImage" method="post" class="dropzone" id="file" name="file">
+                            <input type="hidden" value="@Request.Cookies["idAdvertisement"]["idNewAdvertisement"].ToString()" id="idObject" name="idObject" />
                         </form>
                         <br />
                         <br />
