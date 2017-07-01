@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Facilitie>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section content{
+
+    <div id="info">
+        <h1 id="glyphicons" class="page-header">Eliminar Facilidades del Hotel</h1>
+        <table class="table">
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Eliminar
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("deleteFacilities", "Facilitie", new {id = item.IdFacilitie })">Eliminar</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+}

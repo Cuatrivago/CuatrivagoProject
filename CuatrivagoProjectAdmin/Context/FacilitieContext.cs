@@ -52,5 +52,48 @@ namespace CuatrivagoProjectAdmin.Context
         }
 
 
+        public List<Facilitie> getFacilities(string conn)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+            string sqlStoredProcedure = "SP_Retrieve_Facilitie_Combo_Box";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+            sqlCommand.Connection.Open();
+            sqlCommand.ExecuteNonQuery();
+
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            List<Facilitie> roomList = new List<Facilitie>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Facilitie facilitie = new Facilitie();
+                    facilitie.IdFacilitie = reader.GetInt32(0);
+                    facilitie.Name = reader.GetString(1);
+                    roomList.Add(facilitie);
+                }
+            }
+            sqlCommand.Connection.Close();
+            return roomList;
+        }
+
+        public void deleteFacilitie(string conn, int id)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+            string sqlStoredProcedure = "SP_Delete_Facilitie";
+            SqlCommand cmdAdmin = new SqlCommand(sqlStoredProcedure, connection);
+
+            cmdAdmin.CommandType = CommandType.StoredProcedure;
+
+            //Se agregan los parametros
+            cmdAdmin.Parameters.Add("@Id", SqlDbType.Int).Value = id;
+
+            cmdAdmin.Connection.Open();
+            cmdAdmin.ExecuteNonQuery();
+            cmdAdmin.Connection.Close();
+
+        }
+
     }
 }
