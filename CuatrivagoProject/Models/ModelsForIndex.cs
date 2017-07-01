@@ -12,5 +12,6 @@ namespace CuatrivagoProject.Models
         public List<Facilitie> facilitie { get; set; }
         public List<RoomType> roomType { get; set; }
         public List<Image> image { get; set; }
+        public List<Image> imageHome { get; set; }
     }
 }

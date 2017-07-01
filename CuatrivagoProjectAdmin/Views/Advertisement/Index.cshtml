@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section moduleTitle{
+    Registrar Publicidad
+}
+
+@section content{
+
+    <div class="col-md-6 col-xs-12">
+        <div class="x_panel">
+
+            <div class="x_content">
+                <br />
+
+                <form class="form-horizontal form-label-left" action="/Advertisement/CreateAdvertisement" method="POST">
+
+                    <div class="form-horizontal">
+                        <hr />
+                        <label>Nombre:</label>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" id="txtNameAdvertisement" name="txtNameAdvertisement" />
+                            </div>
+
+                        </div>
+                        <label>Descripción</label>
+                        <div class="form-group">
+                            <div class="col-md-10 col-lg-10 col-md-10">
+                                <textarea class="form-control" id="txtDescription" name="txtDescription" rows="5" style="width: 350px;"></textarea>
+                            </div>
+                        </div>
+                        <label>URL</label>
+                        <div class="form-group">
+                            <div class="col-md-10 col-lg-10 col-md-10">
+                                <input class="form-control" type="url" id="url" name="url" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input class="form-control" type="submit" value="Create"  />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+                @if (Request.Cookies["idAdvertisement"] != null && Request.Cookies["idAdvertisement"]["idNewAdvertisement"] != null)
+                {
+
+                    <div class="x_content">
+                        <p>Ingrese la imagen correspondiente a la facilidad</p>
+                        <form action="/Advertisement/CreateImage" method="post" class="dropzone" id="file" name="file">
+                            <input type="hidden" value="@Request.Cookies["idAdvertisement"]["idNewAdvertisement"].ToString()" id="idObject" name="idObject" />
+                        </form>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+}
+
+@section error{
+
+    @if (Request.Cookies["error"] != null && Request.Cookies["error"]["errorCreate"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Error al registrar!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+    @if (Request.Cookies["errorData"] != null && Request.Cookies["errorData"]["errorData"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Debe ingresar todos los datos válidos!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+    @if (Request.Cookies["error"] != null && Request.Cookies["error"]["errorImage"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Error al registrar la imagen!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+    @if (Request.Cookies["success"] != null && Request.Cookies["success"]["successImage"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Se agregó la imagen con éxito!', 'Éxito'); $('#myModal').modal('show'); });</script>
+
+    }
+
+    <script>
+        function modalSelect(modalMessage, modalTitle) {
+            document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+            document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+        }
+    </script>
+}

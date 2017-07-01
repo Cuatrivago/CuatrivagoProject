@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CuatrivagoProjectAdmin.Models.Advertisement>
+
+@{
+    ViewBag.Title = "allAdvertisement";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section moduleTitle{
+   Eliminar Publicidad
+}
+
+@section content{
+
+    <table class="table">
+        <tr>
+            <th>
+                Nombre:
+            </th>
+            <th>
+                Descripción:
+            </th>
+            <th>
+                URL:
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.url)
+                </td>
+                <td>
+                    <a href="@Url.Action("deleteAdvertisement", "Advertisement", new {id = item.idAdvertisement })"><i class="fa fa-times">Eliminar</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+
+@section error{
+
+    @if (Request.Cookies["error"] != null && Request.Cookies["error"]["errorDelete"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Error al eliminar la imagen!', 'Error'); $('#myModal').modal('show'); });</script>
+
+    }
+    @if (Request.Cookies["success"] != null && Request.Cookies["success"]["successDelete"] != null)
+    {
+
+        <script> $(document).ready(function () { modalSelect('¡Eliminación exitosa!', 'Éxito'); $('#myModal').modal('show'); });</script>
+
+    }
+
+    <script>
+        function modalSelect(modalMessage, modalTitle) {
+            document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+            document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+        }
+    </script>
+}

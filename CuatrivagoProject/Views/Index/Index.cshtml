@@ -10,6 +10,17 @@
     @Model.Hotel.aboutUs
 }
 
+@section imagesHome{
+
+    <div class="banner-bg">
+        @foreach (var item in Model.imageHome)
+        {
+            <div class="banner-bg-item"><img src="@item.path" alt=""></div>
+        }
+    </div>
+
+}
+
 @section allRoomType
     {
     @foreach (var item in Model.roomType)
@@ -26,6 +37,7 @@
     }
 
 }
+
 @section rooms{
     @foreach (var item in Model.roomType)
     {
@@ -39,15 +51,6 @@
                 </div>
             </div>
             <h4 id="rooms">@item.name</h4>
-            @*<p>
-                    Precio en dolares = @item.priceColon
-                    <br />
-                    Precio en colones = @item.priceDolar
-                    <br />
-                    Cantidad de habitaciones = @item.quantity
-                    <br />
-                    @item.description_
-                </p>*@
         </div>
     }
 }
@@ -189,7 +192,7 @@
                 <div class="row">
                     <div class="col-md-4 widget widget-about">
                         <h5 class="title">
-                         Dirección
+                            Dirección
                         </h5>
                         <p style="color:white">
                             PO Box 16122 Avenida 0
@@ -199,7 +202,7 @@
                         <p style="color:white">Visita Cuatrivago, abierto al público todos los días.</p>
                         <ul class="custom-list">
                             <li><a href="#">Ir al mapa</a></li>
-                            
+
                         </ul>
                     </div>
                     <div class="col-md-4 widget widget-about">
@@ -220,7 +223,6 @@
                             <li><a href="#aboutus">Nosotros</a></li>
                             <li><a href="#about">Habitaciones</a></li>
                             <li><a href="#gallery">Galería</a></li>
-                            <li>@*<a href="#facilities">Facilidades</a>*@</li>
                         </ul>
 
                     </div>
@@ -234,19 +236,10 @@
                         <p>Copyright 2017© HotelCuatrivago. Todos los derechos reservados. Desarrollado por <a href="#"> CuatrivagoTeam</a></p>
                     </div>
                     <div class="col-md-3">
-                        
-                        
-                            <a href="#">Facebook</a>
-                          
-                       
+                        <a href="#">Facebook</a>
                     </div>
                     <div class="col-md-3">
-
-                        
-                            
-
-                            <a href="#">Instragram</a>
-                        
+                        <a href="#">Instragram</a>
                     </div>
                 </div>
             </div>

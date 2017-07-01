@@ -1,4 +1,5 @@
-﻿@{
+﻿@model CuatrivagoProject.Models.Hotel
+@{
     Layout = null;
 }
 
@@ -132,53 +133,53 @@
             </div>
             <div id="mapg"></div>
             <script>
-            function initMap() {
-                var directionsDisplay = new google.maps.DirectionsRenderer;
-                var directionsService = new google.maps.DirectionsService;
-                var map = new google.maps.Map(document.getElementById('mapg'), {
-                    zoom: 14,
-                    center: { lat: 37.77, lng: -122.447 }
-                });
-                directionsDisplay.setMap(map);
-
-                calculateAndDisplayRoute(directionsService, directionsDisplay);
-                document.getElementById('mode').addEventListener('change', function () {
-                    calculateAndDisplayRoute(directionsService, directionsDisplay);
-                });
-            }
-
-            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-                var selectedMode = document.getElementById('mode').value;
-
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-
-                        directionsService.route({
-                            origin: { lat: position.coords.latitude, lng: position.coords.longitude },  // Haight.
-                            destination: { lat: 9.905984, lng: -83.684192 },  // Ocean Beach.
-                            // Note that Javascript allows us to access the constant
-                            // using square brackets and a string value as its
-                            // "property."
-                            travelMode: google.maps.TravelMode[selectedMode]
-                        }, function (response, status) {
-                            if (status == 'OK') {
-                                directionsDisplay.setDirections(response);
-                            } else {
-                                window.alert('Se ha producido un error en la solicitud de ' + status);
-                            }
-                        });
-
-                        infoWindow.setPosition(pos);
-                        infoWindow.setContent('Location found.');
-                        map.setCenter(pos);
-                    }, function () {
-                        handleLocationError(true, infoWindow, map.getCenter());
+                function initMap() {
+                    var directionsDisplay = new google.maps.DirectionsRenderer;
+                    var directionsService = new google.maps.DirectionsService;
+                    var map = new google.maps.Map(document.getElementById('mapg'), {
+                        zoom: 14,
+                        center: { lat: 37.77, lng: -122.447 }
                     });
-                } else {
-                    // Browser doesn't support Geolocation
-                    handleLocationError(false, infoWindow, map.getCenter());
+                    directionsDisplay.setMap(map);
+
+                    calculateAndDisplayRoute(directionsService, directionsDisplay);
+                    document.getElementById('mode').addEventListener('change', function () {
+                        calculateAndDisplayRoute(directionsService, directionsDisplay);
+                    });
                 }
-            }
+
+                function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+                    var selectedMode = document.getElementById('mode').value;
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+
+                            directionsService.route({
+                                origin: { lat: position.coords.latitude, lng: position.coords.longitude },  // Haight.
+                                destination: { lat: 9.905984, lng: -83.684192 },  // Ocean Beach.
+                                // Note that Javascript allows us to access the constant
+                                // using square brackets and a string value as its
+                                // "property."
+                                travelMode: google.maps.TravelMode[selectedMode]
+                            }, function (response, status) {
+                                if (status == 'OK') {
+                                    directionsDisplay.setDirections(response);
+                                } else {
+                                    window.alert('Se ha producido un error en la solicitud de ' + status);
+                                }
+                            });
+
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent('Location found.');
+                            map.setCenter(pos);
+                        }, function () {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                        });
+                    } else {
+                        // Browser doesn't support Geolocation
+                        handleLocationError(false, infoWindow, map.getCenter());
+                    }
+                }
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTuazTT4ftRrTOscHQYPabgJPLiBS9YXc&callback=initMap">
@@ -189,52 +190,53 @@
         <section class="locations">
 
             <!-- Start Locations-Bottom -->
-            <div class="locations-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="location-single">
-                                <div class="offices">
-                                    <h3 class="title">
-                                        Hotel Cuatrivago
-                                    </h3>
-                                    <h5 class="sub-title">Información</h5>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <ul class="location-details custom-list">
-                                                <li>PO Box 16122 Avenida 0</li>
-                                                <li>Turrialba</li>
-                                                <li>Frente de la iglesia catolica</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <ul class="location-details custom-list">
-                                                <li>Teléfono 1: +506 88888888</li>
-                                                <li>Teléfono 2: +506 2556 56 56</li>
-                                                <li>Fax 1: +506 52790464</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <ul class="location-details custom-list">
-                                                <li>121 Avenida 0, Turrialba</li>
-                                                <li>Frente a la iglesia catolica</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <ul class="location-details custom-list">
-                                                <li>Email : hotel_cuatrivago@gmail.com</li>
-                                                <li>Sitio web : www.cuatrivago.com</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+            <footer id="footer">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 widget widget-about">
+                                <h5 class="title">
+                                    Dirección
+                                </h5>
+                                <p style="color:white">
+                                    PO Box 16122 Avenida 0
+                                    Turrialba
+                                    Frente de la iglesia catolica
+                                </p>
+                                <p style="color:white">Visita Cuatrivago, abierto al público todos los días.</p>
+                                <ul class="custom-list">
+                                    <li><a href="#">Ir al mapa</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-4 widget widget-about">
+                                <h5 class="title">
+                                    Contacto
+                                </h5>
+                                <p style="color:white">Fax: 25561343</p>
+                                <p style="color:white">Teléfono: @Model.phone</p>
+                                <p style="color:white">Atención al cliente: @Model.postMail</p>
+                                <p style="color:white">Sugerencias: @Model.email</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-
+                <div class="footer-copyrights">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Copyright 2017© HotelCuatrivago. Todos los derechos reservados. Desarrollado por <a href="#"> CuatrivagoTeam</a></p>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#">Facebook</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#">Instragram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
             <!-- End Locations-Bottom -->
         </section>
         <!-- End Locations -->

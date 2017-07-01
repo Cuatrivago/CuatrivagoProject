@@ -34,7 +34,6 @@ namespace CuatrivagoProject.Context
             sqlCommand.Connection.Close();
             return imageList;
         }
-
       
     }
 }
