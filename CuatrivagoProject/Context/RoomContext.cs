@@ -6,11 +6,13 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace CuatrivagoProject.Context
 {
     public class RoomContext
     {
+        string connUCR = WebConfigurationManager.ConnectionStrings["connectionUCR"].ToString();
         public RoomContext() { }
         // retorna los que estan disponibles por tipo, fechas ingreso y salida
         public List<Room> getRoomsAvailable(string conn, string arrival, string departure, int roomType)
@@ -38,6 +40,8 @@ namespace CuatrivagoProject.Context
                     room.capacity = reader.GetInt32(1);
                     room.description_ = reader.GetString(2);
                     room.roomType = reader.GetInt32(3);
+                    ImageContext context = new ImageContext();
+                    room.images = context.getImageByType(connUCR, room.idRoom, 'R');
                     roomList.Add(room);
                 }
             }
@@ -65,6 +69,8 @@ namespace CuatrivagoProject.Context
             room.capacity = reader.GetInt32(1);
             room.description_ = reader.GetString(2);
             room.roomType = reader.GetInt32(3);
+            ImageContext context = new ImageContext();
+            room.images = context.getImageByType(connUCR, room.idRoom, 'R');
             sqlCommand.Connection.Close();
             return room;
         }
@@ -90,6 +96,8 @@ namespace CuatrivagoProject.Context
                     room.capacity = reader.GetInt32(1);
                     room.description_ = reader.GetString(2);
                     room.roomType = reader.GetInt32(3);
+                    ImageContext context = new ImageContext();
+                    room.images = context.getImageByType(connUCR, room.idRoom, 'R');
                     roomList.Add(room);
                 }
             }

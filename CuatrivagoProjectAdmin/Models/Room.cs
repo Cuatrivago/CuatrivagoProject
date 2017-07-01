@@ -14,6 +14,7 @@ namespace CuatrivagoProjectAdmin.Models
         public string priceDolar { get; set; }
         public string priceColon { get; set; }
         public int unlocked { get; set; }
+       
 
     }
 }
