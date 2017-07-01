@@ -11,5 +11,6 @@ namespace CuatrivagoProject.Models
         public int capacity { get; set; }
         public string description_ { get; set; }
         public int roomType { get; set; }
+        public List<Image> images { get; set; }
     }
 }
