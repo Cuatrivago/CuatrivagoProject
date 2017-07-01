@@ -1,17 +1,21 @@
-﻿using System;
+﻿using CuatrivagoProject.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace CuatrivagoProject.Controllers
 {
     public class LocalizationController : Controller
     {
+        private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
+
         // GET: Localization
         public ActionResult Index()
         {
-            return View();
+            return View(new HotelContext().getInformationHotel(conn));
         }
 
         // GET: Localization/Details/5

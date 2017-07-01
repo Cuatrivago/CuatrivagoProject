@@ -65,9 +65,10 @@ namespace CuatrivagoProject.Context
                 while (reader.Read())
                 {
                     Image image = new Image();
-                    image.id = Int32.Parse(reader.GetString(0));
-                    image.description = reader.GetString(1);
-                    image.path = reader.GetString(2);
+             
+                    //image.id = Int32.Parse(reader.GetString(0));
+                    //image.description = reader.GetString(1);
+                    image.path = reader.GetString(0);
                     imageList.Add(image);
                 }
             }

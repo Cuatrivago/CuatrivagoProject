@@ -121,12 +121,9 @@
         <!-- End Header-Logo -->
         <!-- Start Banner -->
         <section id="banner">
-            <div class="banner-bg">
-                <div class="banner-bg-item"><img src="~/content/img/banner-bg-1.jpg" alt=""></div>
-                <div class="banner-bg-item"><img src="~/content/img/banner-bg-2.jpg" alt=""></div>
-                <div class="banner-bg-item"><img src="~/content/img/banner-bg-3.jpg" alt=""></div>
-                <div class="banner-bg-item"><img src="~/content/img/banner-bg-4.jpg" alt=""></div>
-            </div>
+
+            @RenderSection("imagesHome", false)
+            
             <div class="css-table">
                 <div class="css-table-cell">
                     <!-- Start Banner-Search -->

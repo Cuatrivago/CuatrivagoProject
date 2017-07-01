@@ -13,6 +13,6 @@ C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\Cuatriv
 C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\bin\CuatrivagoProject.dll.config
 C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\bin\CuatrivagoProject.dll
 C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\bin\CuatrivagoProject.pdb
-C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache
 C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\obj\Debug\CuatrivagoProject.dll
 C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\obj\Debug\CuatrivagoProject.pdb
+C:\Users\Edwin\Desktop\CuatrivagoProject-master\CuatrivagoProject-master\CuatrivagoProject\obj\Debug\CuatrivagoProject.csprojResolveAssemblyReference.cache

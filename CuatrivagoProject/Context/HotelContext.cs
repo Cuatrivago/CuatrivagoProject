@@ -46,5 +46,28 @@ namespace CuatrivagoProject.Context
 
         }
 
+        public List<Image> getAllImageHome(string conn)
+        {
+            SqlConnection connection = new SqlConnection(conn);
+            string sqlStoredProcedure = "sp_get_images_home";
+            SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Connection.Open();
+            sqlCommand.ExecuteNonQuery();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            List<Image> imageList = new List<Image>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Image image = new Image();
+                    image.path = reader.GetString(0);
+                    imageList.Add(image);
+                }
+            }
+            sqlCommand.Connection.Close();
+            return imageList;
+        }
+
     }
 }

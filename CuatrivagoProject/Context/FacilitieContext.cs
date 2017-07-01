@@ -5,11 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace CuatrivagoProject.Context
 {
     public class FacilitieContext
     {
+        string connUCR = WebConfigurationManager.ConnectionStrings["connectionUCR"].ToString();
         public List<Facilitie> getAllFacilities(string conn)
         {
 
@@ -17,7 +19,7 @@ namespace CuatrivagoProject.Context
 
             string sqlStoredProcedure = "SP_Retrieve_Facilitie_All";
             SqlCommand cmdFacilitie = new SqlCommand(sqlStoredProcedure, connection);
-            
+
             cmdFacilitie.CommandType = CommandType.StoredProcedure;
 
             cmdFacilitie.Connection.Open();
@@ -35,9 +37,8 @@ namespace CuatrivagoProject.Context
                     facilitie.idFacilitie = reader.GetString(0);
                     facilitie.name = reader.GetString(1);
                     facilitie.description_ = reader.GetString(2);
-                    facilitie.path = reader.GetString(3);
                     ImageContext context = new ImageContext();
-                    facilitie.image = context.getImageByType(conn, Int32.Parse(facilitie.idFacilitie), 'F');
+                    facilitie.image = context.getImageByType(connUCR, Int32.Parse(facilitie.idFacilitie), 'F');
                     facilities.Add(facilitie);
                 }
             }

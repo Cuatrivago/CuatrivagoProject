@@ -13,6 +13,7 @@ namespace CuatrivagoProject.Controllers
     public class IndexController : Controller
     {
         private string conn = WebConfigurationManager.ConnectionStrings["connectionDB"].ToString();
+        private string connUCR = WebConfigurationManager.ConnectionStrings["connectionUCR"].ToString();
         private HotelContext hotelContext = new HotelContext();
         private AdvertisementContext advertisementContext = new AdvertisementContext();
         private FacilitieContext facilitieContext = new FacilitieContext();
@@ -30,6 +31,7 @@ namespace CuatrivagoProject.Controllers
             vm.facilitie = facilitieContext.getAllFacilities(conn);
             vm.roomType = roomTypeContext.getAllRoomType(conn);
             vm.image = imageContext.getAllImage(conn);
+            vm.imageHome = hotelContext.getAllImageHome(connUCR);
 
             return View(vm);
         }

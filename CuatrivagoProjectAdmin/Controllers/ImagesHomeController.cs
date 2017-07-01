@@ -63,7 +63,7 @@ namespace CuatrivagoProjectAdmin.Controllers
             Boolean flag = false;
             if (idImage != -1)
             {
-                result = image.asociateImageObject(conn, 'R', id, idImage);
+                result = image.asociateImageObject(conn, 'H', id, idImage);
             }
             else
             {
