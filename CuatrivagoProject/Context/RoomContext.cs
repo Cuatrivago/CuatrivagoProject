@@ -76,7 +76,7 @@ namespace CuatrivagoProject.Context
         }
 
 
-        public List<Room> getRoomsByType(string conn, int roomType)
+        public List<Room> getRoomsByType(string conn, int roomType, string colon, string dolar)
         {
             SqlConnection connection = new SqlConnection(conn);
             string sqlStoredProcedure = "SP_Retrieve_All_Room_By_Room_Type";
@@ -96,6 +96,8 @@ namespace CuatrivagoProject.Context
                     room.capacity = reader.GetInt32(1);
                     room.description_ = reader.GetString(2);
                     room.roomType = reader.GetInt32(3);
+                    room.colon = colon;
+                    room.dolar = dolar;
                     ImageContext context = new ImageContext();
                     room.images = context.getImageByType(connUCR, room.idRoom, 'R');
                     roomList.Add(room);

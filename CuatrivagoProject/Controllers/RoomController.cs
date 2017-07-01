@@ -22,11 +22,14 @@ namespace CuatrivagoProject.Controllers
         }
 
         // GET: Room/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult Details(int id, string colon, string dolar)
         {
             ModelForRoomList roomList = new ModelForRoomList();
             roomList.hotel = hotelContext.getInformationHotel(conn);
-            roomList.roomList = roomContext.getRoomsByType(conn, id);
+            Debug.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            Debug.WriteLine(colon);
+            roomList.roomList = roomContext.getRoomsByType(conn, id,colon, dolar);
             roomList.back = 0;
 
 

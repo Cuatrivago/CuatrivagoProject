@@ -13,7 +13,7 @@ namespace CuatrivagoProject.Models
         //Room
         public Room room { get; set; }
 
-
+        
         public int back { get; set; }
         public string dateIn { get; set; }
         public string dateOut { get; set; }

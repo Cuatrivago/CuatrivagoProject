@@ -46,7 +46,7 @@
                 <img src="@item.path" alt="" class="img-responsive">
                 <div class="overlay-shadow">
                     <div class="overlay-content">
-                        <div class="btn btn-transparent-white">@Html.ActionLink("Ver más", "Details", "Room", new { id = item.idRoomType }, null)</div>
+                        <div class="btn btn-transparent-white">@Html.ActionLink("Ver más", "Details", "Room", new { id = item.idRoomType, priceC = item.priceColon, priceD = item.priceDolar }, null)</div>
                     </div>
                 </div>
             </div>

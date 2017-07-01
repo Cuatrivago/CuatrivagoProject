@@ -36,21 +36,7 @@
                         <div class="col-md-12" id="bs-example-navbar-collapse-1">
                             <div class="row">
 
-                                @*<div class="col-lg-5 col-md-5 col-sm-12">
-                                        <ul class="nav navbar-nav main-nav">
-                                            <li class="active"><a href="">Inicio</a></li>
-                                            <li><a href="#aboutus">Nosotros</a></li>
-                                            <li><a href="#about">Habitaciones</a></li>
-                                            <li><a href="#gallery">Galería</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-12 col-sm-offset-0">
-                                        <ul class="nav navbar-nav main-nav pull-right text-right">
-                                            <li><a href="#facilities">Facilidades</a></li>
-                                            <li>@Html.ActionLink("Localización", "index", "Localization")</li>
-                                            <li><a href="#footer">Contacto</a></li>
-                                        </ul>
-                                    </div>*@
+
 
                                 <div class="col-lg-5 col-md-5 col-sm-12">
                                     <ul class="nav navbar-nav main-nav">
@@ -103,112 +89,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2"> </div>
-                    @*<div class="sidebar col-md-3">
-                            <div class="fleets-filters toggle-container">
-                                <h5 class="toggle-title">Filters</h5>
-                                <aside class="toggle-content">
-                                    <div class="search">
-                                        <form action="#" class="default-form">
-                                            <input type="text" placeholder="Search">
-                                            <i class="fa fa-search"></i>
-                                        </form>
-                                    </div>
-                                    <div class="general">
-                                        <h5 class="title">General</h5>
-                                        <form action="#" class="default-form">
-                                            <span class="arrival calendar">
-                                                <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <span class="departure calendar">
-                                                <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                            <span class="adults select-box">
-                                                <select name="adults" data-placeholder="Adults">
-                                                    <option>Adults</option>
-                                                    <option value="1">1 adult</option>
-                                                    <option value="2">2 adults</option>
-                                                    <option value="3">3 adults</option>
-                                                    <option value="4">4 adults</option>
-                                                </select>
-                                            </span>
-                                            <span class="children select-box">
-                                                <select name="children" data-placeholder="Children">
-                                                    <option>Children</option>
-                                                    <option value="1">1 children</option>
-                                                    <option value="2">2 childrens</option>
-                                                    <option value="3">3 childrens</option>
-                                                    <option value="4">4 childrens</option>
-                                                </select>
-                                            </span>
-                                        </form>
-                                        <h5 class="title">Price</h5>
-                                        <div class="slider-range-container box-row">
-                                            <div class="slider-range" data-min="2000" data-max="100000" data-step="2000" data-default-min="2000" data-default-max="50000" data-currency="$">
-                                            </div>
-                                            <div class="clearfix">
-                                                <input type="text" class="range-from" value="$2000">
-                                                <input type="text" class="range-to" value="$50000">
-                                            </div>
-                                        </div>
-                                        <h5 class="title">Amenities</h5>
-                                        <ul class="custom-list additional-filter-list clearfix">
-                                            <li>
-                                                <span class="checkbox-input">
-                                                    <input id="additional-filter-ac" checked="checked" type="checkbox">
-                                                    <label for="additional-filter-ac">AC</label>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="checkbox-input">
-                                                    <input id="additional-filter-hotbath" checked="checked" type="checkbox">
-                                                    <label for="additional-filter-hotbath">Hotbath</label>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="checkbox-input">
-                                                    <input id="additional-filter-parking" type="checkbox">
-                                                    <label for="additional-filter-parking">Parking</label>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="checkbox-input">
-                                                    <input id="additional-filter-room-service" type="checkbox">
-                                                    <label for="additional-filter-room-service">Room Service</label>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="checkbox-input">
-                                                    <input id="additional-filter-safe" checked="checked" type="checkbox">
-                                                    <label for="additional-filter-safe">Safe</label>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="checkbox-input">
-                                                    <input id="additional-filter-tv" checked="checked" type="checkbox">
-                                                    <label for="additional-filter-tv">TV</label>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="checkbox-input active">
-                                                    <input id="additional-filter-wifi" checked="checked" type="checkbox">
-                                                    <label for="additional-filter-wifi">Wifi</label>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="buttons">
-                                        <button class="btn btn-transparent-gray pull-left">
-                                            Filter
-                                        </button>
-                                        <button class="btn btn-transparent-gray pull-right">
-                                            Reset
-                                        </button>
-                                    </div>
-                                </aside>
-                            </div>
-                        </div>*@
+
                     <div class="listing-content col-md-8">
                         @foreach (var item in Model.roomList)
                         {
@@ -218,8 +99,8 @@
                                         @foreach (var item2 in item.images)
                                         {
                                             <img src="@item2.path" alt="" class="img-responsive">
-                                        }                                    
-                                        
+                                        }
+
                                     </div>
                                 </div>
                                 <div class="listing-room-content">
@@ -237,8 +118,9 @@
                                                     </ul>
                                                 </div>
                                                 <div class="pull-right">
-                                                    <span class="price">
-                                                        from $99/day
+
+                                                    <span id="price" class="price">
+                                                        @*@Html.DisplayFor(modelItem => item.colon)*@
                                                     </span>
                                                 </div>
                                             </header>
@@ -338,6 +220,25 @@
     <script src="~/Content/js/tab.js"></script>
     <script src="~/Content/js/transition.js"></script>
     <script src="~/Content/js/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript">
+(function ($) {
+    $.get = function (key) {
+        key = key.replace(/[\[]/, '\\[');
+        key = key.replace(/[\]]/, '\\]');
+        var pattern = "[\\?&]" + key + "=([^&#]*)";
+        var regex = new RegExp(pattern);
+        var url = unescape(window.location.href);
+        var results = regex.exec(url);
+        if (results === null) {
+            return null;
+        } else {
+            return results[1];
+        }
+    }
+})(jQuery);
+        
+        $(".price").html($.get("priceC"));
+    </script>
 </body>
 <!-- Mirrored from new.uouapps.com/petra-html/listing.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Mar 2017 03:20:06 GMT -->
 </html>

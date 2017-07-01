@@ -31,7 +31,7 @@ namespace CuatrivagoProject.Controllers
 
             ModelForRoomList roomList = new ModelForRoomList();
             roomList.hotel = hotelContext.getInformationHotel(conn);
-            roomList.roomList = roomContext.getRoomsByType(conn, 1);
+            roomList.roomList = roomContext.getRoomsByType(conn, 1, "", "");
             roomList.back = 0;
             roomList.room = roomContext.getRoom(conn, idReservation);
                 //dfdfdfd
