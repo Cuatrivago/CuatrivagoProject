@@ -4479,6 +4479,7 @@
     <Content Include="Views\Facilitie\Index.cshtml" />
     <Content Include="Views\Advertisement\Index.cshtml" />
     <Content Include="Views\Advertisement\allAdvertisement.cshtml" />
+    <Content Include="Views\Facilitie\showDeleteFacilities.cshtml" />
     <None Include="Web References\cr.fi.bccr.indicadoreseconomicos\wsindicadoreseconomicos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
