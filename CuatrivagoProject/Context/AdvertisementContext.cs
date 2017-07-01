@@ -34,6 +34,7 @@ namespace CuatrivagoProject.Context
                 while (reader.Read())
                 {
                     Advertisement e_advertisement = new Advertisement();
+
                     e_advertisement.name = reader.GetString(0);
                     e_advertisement.description = reader.GetString(1);
                     e_advertisement.url = reader.GetString(2);

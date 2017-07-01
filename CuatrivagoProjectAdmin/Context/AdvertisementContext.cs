@@ -10,31 +10,21 @@ namespace CuatrivagoProjectAdmin.Context
 {
     public class AdvertisementContext
     {
-
-
         public int createAdvertisement(string conn, Advertisement advertisement)
         {
-
             SqlConnection connection = new SqlConnection(conn);
-
             string sqlStoredProcedure = "SP_Create_Advertisement";
             SqlCommand sqlCommand = new SqlCommand(sqlStoredProcedure, connection);
-
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.Add(new SqlParameter("@Name", advertisement.name));
             sqlCommand.Parameters.Add(new SqlParameter("@Description_", advertisement.description));
             sqlCommand.Parameters.Add(new SqlParameter("@Url", advertisement.url));
-
             SqlParameter resultCreate = new SqlParameter("@R", "");
             resultCreate.Direction = ParameterDirection.Output;
             sqlCommand.Parameters.Add(resultCreate);
-
             SqlParameter idNewAdvertisement = new SqlParameter("@Advertisement", 0);
             idNewAdvertisement.Direction = ParameterDirection.Output;
             sqlCommand.Parameters.Add(idNewAdvertisement);
-
-
-
             sqlCommand.Connection.Open();
             sqlCommand.ExecuteNonQuery();
 

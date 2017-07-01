@@ -11,5 +11,7 @@ namespace CuatrivagoProject.Models
         public string name { get; set; }
         public string description_ { get; set; }
         public string path { get; set; }
+        public List<Image> image { get; set; }
+
     }
 }

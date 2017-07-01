@@ -27,10 +27,10 @@ namespace CuatrivagoProject.Context
             currentDate.ParameterName = "@DateR_";
             currentDate.SqlDbType = SqlDbType.DateTime;
             currentDate.Direction = ParameterDirection.Input;
-
             currentDate.Value = DateTime.Today.ToString();
-
             sqlCommand.Parameters.Add(currentDate);
+
+
             Debug.WriteLine("2017-01-01 11:01:01.000" + "\n");
 
             SqlParameter dateIn = new SqlParameter();

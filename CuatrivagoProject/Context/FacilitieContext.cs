@@ -36,7 +36,8 @@ namespace CuatrivagoProject.Context
                     facilitie.name = reader.GetString(1);
                     facilitie.description_ = reader.GetString(2);
                     facilitie.path = reader.GetString(3);
-
+                    ImageContext context = new ImageContext();
+                    facilitie.image = context.getImageByType(conn, Int32.Parse(facilitie.idFacilitie), 'F');
                     facilities.Add(facilitie);
                 }
             }
@@ -46,5 +47,7 @@ namespace CuatrivagoProject.Context
             return facilities;
 
         }
+
+
     }
 }
