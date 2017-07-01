@@ -96,7 +96,19 @@
                     <div class="col-md-8">
                         <div class="post">
                             <div class="post-thumbnail">
-                                <img src="~/Content/img/blog-1.jpg" alt="" class="img-responsive">
+                                @{ 
+                                    var cont = 0;
+                                }
+                                @foreach (var item in Model.room.images)
+                                {
+                                    
+                                    @if (cont != 1)
+                                    {
+                                        <img src="@item.path" alt="" class="img-responsive">
+                                    }
+                                    cont++;
+                                }
+                                
                             </div>
                             <div class="post-content">
                                 <header class="post-header">
@@ -206,7 +218,7 @@
         </section>
         <!-- End News -->
         <!-- Start Partners -->
-        <section class="partners partners-white">
+        @*<section class="partners partners-white">
             <div class="container">
                 <div class="row">
                     <div class="preamble col-md-12">
@@ -226,7 +238,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>*@
         <div class="container">
             <!-- Trigger the modal with a button -->
             <button id="mod" style="visibility:hidden" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>
