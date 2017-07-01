@@ -38,6 +38,8 @@ namespace CuatrivagoProject.Context
                     facilitie.name = reader.GetString(1);
                     facilitie.description_ = reader.GetString(2);
                     ImageContext context = new ImageContext();
+
+                    
                     facilitie.image = context.getImageByType(connUCR, Int32.Parse(facilitie.idFacilitie), 'F');
                     facilities.Add(facilitie);
                 }

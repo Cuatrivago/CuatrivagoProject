@@ -190,7 +190,10 @@
     @foreach (var item in Model.advertisement)
     {
         <div>
-            <a href="@Html.DisplayFor(modelitem => item.url)"><img src="@Html.DisplayFor(modelitem => item.path)" alt="" class="img-responsive"></a>
+            @foreach (var item2 in item.image)
+            {
+                <a href="@Html.DisplayFor(modelitem => item.url)"><img src="@item2.path" alt="" class="img-responsive"></a>
+            }
         </div>
     }
 }
